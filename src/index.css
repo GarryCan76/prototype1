@@ -1,0 +1,13 @@
+body{background-color: grey;}
+*{
+    border: black solid 1px;
+}
+#worldGrid > div{
+    display: flex;
+    flex-direction: row;
+}
+.col > div{
+    height: 30px;
+    width: 30px;
+    background-color: rgba(211, 20, 20, 0.21);
+}
