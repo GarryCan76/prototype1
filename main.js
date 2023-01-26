@@ -17,18 +17,20 @@ function saveJSON(filename = '' ,json = '""'){
     return fs.writeFileSync(filename, JSON.stringify(json, null, 2))
 }
 
+let map = loadJSON('storage/world.json')
+console.log('map ' + map[0].world)
 io.on('connection', socket  =>{
-    socket.emit('guc', world.grid)
+    socket.emit('guc', map[0].world)
     socket.on('gus', Gselect =>{
-        console.log(Gselect)
-        gridUpdate = world.updateGrid(Gselect);
+        gridUpdate = world.updateGrid(Gselect, map[0].world);
+        saveJSON('storage/world.json', map)
         socket.broadcast.emit('gridUpdate', gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
     });
     socket.on('userRequest', userRequest =>{
         let nameTaken = false;
         console.log(userRequest)
-        let usersJson = loadJSON('user.json');
+        let usersJson = loadJSON('storage/user.json');
         usersJson.forEach(user =>{
             if (user.user.name === userRequest){
                 nameTaken = true;
@@ -37,7 +39,7 @@ io.on('connection', socket  =>{
         if (nameTaken === false){
             console.log("new user created")
             usersJson.push({"user": {"name" : userRequest}})
-            saveJSON('user.json', usersJson)
+            saveJSON('storage/user.json', usersJson)
         }else {
             console.log("username taken")
         }
