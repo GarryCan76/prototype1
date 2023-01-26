@@ -3,6 +3,8 @@ import {gridcreator, gridInputHandler} from './cleintWorld.js'
 
 let worldGrid = null;
 let worldMatrix = null;
+let username = sessionStorage.getItem('username')
+console.log(username)
 socket.on("connect", ()=>{
     console.log(socket.id)
 });

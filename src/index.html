@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>socketio</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Login</title>
 </head>
 <body>
+<p> welcome to login</p>
+<input type="text" id="user" placeholder="username">
+<input type="submit" onclick="usercheck()">
 <script src="socket.io/socket.io.js"></script>
-<script type="module" defer src="index.js"></script>
-<div id="worldGrid"></div>
+<script>
+    const socket = io();
+    socket.on("connect", ()=>{
+    });
+    console.log(sessionStorage.getItem('username'))
+    function usercheck(){
+        let username = document.getElementById('user').value
+        socket.emit("userRequest", username)
+        sessionStorage.setItem('username','' + username)
+        console.log(sessionStorage.getItem('username'))
+        window.location.href="main.html";
+    }
+</script>
 </body>
 </html>
