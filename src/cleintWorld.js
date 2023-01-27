@@ -1,6 +1,5 @@
 export function gridcreator(guc){
     let worldMatrix = guc;
-    console.log(worldMatrix)
     for (let y = 0; y < guc.length; y++){
         let div_col = document.createElement('div');
         div_col.classList.add('col');

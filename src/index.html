@@ -8,6 +8,7 @@
 <p> welcome to login</p>
 <input type="text" id="user" placeholder="username">
 <input type="submit" onclick="usercheck()">
+<p id="error" style="color: red; font-size: 30px"></p>
 <script src="socket.io/socket.io.js"></script>
 <script>
     const socket = io();
@@ -15,11 +16,17 @@
     });
     console.log(sessionStorage.getItem('username'))
     function usercheck(){
+        let validChars = /^[A-Za-z]+$/;
         let username = document.getElementById('user').value
-        socket.emit("userRequest", username)
-        sessionStorage.setItem('username','' + username)
-        console.log(sessionStorage.getItem('username'))
-        window.location.href="main.html";
+        if (username.match(validChars)){
+            socket.emit("userRequest", username)
+            sessionStorage.setItem('username','' + username)
+            console.log(sessionStorage.getItem('username'))
+            window.location.href="main.html";
+        }else {
+            document.getElementById('error').innerText = "invalid characters";
+            console.log("invalid characters")
+        }
     }
 </script>
 <style>

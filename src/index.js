@@ -10,7 +10,6 @@ socket.on("connect", ()=>{
 });
 //get grid from server once connect
 socket.on("guc", guc=>{
-    console.log(worldMatrix + ' matrix ' + 'grid ' + worldGrid)
     if (worldGrid === null && worldMatrix === null){
         [worldGrid, worldMatrix] = gridcreator(guc)
         gridInputCheck()
