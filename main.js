@@ -21,10 +21,33 @@ io.on('connection', socket  =>{
     socket.emit('guc', map[0].world)
     socket.on('gus', Gselect =>{
         gridUpdate = world.updateGrid(Gselect, map[0].world);
+        console.log(gridUpdate)
         socket.broadcast.emit('gridUpdate', gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
         saveJSON('storage/world.json', map)
     });
+    socket.on('userSignup', userRequest =>{
+        let usersJson = loadJSON('storage/user.json');
+        let [userName, password, passwordRepeat] = userRequest;
+        let errorList = [];
+        let validChars = /^[A-Za-z0-9]+$/;
+        if (!(userName.match(validChars))){
+            errorList.push(" invalid characters")
+        }
+        usersJson.forEach(user =>{
+            if (user.user.name === userName){
+                errorList.push(" taken username")
+            }
+        });
+        if (password !== passwordRepeat){
+            errorList.push(" password no match")
+        }
+        if (errorList.length === 0){
+            socket.emit('userCreate', errorList)
+        }else {
+            socket.emit('userCreate', errorList)
+        }
+    })
     socket.on('userRequest', userRequest =>{
         let usernameValid = false;
         console.log(userRequest)
@@ -57,3 +80,4 @@ app.get('/',(req, res) =>{
 
 http.listen(port, ()=>{
 })
+//ok

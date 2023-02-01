@@ -14,10 +14,11 @@ socket.on("guc", guc=>{
         [worldGrid, worldMatrix] = gridcreator(guc)
         gridInputCheck()
     }
+    console.log(worldMatrix)
 });
 
 socket.on('gridUpdate', gridUpdate=>{
-    gridInputHandler(gridUpdate[0], gridUpdate[1], worldMatrix, worldGrid)
+    gridInputHandler(gridUpdate, worldMatrix, worldGrid)
 });
 function gridInputCheck(){
     if (worldGrid !== null){
@@ -29,4 +30,4 @@ function gridInputCheck(){
         }
     }
 }
-function selectToServer(col, row){socket.emit('gus', [col, row]);}
+function selectToServer(col, row){socket.emit('gus', [col, row, username]);}

@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon main.js --w"
   },
+  "nodemonConfig": {
+    "ignore": ["storage/*.json"]
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

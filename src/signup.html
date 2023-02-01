@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+</head>
+<body>
+<p> welcome to SignUp</p>
+<input type="text" id="user" placeholder="username">
+<input type="password" id="password" placeholder="password">
+<input type="password" id="repeatPassword" placeholder="Repeat the Password">
+<input type="submit" onclick="userSignUp()">
+<a href="index.html">Go back?</a>
+<p id="error" style="color: red; font-size: 30px"></p>
+<script src="socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+  function userSignUp(){
+    let userN = document.getElementById('user').value
+    let pass = document.getElementById('password').value
+    let passR = document.getElementById('repeatPassword').value
+    socket.emit('userSignup', [userN, pass, passR])
+  }
+  socket.on('userCreate', error =>{
+      console.log(error)
+      document.getElementById('error').innerText = error;
+  })
+</script>
+<style>
+  body{
+    background-color: gray;
+  }
+</style>
+</body>
+</html>

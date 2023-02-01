@@ -7,7 +7,9 @@
 <body>
 <p> welcome to login</p>
 <input type="text" id="user" placeholder="username">
+<input type="password" id="password" placeholder="password">
 <input type="submit" onclick="usercheck()">
+<a href="signup.html">Or sign up!</a>
 <p id="error" style="color: red; font-size: 30px"></p>
 <script src="socket.io/socket.io.js"></script>
 <script>
@@ -16,7 +18,7 @@
     });
     console.log(sessionStorage.getItem('username'))
     function usercheck(){
-        let validChars = /^[A-Za-z]+$/;
+        let validChars = /^[A-Za-z0-9]+$/;
         let username = document.getElementById('user').value
         if (username.match(validChars)){
             socket.emit("userRequest", username)
