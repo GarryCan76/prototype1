@@ -22,8 +22,12 @@
     socket.emit('userSignup', [userN, pass, passR])
   }
   socket.on('userCreate', error =>{
-      console.log(error)
-      document.getElementById('error').innerText = error;
+      if (error.length === 0){
+          window.location.href="index.html";
+      }else {
+          console.log(error)
+          document.getElementById('error').innerText = error;
+      }
   })
 </script>
 <style>

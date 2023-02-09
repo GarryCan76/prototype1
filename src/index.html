@@ -8,7 +8,7 @@
 <p> welcome to login</p>
 <input type="text" id="user" placeholder="username">
 <input type="password" id="password" placeholder="password">
-<input type="submit" onclick="usercheck()">
+<input type="submit" onclick="login()">
 <a href="signup.html">Or sign up!</a>
 <p id="error" style="color: red; font-size: 30px"></p>
 <script src="socket.io/socket.io.js"></script>
@@ -17,19 +17,22 @@
     socket.on("connect", ()=>{
     });
     console.log(sessionStorage.getItem('username'))
-    function usercheck(){
-        let validChars = /^[A-Za-z0-9]+$/;
+    function login(){
         let username = document.getElementById('user').value
-        if (username.match(validChars)){
-            socket.emit("userRequest", username)
-            sessionStorage.setItem('username','' + username)
-            console.log(sessionStorage.getItem('username'))
+        let password = document.getElementById('password').value
+        socket.emit("loginRequest", [username, password])
+    }
+    socket.on('userLogged', receive=>{
+        if (receive[1].length === 0){
+            sessionStorage.setItem('username','' + receive[0])
+            sessionStorage.setItem('userID','' + receive[2])
+            sessionStorage.setItem('userMoney','' + receive[3])
             window.location.href="main.html";
         }else {
-            document.getElementById('error').innerText = "invalid characters";
-            console.log("invalid characters")
+            document.getElementById('error').innerText = receive[1];
         }
-    }
+    })
+
 </script>
 <style>
     body{

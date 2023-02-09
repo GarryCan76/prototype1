@@ -2,124 +2,172 @@
   {
     "world": [
       [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "mike",
-        "walter"
+        {
+          "owner": "waltur",
+          "cost": 235
+        },
+        {
+          "owner": "garon",
+          "cost": 659
+        },
+        {
+          "owner": null,
+          "cost": 345
+        },
+        {
+          "owner": null,
+          "cost": 356
+        },
+        {
+          "owner": null,
+          "cost": 756
+        },
+        {
+          "owner": null,
+          "cost": 256
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": "jesse",
+          "cost": 69
+        }
       ],
       [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "walter",
-        "walter"
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": "waltur",
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        }
       ],
       [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "walter",
-        "mike",
-        "mike"
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": "waltur",
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        }
       ],
       [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "walter",
-        "mike",
-        "mike"
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "walter",
-        "walter"
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "walter",
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "skylur",
-        "lucas"
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        "lucas",
-        "skylur",
-        "skylur"
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        },
+        {
+          "owner": null,
+          "cost": 69
+        }
       ]
     ]
   }

@@ -1,47 +1,42 @@
 [
   {
     "user": {
-      "name": "example"
+      "name": "example",
+      "password": "example",
+      "userID": "example",
+      "money": 1000
     }
   },
   {
     "user": {
-      "name": "garry"
+      "name": "garon",
+      "password": "$2b$13$CzLbgKVNaGcy00Rx3vFfV.acEUwLHyUTRVBb1Cbxuprrtraadx0ru",
+      "userID": 551778,
+      "money": 531
     }
   },
   {
     "user": {
-      "name": "skylur"
+      "name": "walter",
+      "password": "$2b$13$ImKMTdGGPW6PoPegipYVBezKnskmWAUHEiKDULWK/1O6gvofckdrO",
+      "userID": 686433,
+      "money": 500
     }
   },
   {
     "user": {
-      "name": "waltur"
+      "name": "skylur",
+      "password": "$2b$13$ZaBZhhdFE5qjdr7v5swPzO4i8WiBkdIk3okIpUjbgdgBrPm4rVMQK",
+      "userID": 322823,
+      "money": 845
     }
   },
   {
     "user": {
-      "name": "gustavo"
-    }
-  },
-  {
-    "user": {
-      "name": "lucas"
-    }
-  },
-  {
-    "user": {
-      "name": "jesse"
-    }
-  },
-  {
-    "user": {
-      "name": "walter"
-    }
-  },
-  {
-    "user": {
-      "name": "mike"
+      "name": "waltur",
+      "password": "$2b$13$yTbhoCwJnnBVQKIJ.2S8oOS3GMhoGNRa5kuqBmFSrVhw0pzw4So1a",
+      "userID": 434651,
+      "money": 2122
     }
   }
 ]

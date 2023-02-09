@@ -9,8 +9,8 @@ export function gridcreator(guc){
     for (let y = 0; y < cols.length; y++){
         for (let x = 0; x < guc[0].length; x++){
             let div = document.createElement('div')
-            if (worldMatrix[y][x] !== 0){
-                if (worldMatrix[y][x] === sessionStorage.getItem('username')) {
+            if (worldMatrix[y][x].owner !== null){
+                if (worldMatrix[y][x].owner === sessionStorage.getItem('username')) {
                     div.style.backgroundColor = "rgb(2, 215, 208)";
                 }else {
                     div.style.backgroundColor = "rgb(2,109,215)";
@@ -23,19 +23,26 @@ export function gridcreator(guc){
 }
 
 export function gridInputHandler(gridupdate, worldMatrix, worldGrid){
-    let [col, row, user] = gridupdate
-    let y = worldMatrix[col]
-    var row_array = worldGrid[col].children;
-    if (y[row] === 0){
-        y[row] = user;
-        if (user === sessionStorage.getItem('username')){
-            row_array[row].style.backgroundColor = "rgb(2, 215, 208)";
+    if (gridupdate){
+        let [col, row, user, buy] = gridupdate
+        var row_array = worldGrid[col].children;
+        let y = worldMatrix[col]
+        if (buy === "buy"){
+            if (y[row].owner === null){
+                y[row].owner = user;
+                if (user === sessionStorage.getItem('username')){
+                    row_array[row].style.backgroundColor = "rgb(2, 215, 208)";
 
+                }else {
+                    row_array[row].style.backgroundColor = "rgb(2,109,215)";
+                }
+            }
         }else {
-            row_array[row].style.backgroundColor = "rgb(2,109,215)";
+            row_array[row].style.backgroundColor = "rgba(211, 20, 20, 0.21)";
+            y[row].owner = null;
         }
     }else {
-        row_array[row].style.backgroundColor = "rgba(211, 20, 20, 0.21)";
-        y[row] = 0;
+        alert("could not buy")
     }
+
 }

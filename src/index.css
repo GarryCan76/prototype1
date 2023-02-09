@@ -7,7 +7,7 @@ body{background-color: grey;}
     flex-direction: row;
 }
 .col > div{
-    height: 30px;
-    width: 30px;
+    height: 60px;
+    width: 60px;
     background-color: rgba(211, 20, 20, 0.21);
 }
