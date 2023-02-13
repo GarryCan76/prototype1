@@ -6,8 +6,11 @@ body{background-color: grey;}
     display: flex;
     flex-direction: row;
 }
+p{
+    margin: 1px;
+}
 .col > div{
     height: 60px;
     width: 60px;
-    background-color: rgba(211, 20, 20, 0.21);
+    background-color: rgb(93, 93, 93);
 }

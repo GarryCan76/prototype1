@@ -1,6 +1,7 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 const fs = require("fs");
-
+let currentTime = loadJSON('storage/world.json');
+let saveInterval = 0;
 function loadJSON(filename = ''){
     return JSON.parse(fs.existsSync(filename)
         ? fs.readFileSync(filename).toString()
@@ -9,9 +10,19 @@ function loadJSON(filename = ''){
 function saveJSON(filename = '' ,json = '""'){
     return fs.writeFileSync(filename, JSON.stringify(json, null, 2))
 }
+function worldClock(socket){
+    saveInterval++
+    currentTime.time++;
+    socket.emit('time', currentTime.time)
+    if (saveInterval === 30){
+        saveJSON('storage/world.json', currentTime)
+        saveInterval = 0;
+        console.log("time saved")
+    }
+}
 function updateGrid(Gselect, grid){
     let usersJson = loadJSON('storage/user.json');
-    let userI = null
+    let userI = null;
     for (let userNum = 0; userNum < usersJson.length; userNum++){
         if (Gselect[2] === usersJson[userNum].user.name){
             userI = userNum;
@@ -63,7 +74,8 @@ async function userSignup(userRequest, socket){
     if (errorList.length === 0){
         let hash = await bcrypt.hash(password, 13)
         console.log("new user created")
-        usersJson.push({"user": {"name" : userName, "password" : hash, "userID" : userID, "money": 500}})
+        usersJson.push({"user": {"name" : userName, "password" : hash, "userID" : userID, "money": 500,
+                "resources":{"water":0, "Crops":0, "IronOre":0, "Iron":0, "CopperOre":0, "Copper":0, "Coal":0}}})
         saveJSON('storage/user.json', usersJson)
     }else {
         console.log("username invalid")
@@ -98,13 +110,13 @@ async function loginRequest(loginRequest, socket){
     }else {
         console.log("login failed")
     }
-    socket.emit('userLogged', [userName, errorList, userID, userExist.user.money])
+    socket.emit('userLogged', [userName, errorList, userID, userExist.user.money, userExist.user.resources])
 }
 
+module.exports.worldClock = worldClock
 module.exports.loadJSON = loadJSON
 module.exports.saveJSON = saveJSON
 module.exports.updateGrid = updateGrid
 module.exports.userSignup = userSignup
 module.exports.loginRequest = loginRequest
-
 

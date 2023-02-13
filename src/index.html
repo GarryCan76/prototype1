@@ -24,9 +24,10 @@
     }
     socket.on('userLogged', receive=>{
         if (receive[1].length === 0){
-            sessionStorage.setItem('username','' + receive[0])
-            sessionStorage.setItem('userID','' + receive[2])
-            sessionStorage.setItem('userMoney','' + receive[3])
+            sessionStorage.setItem('username','' + receive[0]);
+            sessionStorage.setItem('userID','' + receive[2]);
+            sessionStorage.setItem('userMoney','' + receive[3]);
+            sessionStorage.setItem('resources','' + JSON.stringify(receive[4]));
             window.location.href="main.html";
         }else {
             document.getElementById('error').innerText = receive[1];

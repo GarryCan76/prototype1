@@ -11,9 +11,9 @@ export function gridcreator(guc){
             let div = document.createElement('div')
             if (worldMatrix[y][x].owner !== null){
                 if (worldMatrix[y][x].owner === sessionStorage.getItem('username')) {
-                    div.style.backgroundColor = "rgb(2, 215, 208)";
+                    div.style.backgroundColor = "rgb(30,215,2)";
                 }else {
-                    div.style.backgroundColor = "rgb(2,109,215)";
+                    div.style.backgroundColor = "rgb(215,2,41)";
                 }
             }
             cols[y].appendChild(div)
@@ -31,18 +31,32 @@ export function gridInputHandler(gridupdate, worldMatrix, worldGrid){
             if (y[row].owner === null){
                 y[row].owner = user;
                 if (user === sessionStorage.getItem('username')){
-                    row_array[row].style.backgroundColor = "rgb(2, 215, 208)";
+                    row_array[row].style.backgroundColor = "rgb(30,215,2)";
 
                 }else {
-                    row_array[row].style.backgroundColor = "rgb(2,109,215)";
+                    row_array[row].style.backgroundColor = "rgb(215,2,41)";
                 }
             }
         }else {
-            row_array[row].style.backgroundColor = "rgba(211, 20, 20, 0.21)";
+            row_array[row].style.backgroundColor = "rgb(93,93,93)";
             y[row].owner = null;
         }
     }else {
         alert("could not buy")
     }
-
+}
+export function uiResources(resources){
+    var e = document.getElementById('resources');
+    var child = e.lastElementChild;
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+    console.log(Object.keys(resources).length)
+    for (let r = 0; r < Object.keys(resources).length; r++){
+        console.log(resources[Object.keys(resources)[r]])
+        let p = document.createElement('p');
+        p.innerText = Object.keys(resources)[r] + " = " + resources[Object.keys(resources)[r]];
+        document.getElementById('resources').appendChild(p)
+    }
 }
