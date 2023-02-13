@@ -9,6 +9,7 @@ export function gridcreator(guc){
     for (let y = 0; y < cols.length; y++){
         for (let x = 0; x < guc[0].length; x++){
             let div = document.createElement('div')
+            div.style.backgroundColor = "rgb(82,82,82)";
             if (worldMatrix[y][x].owner !== null){
                 if (worldMatrix[y][x].owner === sessionStorage.getItem('username')) {
                     div.style.backgroundColor = "rgb(30,215,2)";
@@ -38,7 +39,7 @@ export function gridInputHandler(gridupdate, worldMatrix, worldGrid){
                 }
             }
         }else {
-            row_array[row].style.backgroundColor = "rgb(93,93,93)";
+            row_array[row].style.backgroundColor = "rgb(82,82,82)";
             y[row].owner = null;
         }
     }else {
@@ -52,9 +53,7 @@ export function uiResources(resources){
         e.removeChild(child);
         child = e.lastElementChild;
     }
-    console.log(Object.keys(resources).length)
     for (let r = 0; r < Object.keys(resources).length; r++){
-        console.log(resources[Object.keys(resources)[r]])
         let p = document.createElement('p');
         p.innerText = Object.keys(resources)[r] + " = " + resources[Object.keys(resources)[r]];
         document.getElementById('resources').appendChild(p)

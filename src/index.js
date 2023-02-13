@@ -6,6 +6,7 @@ let worldMatrix = null;
 let username = sessionStorage.getItem('username');
 let userID = sessionStorage.getItem('userID');
 let resources = JSON.parse(sessionStorage.getItem('resources'));
+let selected = null;
 console.log(username)
 console.log(userID)
 document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
@@ -17,6 +18,7 @@ uiResources(resources)
 socket.on("guc", guc=>{
     if (worldGrid === null && worldMatrix === null){
         [worldGrid, worldMatrix] = gridcreator(guc)
+        selected = [worldGrid[0].children[0], worldGrid[0].children[0].style.backgroundColor]
         gridInputCheck()
     }
 });
@@ -40,6 +42,8 @@ function gridInputCheck(){
     }
 }
 function buy(col, row){
+    selected[0].style.backgroundColor = selected[1];
+    selected = [worldGrid[col].children[row], worldGrid[col].children[row].style.backgroundColor]
     let text = document.getElementById('buy')
     var e = document.getElementById('gridInfo');
     var child = e.lastElementChild;
@@ -54,7 +58,7 @@ function buy(col, row){
         document.getElementById('gridInfo').appendChild(text)
         for (let resourceI = 0; resourceI < 5; resourceI++){
             let p = document.createElement('p');
-            p.innerText = Object.keys(worldMatrix[col][row])[resourceI + 2] + " = " + worldMatrix[col][row][Object.keys(worldMatrix[col][row])[resourceI + 2]];
+            p.innerText = Object.keys(worldMatrix[col][row])[resourceI + 2] + " = " + worldMatrix[col][row][Object.keys(worldMatrix[col][row])[resourceI + 2]] + "%";
             document.getElementById('gridInfo').appendChild(p)
         }
         text.onclick = function (){
@@ -75,8 +79,10 @@ function buy(col, row){
         text.innerText = "already owned by " + worldMatrix[col][row].owner;
         document.getElementById('gridInfo').appendChild(text)
     }
+    selected[0].style.backgroundColor = "rgb(45,73,98)";
 }
 function selectToServer(col, row, action){
+    selected = [worldGrid[0].children[0], worldGrid[0].children[0].style.backgroundColor]
     var e = document.getElementById('gridInfo');
     var child = e.lastElementChild;
     while (child) {

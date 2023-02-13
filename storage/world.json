@@ -1,9 +1,9 @@
 {
-  "time": 60023,
+  "time": 96623,
   "world": [
     [
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 812,
         "WaterYield": 45,
         "CropYield": 64,
@@ -12,7 +12,7 @@
         "CoalYield": 71
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 724,
         "WaterYield": 62,
         "CropYield": 39,
@@ -21,7 +21,7 @@
         "CoalYield": 62
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 197,
         "WaterYield": 17,
         "CropYield": 10,
@@ -30,7 +30,7 @@
         "CoalYield": 15
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 492,
         "WaterYield": 45,
         "CropYield": 45,
@@ -39,7 +39,7 @@
         "CoalYield": 47
       },
       {
-        "owner": null,
+        "owner": "mike",
         "cost": 852,
         "WaterYield": 69,
         "CropYield": 69,

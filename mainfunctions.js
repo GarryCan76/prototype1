@@ -17,7 +17,6 @@ function worldClock(socket){
     if (saveInterval === 30){
         saveJSON('storage/world.json', currentTime)
         saveInterval = 0;
-        console.log("time saved")
     }
 }
 function updateGrid(Gselect, grid){
@@ -36,6 +35,7 @@ function updateGrid(Gselect, grid){
                 saveJSON('storage/user.json', usersJson)
                 if (grid[Gselect[0]][Gselect[1]].owner === null){
                     grid[Gselect[0]][Gselect[1]].owner = Gselect[2];
+
                 }
             }else {
                 Gselect = false;
@@ -49,6 +49,7 @@ function updateGrid(Gselect, grid){
             saveJSON('storage/user.json', usersJson)
         }
     }
+    currentTime.world = grid
     return Gselect;
 }
 async function userSignup(userRequest, socket){

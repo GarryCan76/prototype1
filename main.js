@@ -15,7 +15,7 @@ io.on('connection', socket =>{
         socket.broadcast.emit('gridUpdate', gridUpdate)
         console.log(gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
-        mainF.saveJSON('storage/world.json', map)
+        mainF.saveJSON('storage/world.json', map.world)
     });
     setInterval(function() { mainF.worldClock(socket); }, 1000)
     socket.on('userSignup', userRequest =>{
