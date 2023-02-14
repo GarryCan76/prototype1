@@ -21,7 +21,7 @@
       "name": "mike",
       "password": "$2b$13$FJm/VKoqwQoAr32gHpHRgObmZvEbOhPtZ0qkL.heDmZl4ZyyJXwf6",
       "userID": 884136,
-      "money": 1048,
+      "money": 121,
       "resources": {
         "water": 123,
         "Crops": 435,
@@ -38,7 +38,7 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 3086,
+      "money": 3735,
       "resources": {
         "water": 0,
         "Crops": 0,

@@ -1,9 +1,9 @@
 {
-  "time": 96623,
+  "time": 199403,
   "world": [
     [
       {
-        "owner": "garon",
+        "owner": "mike",
         "cost": 812,
         "WaterYield": 45,
         "CropYield": 64,
@@ -12,7 +12,7 @@
         "CoalYield": 71
       },
       {
-        "owner": "garon",
+        "owner": "mike",
         "cost": 724,
         "WaterYield": 62,
         "CropYield": 39,
@@ -21,7 +21,7 @@
         "CoalYield": 62
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 197,
         "WaterYield": 17,
         "CropYield": 10,
@@ -30,7 +30,7 @@
         "CoalYield": 15
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 492,
         "WaterYield": 45,
         "CropYield": 45,
@@ -39,7 +39,7 @@
         "CoalYield": 47
       },
       {
-        "owner": "mike",
+        "owner": null,
         "cost": 852,
         "WaterYield": 69,
         "CropYield": 69,
@@ -315,7 +315,7 @@
         "CoalYield": 15
       },
       {
-        "owner": null,
+        "owner": "mike",
         "cost": 243,
         "WaterYield": 13,
         "CropYield": 21,
@@ -416,7 +416,7 @@
         "CoalYield": 47
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 681,
         "WaterYield": 51,
         "CropYield": 44,
@@ -885,7 +885,7 @@
         "CoalYield": 17
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 895,
         "WaterYield": 62,
         "CropYield": 80,

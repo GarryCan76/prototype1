@@ -7,13 +7,13 @@ const port = process.env.PORT||8080;
 const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
 let map = mainF.loadJSON('storage/world.json')
-io.on('connection', socket =>{
-    socket.emit('guc', map.world)
+const buildings = mainF.loadJSON('storage/buildings.json')
+    io.on('connection', socket =>{
+    socket.emit('guc', [map.world, buildings])
     socket.on('gus', Gselect =>{
         let gridUpdate = mainF.updateGrid(Gselect, map.world);
         console.log(gridUpdate)
         socket.broadcast.emit('gridUpdate', gridUpdate)
-        console.log(gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
         mainF.saveJSON('storage/world.json', map.world)
     });

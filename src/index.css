@@ -1,4 +1,4 @@
-body{background-color: grey;}
+body{background-color: #bebebe;}
 *{
     border: black solid 1px;
 }
@@ -12,4 +12,24 @@ p{
 .col > div{
     height: 60px;
     width: 60px;
+}
+#resources{
+    width: 100%;
+    max-height: 50px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+#GridUiStuff{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+#GridUiStuff > *{
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+#GridUiStuff > * > p{
+    background-color: #8cbe8c;
+    font-size: 30px;
 }
