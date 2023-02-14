@@ -8,6 +8,7 @@ const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
 let map = mainF.loadJSON('storage/world.json')
 const buildings = mainF.loadJSON('storage/buildings.json')
+console.log(map)
     io.on('connection', socket =>{
     socket.emit('guc', [map.world, buildings])
     socket.on('gus', Gselect =>{
@@ -34,3 +35,4 @@ app.get('/',(req, res) =>{
 });
 http.listen(port, ()=>{
 })
+

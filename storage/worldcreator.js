@@ -1,6 +1,6 @@
 //generate new grid
 const fs = require("fs");
-
+let worldSize = 15;
 function loadJSON(filename = ''){
     return JSON.parse(fs.existsSync(filename)
         ? fs.readFileSync(filename).toString()
@@ -15,9 +15,9 @@ function getRandomArbitrary(min, max) {
 let worldJson = loadJSON('world.json')
 
 let newworld = {"time": 0, "world": []};
-for (let y = 0; y < 10; y++){
+for (let y = 0; y < worldSize; y++){
     let ycord = [];
-    for (let x = 0; x < 10; x++){
+    for (let x = 0; x < worldSize; x++){
         let cost = parseInt(getRandomArbitrary(100, 1000))
         ycord.push({
             "owner": null,
