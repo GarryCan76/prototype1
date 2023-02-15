@@ -8,15 +8,12 @@ const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
 let map = mainF.loadJSON('storage/world.json')
 const buildings = mainF.loadJSON('storage/buildings.json')
-console.log(map)
     io.on('connection', socket =>{
     socket.emit('guc', [map.world, buildings])
     socket.on('gus', Gselect =>{
         let gridUpdate = mainF.updateGrid(Gselect, map.world);
-        console.log(gridUpdate)
         socket.broadcast.emit('gridUpdate', gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
-        mainF.saveJSON('storage/world.json', map.world)
     });
     setInterval(function() { mainF.worldClock(socket); }, 1000)
     socket.on('userSignup', userRequest =>{
@@ -25,7 +22,9 @@ console.log(map)
     socket.on('loginRequest', loginRequest =>{
         mainF.loginRequest(loginRequest, socket)
     });
-
+    socket.on('buildRequest', buildRequest=>{
+        mainF.buildHandler(buildRequest, map.world, socket)
+    })
     io.on('disconnect',()=>{
         console.log("user disconnected")
     });
@@ -35,4 +34,3 @@ app.get('/',(req, res) =>{
 });
 http.listen(port, ()=>{
 })
-

@@ -1,7 +1,7 @@
 {
   "Coalmine": [" Coal", 100, "CoalYield"],
-  "Coalplant": [" Electricity", 100, false],
-  "Waterpump": [" Water", 100, "WaterYield"],
-  "Coppermine": [" Copper Ore", 100, "CopperOreYield"],
-  "Coppermill": [" Copper", 100, false]
+  "Coalplant": [" Electricity", 200, false],
+  "Waterpump": [" Water", 300, "WaterYield"],
+  "Coppermine": [" Copper Ore", 400, "CopperOreYield"],
+  "Coppermill": [" Copper", 500, false]
 }

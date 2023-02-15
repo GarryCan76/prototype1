@@ -10,8 +10,9 @@ p{
     margin: 1px;
 }
 .col > div{
-    height: 30px;
-    width: 30px;
+    border: black solid 2px;
+    height: 60px;
+    width: 60px;
 }
 #resources{
     width: 100%;

@@ -1,5 +1,5 @@
 const socket = io();
-import {gridcreator, gridInputHandler, uiResources, buy} from './cleintWorld.js'
+import {gridcreator, gridInputHandler, uiResources, buy, buildingUpdate} from './cleintWorld.js'
 
 let worldGrid = null;
 let worldMatrix = null;
@@ -32,6 +32,13 @@ socket.on('gridUpdate', gridUpdate=>{
     }
     gridInputHandler(gridUpdate, worldMatrix, worldGrid)
 });
+socket.on("bupdate", bupdate=>{
+    if (bupdate[4] === username){
+        sessionStorage.setItem('userMoney','' + bupdate[3])
+        document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
+    }
+    buildingUpdate(bupdate, worldMatrix, worldGrid)
+})
 function gridInputCheck(){
     if (worldGrid !== null){
         for (let col = 0; col < worldGrid.length; col++){

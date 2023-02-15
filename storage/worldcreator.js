@@ -1,6 +1,6 @@
 //generate new grid
 const fs = require("fs");
-let worldSize = 15;
+let worldSize = 10;
 function loadJSON(filename = ''){
     return JSON.parse(fs.existsSync(filename)
         ? fs.readFileSync(filename).toString()
@@ -22,11 +22,14 @@ for (let y = 0; y < worldSize; y++){
         ycord.push({
             "owner": null,
             "cost": cost,
-            "WaterYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-            "CropYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-            "IronOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-            "CopperOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-            "CoalYield": parseInt(getRandomArbitrary(cost/20, cost/10))
+            "building": null,
+            "resources": {
+                "WaterYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "CropYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "IronOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "CopperOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "CoalYield": parseInt(getRandomArbitrary(cost/20, cost/10))
+            },
         })
     }
     newworld.world.push(ycord)

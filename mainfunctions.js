@@ -19,23 +19,28 @@ function worldClock(socket){
         saveInterval = 0;
     }
 }
-function updateGrid(Gselect, grid){
+function getUserInfo(username){
     let usersJson = loadJSON('storage/user.json');
     let userI = null;
     for (let userNum = 0; userNum < usersJson.length; userNum++){
-        if (Gselect[2] === usersJson[userNum].user.name){
+        if (username === usersJson[userNum].user.name){
             userI = userNum;
         }
     }
+    return [usersJson[userI], usersJson]
+}
+function updateGrid(Gselect, grid){
+    let [userI, usersJson] = getUserInfo(Gselect[2])
     if (Gselect[3] === "buy"){
-        if (Gselect[2] === usersJson[userI].user.name){
-            if (usersJson[userI].user.money >= grid[Gselect[0]][Gselect[1]].cost){
-                usersJson[userI].user.money = usersJson[userI].user.money - grid[Gselect[0]][Gselect[1]].cost;
-                Gselect[4] = usersJson[userI].user.money;
+        if (Gselect[2] === userI.user.name){
+            if (userI.user.money >= grid[Gselect[0]][Gselect[1]].cost){
+                userI.user.money = userI.user.money - grid[Gselect[0]][Gselect[1]].cost;
+                Gselect[4] = userI.user.money;
                 saveJSON('storage/user.json', usersJson)
                 if (grid[Gselect[0]][Gselect[1]].owner === null){
                     grid[Gselect[0]][Gselect[1]].owner = Gselect[2];
-
+                    currentTime.world = grid;
+                    saveJSON('storage/world.json', currentTime)
                 }
             }else {
                 Gselect = false;
@@ -44,12 +49,14 @@ function updateGrid(Gselect, grid){
     }else {
         if (grid[Gselect[0]][Gselect[1]].owner === Gselect[2]){
             grid[Gselect[0]][Gselect[1]].owner = null;
-            usersJson[userI].user.money = usersJson[userI].user.money + grid[Gselect[0]][Gselect[1]].cost;
-            Gselect[4] = usersJson[userI].user.money;
+            userI.user.money = userI.user.money + grid[Gselect[0]][Gselect[1]].cost;
+            Gselect[4] = userI.user.money;
+            currentTime.world = grid;
+            saveJSON('storage/world.json', currentTime)
             saveJSON('storage/user.json', usersJson)
         }
     }
-    currentTime.world = grid
+    currentTime.world = grid;
     return Gselect;
 }
 async function userSignup(userRequest, socket){
@@ -113,10 +120,36 @@ async function loginRequest(loginRequest, socket){
     }
     socket.emit('userLogged', [userName, errorList, userID, userExist.user.money, userExist.user.resources])
 }
-
-module.exports.worldClock = worldClock
-module.exports.loadJSON = loadJSON
-module.exports.saveJSON = saveJSON
-module.exports.updateGrid = updateGrid
-module.exports.userSignup = userSignup
-module.exports.loginRequest = loginRequest
+function buildHandler(buildRequest, grid, socket){
+    [y, x, username, buildingType] = buildRequest;
+    let buildJson = loadJSON('storage/buildings.json')
+    let [userI, usersJson] = getUserInfo(username)
+    console.log(buildingType)
+    if (buildingType !== "destroy"){
+        if (userI.user.money >= buildJson[buildingType][1]){
+            userI.user.money = userI.user.money - buildJson[buildingType][1];
+            console.log(grid[y][x].building)
+            grid[y][x].building = buildingType;
+            currentTime.world = grid;
+            socket.emit("bupdate", [y, x, buildingType])
+            socket.broadcast.emit("bupdate", [y, x, buildingType, userI.user.money, username])
+            saveJSON('storage/user.json', usersJson)
+            saveJSON('storage/world.json', currentTime)
+        }
+    }else {
+        userI.user.money = userI.user.money + 0;
+        grid[y][x].building = null;
+        currentTime.world = grid;
+        socket.emit("bupdate", [y, x, null])
+        socket.broadcast.emit("bupdate", [y, x, null, userI.user.money, username])
+        saveJSON('storage/user.json', usersJson)
+        saveJSON('storage/world.json', currentTime)
+    }
+}
+module.exports.worldClock = worldClock;
+module.exports.loadJSON = loadJSON;
+module.exports.saveJSON = saveJSON;
+module.exports.updateGrid = updateGrid;
+module.exports.userSignup = userSignup;
+module.exports.loginRequest = loginRequest;
+module.exports.buildHandler = buildHandler;

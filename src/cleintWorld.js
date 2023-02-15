@@ -1,5 +1,6 @@
 let selected = null;
 export function gridcreator(guc){
+    console.log(guc)
     let worldMatrix = guc;
     for (let y = 0; y < guc.length; y++){
         let div_col = document.createElement('div');
@@ -10,12 +11,16 @@ export function gridcreator(guc){
     for (let y = 0; y < cols.length; y++){
         for (let x = 0; x < guc[0].length; x++){
             let div = document.createElement('div')
-            div.style.backgroundColor = "rgb(138,138,138)";
+            div.style.borderColor = "rgb(138,138,138)";
+            div.style.backgroundImage = "url('images/gress.png')";
+            if (worldMatrix[y][x].building !== null) {
+                div.style.backgroundImage = "url('images/" + worldMatrix[y][x].building + ".png')";
+            }
             if (worldMatrix[y][x].owner !== null){
                 if (worldMatrix[y][x].owner === sessionStorage.getItem('username')) {
-                    div.style.backgroundColor = "rgb(30,215,2)";
+                    div.style.borderColor = "rgb(30,215,2)";
                 }else {
-                    div.style.backgroundColor = "rgb(215,2,41)";
+                    div.style.borderColor = "rgb(215,2,41)";
                 }
             }
             cols[y].appendChild(div)
@@ -32,14 +37,14 @@ export function gridInputHandler(gridupdate, worldMatrix, worldGrid){
             if (y[row].owner === null){
                 y[row].owner = user;
                 if (user === sessionStorage.getItem('username')){
-                    row_array[row].style.backgroundColor = "rgb(30,215,2)";
+                    row_array[row].style.borderColor = "rgb(30,215,2)";
 
                 }else {
-                    row_array[row].style.backgroundColor = "rgb(215,2,41)";
+                    row_array[row].style.borderColor = "rgb(215,2,41)";
                 }
             }
         }else {
-            row_array[row].style.backgroundColor = "rgb(138,138,138)";
+            row_array[row].style.borderColor = "rgb(138,138,138)";
             y[row].owner = null;
         }
     }else {
@@ -59,25 +64,35 @@ export function uiResources(resources){
         document.getElementById('resources').appendChild(p)
     }
 }
-function buyBuildings(buildings, resource, worldMatrix, col, row){
-    for (let r = 0; r < Object.keys(buildings).length; r++){
-        let p = document.createElement('p');
-        if (buildings[Object.keys(buildings)[r]][2]){
-            p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(buildings[Object.keys(buildings)[r]][1] * worldMatrix[col][row][buildings[Object.keys(buildings)[r]][2]] / 175) + buildings[Object.keys(buildings)[r]][0];
-            document.getElementById('buildings').appendChild(p)
-        }else {
-            p.innerText = Object.keys(buildings)[r] + " produces " + buildings[Object.keys(buildings)[r]][0];
-            document.getElementById('buildings').appendChild(p)
+function buyBuildings(buildings, resource, worldMatrix, col, row, username, socket, worldGrid){
+    if (worldMatrix[col][row].building === null){
+        for (let r = 0; r < Object.keys(buildings).length; r++){
+            let p = document.createElement('p');
+            if (buildings[Object.keys(buildings)[r]][2]){
+                p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(
+                        buildings[Object.keys(buildings)[r]][1] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2]] / 175) + buildings[Object.keys(buildings)[r]][0] +
+                    " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
+                document.getElementById('buildings').appendChild(p)
+            }else {
+                p.innerText = Object.keys(buildings)[r] + " produces " + buildings[Object.keys(buildings)[r]][0] + " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
+                document.getElementById('buildings').appendChild(p)
+            }
+            document.getElementById('buildings').children[r].addEventListener("click", ()=>{buildRequest(col, row, username, socket, buildings, r)})
         }
+    }else {
+        let p = document.createElement('p');
+        p.innerText = "destroy " + worldMatrix[col][row].building;
+        p.addEventListener("click", ()=>{buildRequest(col, row, username, socket, buildings, "destroy")})
+        document.getElementById('buildings').appendChild(p)
     }
 }
 export function buy(col, row, worldMatrix, worldGrid, socket, username, buildings){
     let resources = [];
     if (selected === null){
-        selected = [worldGrid[0].children[0], worldGrid[0].children[0].style.backgroundColor];
+        selected = [worldGrid[0].children[0], worldGrid[0].children[0].style.borderColor];
     }
-    selected[0].style.backgroundColor = selected[1];
-    selected = [worldGrid[col].children[row], worldGrid[col].children[row].style.backgroundColor]
+    selected[0].style.borderColor = selected[1];
+    selected = [worldGrid[col].children[row], worldGrid[col].children[row].style.borderColor]
     var e = document.getElementById('gridInfo');
     var child = e.lastElementChild;
     while (child) {
@@ -99,7 +114,7 @@ export function buy(col, row, worldMatrix, worldGrid, socket, username, building
             selectToServer(col, row, "buy", socket, username, worldGrid)
         }
     }else if(worldMatrix[col][row].owner === username) {
-        buyBuildings(buildings, resources, worldMatrix, col, row)
+        buyBuildings(buildings, resources, worldMatrix, col, row, username, socket, worldGrid)
         let text = document.createElement('p');
         text.classList.add('buy');
         text.innerText = "Sell for $" + worldMatrix[col][row].cost;
@@ -114,27 +129,46 @@ export function buy(col, row, worldMatrix, worldGrid, socket, username, building
         text.innerText = "already owned by " + worldMatrix[col][row].owner;
         document.getElementById('gridInfo').appendChild(text)
     }
-    selected[0].style.backgroundColor = "rgb(75,75,75)";
+    selected[0].style.borderColor = "rgb(75,75,75)";
     for (let resourceI = 0; resourceI < 5; resourceI++){
         let p = document.createElement('p');
-        p.innerText = Object.keys(worldMatrix[col][row])[resourceI + 2] + " = " + worldMatrix[col][row][Object.keys(worldMatrix[col][row])[resourceI + 2]] + "%";
-        resources.push(Object.keys(worldMatrix[col][row])[resourceI + 2] + " = " + worldMatrix[col][row][Object.keys(worldMatrix[col][row])[resourceI + 2]]);
+        p.innerText = Object.keys(worldMatrix[col][row].resources)[resourceI] + " = " + worldMatrix[col][row].resources[Object.keys(worldMatrix[col][row].resources)[resourceI]] + "%";
+        resources.push(Object.keys(worldMatrix[col][row].resources)[resourceI] + " = " + worldMatrix[col][row].resources[Object.keys(worldMatrix[col][row].resources)[resourceI]]);
         document.getElementById('gridInfo').appendChild(p)
     }
 }
 function selectToServer(col, row, action, socket, username, worldGrid){
-    selected = [worldGrid[0].children[0], worldGrid[0].children[0].style.backgroundColor];
-    var e = document.getElementById('gridInfo');
-    var child = e.lastElementChild;
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-    e = document.getElementById('buildings');
-    child = e.lastElementChild;
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
+    selected = [worldGrid[0].children[0], worldGrid[0].children[0].style.borderColor];
+    deleteChildren('gridInfo')
+    deleteChildren('buildings')
     socket.emit('gus', [col, row, username, action]);
+}
+function buildRequest(col, row, username, socket, buildings, r){
+    deleteChildren('gridInfo')
+    deleteChildren('buildings')
+    let build;
+    if (r === "destroy"){
+        build = "destroy"
+    }else {
+        build = Object.keys(buildings)[r];
+    }
+    socket.emit('buildRequest', [col, row, username, build])
+}
+export function buildingUpdate(bupdate,  worldMatrix, worldGrid){
+    console.log(bupdate);
+    let [y, x, buildtype, money] = bupdate;
+    worldMatrix[y][x].building = buildtype;
+    if (buildtype === null){
+        worldGrid[y].children[x].style.backgroundImage = "url('images/gress.png')";
+    }else {
+        worldGrid[y].children[x].style.backgroundImage = "url('images/" + worldMatrix[y][x].building + ".png')";
+    }
+}
+function deleteChildren(victim){
+    let e = document.getElementById(victim);
+    let child = e.lastElementChild;
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
 }
