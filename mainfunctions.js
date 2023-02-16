@@ -137,7 +137,7 @@ function buildHandler(buildRequest, grid, socket){
             saveJSON('storage/world.json', currentTime)
         }
     }else {
-        userI.user.money = userI.user.money + 0;
+        userI.user.money = userI.user.money + 100;
         grid[y][x].building = null;
         currentTime.world = grid;
         socket.emit("bupdate", [y, x, null])

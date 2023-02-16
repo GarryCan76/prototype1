@@ -1,5 +1,5 @@
 {
-  "time": 27242,
+  "time": 27662,
   "world": [
     [
       {
@@ -17,7 +17,7 @@
       {
         "owner": "mike",
         "cost": 391,
-        "building": "Waterpump",
+        "building": null,
         "resources": {
           "WaterYield": 21,
           "CropYield": 24,
