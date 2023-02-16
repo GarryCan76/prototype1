@@ -32,12 +32,12 @@ socket.on('gridUpdate', gridUpdate=>{
     }
     gridInputHandler(gridUpdate, worldMatrix, worldGrid)
 });
-socket.on("bupdate", bupdate=>{
-    if (bupdate[4] === username){
-        sessionStorage.setItem('userMoney','' + bupdate[3])
+socket.on('bupdate', bUpdate=>{
+    if (bUpdate[4] === username){
+        sessionStorage.setItem('userMoney','' + bUpdate[3])
         document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
     }
-    buildingUpdate(bupdate, worldMatrix, worldGrid)
+    buildingUpdate(bUpdate, worldMatrix, worldGrid)
 })
 function gridInputCheck(){
     if (worldGrid !== null){

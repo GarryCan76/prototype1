@@ -82,7 +82,7 @@ async function userSignup(userRequest, socket){
     if (errorList.length === 0){
         let hash = await bcrypt.hash(password, 13)
         console.log("new user created")
-        usersJson.push({"user": {"name" : userName, "password" : hash, "userID" : userID, "money": 500,
+        usersJson.push({"user": {"name" : userName, "password" : hash, "userID" : userID, "money": 5000,
                 "resources":{"water":0, "Crops":0, "IronOre":0, "Iron":0, "CopperOre":0, "Copper":0, "Coal":0}}})
         saveJSON('storage/user.json', usersJson)
     }else {
@@ -124,24 +124,22 @@ function buildHandler(buildRequest, grid, socket){
     [y, x, username, buildingType] = buildRequest;
     let buildJson = loadJSON('storage/buildings.json')
     let [userI, usersJson] = getUserInfo(username)
-    console.log(buildingType)
     if (buildingType !== "destroy"){
         if (userI.user.money >= buildJson[buildingType][1]){
             userI.user.money = userI.user.money - buildJson[buildingType][1];
-            console.log(grid[y][x].building)
             grid[y][x].building = buildingType;
             currentTime.world = grid;
-            socket.emit("bupdate", [y, x, buildingType])
-            socket.broadcast.emit("bupdate", [y, x, buildingType, userI.user.money, username])
+            socket.emit('bupdate', [y, x, buildingType, userI.user.money, username])
+            socket.broadcast.emit('bupdate', [y, x, buildingType, userI.user.money, username])
             saveJSON('storage/user.json', usersJson)
             saveJSON('storage/world.json', currentTime)
         }
     }else {
-        userI.user.money = userI.user.money + 100;
+        userI.user.money = userI.user.money + buildJson[grid[y][x].building][1];
         grid[y][x].building = null;
         currentTime.world = grid;
-        socket.emit("bupdate", [y, x, null])
-        socket.broadcast.emit("bupdate", [y, x, null, userI.user.money, username])
+        socket.emit('bupdate', [y, x, null, userI.user.money, username])
+        socket.broadcast.emit('bupdate', [y, x, null, userI.user.money, username])
         saveJSON('storage/user.json', usersJson)
         saveJSON('storage/world.json', currentTime)
     }

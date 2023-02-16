@@ -1,5 +1,5 @@
 {
-  "time": 27662,
+  "time": 61712,
   "world": [
     [
       {
@@ -29,7 +29,7 @@
       {
         "owner": "mike",
         "cost": 755,
-        "building": "Waterpump",
+        "building": null,
         "resources": {
           "WaterYield": 55,
           "CropYield": 49,
@@ -53,7 +53,7 @@
       {
         "owner": "garon",
         "cost": 325,
-        "building": "Coalmine",
+        "building": null,
         "resources": {
           "WaterYield": 17,
           "CropYield": 29,
@@ -63,7 +63,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 248,
         "building": null,
         "resources": {
@@ -173,7 +173,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 421,
         "building": null,
         "resources": {
@@ -185,7 +185,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 201,
         "building": null,
         "resources": {
