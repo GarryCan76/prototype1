@@ -1,11 +1,9 @@
 const socket = io();
-import {gridcreator, gridInputHandler, uiResources, buy, buildingUpdate} from './cleintWorld.js'
-
+import {gridcreator, gridInputHandler, uiResources, buy, buildingUpdate, resourceCycles} from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
 let username = sessionStorage.getItem('username');
 let userID = sessionStorage.getItem('userID');
-let resources = JSON.parse(sessionStorage.getItem('resources'));
 let buildings = null;
 console.log(username)
 console.log(userID)
@@ -14,7 +12,7 @@ socket.on("connect", ()=>{
     console.log("connected")
 
 });
-uiResources(resources)
+uiResources()
 //get grid from server once connect
 socket.on("guc", guc=>{
     buildings = guc[1];
@@ -38,6 +36,11 @@ socket.on('bupdate', bUpdate=>{
         document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
     }
     buildingUpdate(bUpdate, worldMatrix, worldGrid)
+})
+socket.on('resourceCycles', rUpdate=>{
+    let resources = JSON.parse(sessionStorage.getItem('resources'));
+    resourceCycles(rUpdate, username, resources)
+
 })
 function gridInputCheck(){
     if (worldGrid !== null){

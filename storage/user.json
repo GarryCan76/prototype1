@@ -6,7 +6,7 @@
       "userID": "example",
       "money": 1000,
       "resources": {
-        "water": 0,
+        "Water": 0,
         "Crops": 0,
         "IronOre": 0,
         "Iron": 0,
@@ -21,9 +21,9 @@
       "name": "mike",
       "password": "$2b$13$FJm/VKoqwQoAr32gHpHRgObmZvEbOhPtZ0qkL.heDmZl4ZyyJXwf6",
       "userID": 884136,
-      "money": 445,
+      "money": 5100,
       "resources": {
-        "water": 123,
+        "Water": 123,
         "Crops": 435,
         "IronOre": 50,
         "Iron": 657,
@@ -38,9 +38,9 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 2493,
+      "money": 9760,
       "resources": {
-        "water": 0,
+        "Water": 0,
         "Crops": 0,
         "IronOre": 0,
         "Iron": 0,

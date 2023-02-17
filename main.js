@@ -7,6 +7,8 @@ const port = process.env.PORT||8080;
 const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
 let map = mainF.loadJSON('storage/world.json')
+let worldTick = true;
+setInterval(()=>{worldTick = true}, 1000)
 const buildings = mainF.loadJSON('storage/buildings.json')
     io.on('connection', socket =>{
     socket.emit('guc', [map.world, buildings])
@@ -15,7 +17,11 @@ const buildings = mainF.loadJSON('storage/buildings.json')
         socket.broadcast.emit('gridUpdate', gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
     });
-    setInterval(function() { mainF.worldClock(socket); }, 1000)
+    setInterval(function() {
+        if (worldTick){
+            mainF.worldClock(socket);
+            worldTick = false;}
+        }, 1000)
     socket.on('userSignup', userRequest =>{
         mainF.userSignup(userRequest, socket)
     })

@@ -51,13 +51,9 @@ export function gridInputHandler(gridupdate, worldMatrix, worldGrid){
         alert("could not buy")
     }
 }
-export function uiResources(resources){
-    var e = document.getElementById('resources');
-    var child = e.lastElementChild;
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
+export function uiResources(){
+    let resources = JSON.parse(sessionStorage.getItem('resources'));
+    deleteChildren('resources')
     for (let r = 0; r < Object.keys(resources).length; r++){
         let p = document.createElement('p');
         p.innerText = Object.keys(resources)[r] + " = " + resources[Object.keys(resources)[r]];
@@ -70,7 +66,7 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
             let p = document.createElement('p');
             if (buildings[Object.keys(buildings)[r]][2]){
                 p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(
-                        buildings[Object.keys(buildings)[r]][1] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2]] / 175) + buildings[Object.keys(buildings)[r]][0] +
+                        buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2]] / 175) + buildings[Object.keys(buildings)[r]][0] +
                     " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
                 document.getElementById('buildings').appendChild(p)
             }else {
@@ -84,6 +80,11 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
         p.innerText = "destroy " + worldMatrix[col][row].building;
         p.addEventListener("click", ()=>{buildRequest(col, row, username, socket, buildings, "destroy")})
         document.getElementById('buildings').appendChild(p)
+        p = document.createElement('p');
+        p.innerText = worldMatrix[col][row].building + " produces "
+            + parseInt(buildings[worldMatrix[col][row].building][3] * worldMatrix[col][row].resources[buildings[worldMatrix[col][row].building][2]] / 175)
+            + " " + buildings[worldMatrix[col][row].building][0];
+        document.getElementById('buildings').appendChild(p)
     }
 }
 export function buy(col, row, worldMatrix, worldGrid, socket, username, buildings){
@@ -93,18 +94,8 @@ export function buy(col, row, worldMatrix, worldGrid, socket, username, building
     }
     selected[0].style.borderColor = selected[1];
     selected = [worldGrid[col].children[row], worldGrid[col].children[row].style.borderColor]
-    var e = document.getElementById('gridInfo');
-    var child = e.lastElementChild;
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-    e = document.getElementById('buildings');
-    child = e.lastElementChild;
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
+    deleteChildren('gridInfo')
+    deleteChildren('buildings')
     if (worldMatrix[col][row].owner === null){
         let text = document.createElement('p');
         text.classList.add('buy');
@@ -130,7 +121,7 @@ export function buy(col, row, worldMatrix, worldGrid, socket, username, building
         document.getElementById('gridInfo').appendChild(text)
     }
     selected[0].style.borderColor = "rgb(75,75,75)";
-    for (let resourceI = 0; resourceI < 5; resourceI++){
+    for (let resourceI = 0; resourceI < Object.keys(worldMatrix[col][row].resources).length; resourceI++){
         let p = document.createElement('p');
         p.innerText = Object.keys(worldMatrix[col][row].resources)[resourceI] + " = " + worldMatrix[col][row].resources[Object.keys(worldMatrix[col][row].resources)[resourceI]] + "%";
         resources.push(Object.keys(worldMatrix[col][row].resources)[resourceI] + " = " + worldMatrix[col][row].resources[Object.keys(worldMatrix[col][row].resources)[resourceI]]);
@@ -148,7 +139,7 @@ function buildRequest(col, row, username, socket, buildings, r){
     deleteChildren('buildings')
     let build;
     if (r === "destroy"){
-        build = "destroy"
+        build = "destroy";
     }else {
         build = Object.keys(buildings)[r];
     }
@@ -171,4 +162,16 @@ function deleteChildren(victim){
         e.removeChild(child);
         child = e.lastElementChild;
     }
+}
+export function resourceCycles(rUpdate, username, resources){
+    let [name, amount, type] = rUpdate;
+    if (name === username){
+        type = type.replace(/\s/g, '');
+        resources[type] += amount;
+        sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
+        uiResources()
+
+    }
+
+
 }

@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const fs = require("fs");
 let currentTime = loadJSON('storage/world.json');
 let saveInterval = 0;
+let checktime = 0;
 function loadJSON(filename = ''){
     return JSON.parse(fs.existsSync(filename)
         ? fs.readFileSync(filename).toString()
@@ -11,8 +12,10 @@ function saveJSON(filename = '' ,json = '""'){
     return fs.writeFileSync(filename, JSON.stringify(json, null, 2))
 }
 function worldClock(socket){
+    checktime++
     saveInterval++
     currentTime.time++;
+    resourceCycle(currentTime.world, socket)
     socket.emit('time', currentTime.time)
     if (saveInterval === 30){
         saveJSON('storage/world.json', currentTime)
@@ -144,6 +147,19 @@ function buildHandler(buildRequest, grid, socket){
         saveJSON('storage/world.json', currentTime)
     }
 }
+function resourceCycle(world, socket){
+    let buildings = loadJSON('storage/buildings.json');
+    world.forEach(col=>{
+        col.forEach(row=>{
+            if (row.owner !== null && row.building !== null){
+                console.log(row.owner + " gets " + parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175) + " " + buildings[row.building][0])
+                socket.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0]])
+                socket.broadcast.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0]])
+            }
+        })
+    })
+}
+
 module.exports.worldClock = worldClock;
 module.exports.loadJSON = loadJSON;
 module.exports.saveJSON = saveJSON;
@@ -151,3 +167,5 @@ module.exports.updateGrid = updateGrid;
 module.exports.userSignup = userSignup;
 module.exports.loginRequest = loginRequest;
 module.exports.buildHandler = buildHandler;
+
+
