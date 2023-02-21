@@ -21,7 +21,7 @@
       "name": "mike",
       "password": "$2b$13$FJm/VKoqwQoAr32gHpHRgObmZvEbOhPtZ0qkL.heDmZl4ZyyJXwf6",
       "userID": 884136,
-      "money": 5100,
+      "money": 4675,
       "resources": {
         "Water": 123,
         "Crops": 435,
@@ -38,15 +38,18 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 9760,
+      "money": 4256,
       "resources": {
         "Water": 0,
         "Crops": 0,
+        "SiliciumOre": 15,
+        "Silicon": 0,
         "IronOre": 0,
         "Iron": 0,
-        "CopperOre": 0,
+        "CopperOre": 25,
         "Copper": 0,
-        "Coal": 0
+        "Coal": 0,
+        "Microchips": 340
       }
     }
   }

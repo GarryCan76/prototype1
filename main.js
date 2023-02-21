@@ -16,6 +16,7 @@ const buildings = mainF.loadJSON('storage/buildings.json')
         let gridUpdate = mainF.updateGrid(Gselect, map.world);
         socket.broadcast.emit('gridUpdate', gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
+
     });
     setInterval(function() {
         if (worldTick){

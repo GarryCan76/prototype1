@@ -28,6 +28,7 @@ for (let y = 0; y < worldSize; y++){
                 "CropYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
                 "IronOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
                 "CopperOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "SiliciumOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
                 "CoalYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
             },
         })

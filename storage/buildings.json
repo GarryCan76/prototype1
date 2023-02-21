@@ -1,8 +1,10 @@
 {
-  "Coalmine": [" Coal", 100, "CoalYield", 100],
-  "Coalplant": [" Electricity", 200, false, 100],
-  "Waterpump": [" Water", 300, "WaterYield", 100],
-  "Coppermine": [" CopperOre", 400, "CopperOreYield", 100],
-  "Goldmine": [" GoldOre", 400, "GoldYield", 100],
-  "Coppermill": [" Copper", 500, false, 100]
+  "Coalmine": ["Coal", 100, ["CoalYield"], 20, "Mine"],
+  "Coalplant": ["Electricity", 200, [false], 20, "Factory"],
+  "Waterpump": ["Water", 300, ["WaterYield"], 20, "Mine"],
+  "Coppermine": ["CopperOre", 400, ["CopperOreYield"], 20, "Mine"],
+  "Siliciummine": ["SiliciumOre", 400, ["SiliciumOreYield"], 20, "Mine"],
+  "Siliconmill": ["Silicon", 500, ["SiliciumOre"], 20, "Factory"],
+  "Coppermill": ["Copper", 500, ["CopperOre"], 20, "Factory"],
+  "Microchipfactory": ["Microchips", 500, [{"resourceReqType": "Copper", "resourceReqAmt": 5}, {"resourceReqType": "Silicon", "resourceReqAmt": 10}, {"resourceReqType": "Coal", "resourceReqAmt": 100}], 20, "Factory"]
 }

@@ -152,14 +152,36 @@ function resourceCycle(world, socket){
     world.forEach(col=>{
         col.forEach(row=>{
             if (row.owner !== null && row.building !== null){
-                console.log(row.owner + " gets " + parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175) + " " + buildings[row.building][0])
-                socket.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0]])
-                socket.broadcast.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0]])
+                console.log([buildings[row.building][2][0]["resourceReqType"]] + "" + [buildings[row.building][2][0]["resourceReqAmt"]])
+                let [userI, usersJson] = getUserInfo(row.owner)
+                for (let req = 0; req < buildings[row.building][2].length; req++){
+                    console.log(userI.user.resources[buildings[row.building][2][req]["resourceReqType"]] + " " + [buildings[row.building][2][req]["resourceReqAmt"]]);
+                }
+                if (buildings[row.building][4] === "Mine"){
+                    userI.user.resources[buildings[row.building][0]] += parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175);
+                    socket.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0], false, false])
+                    socket.broadcast.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0], false, false])
+                }else {
+                    let adequateResources = true;
+                    for (let req = 0; req < buildings[row.building][2].length; req++){
+                        if (userI.user.resources[buildings[row.building][2][req]["resourceReqType"]] < buildings[row.building][2][req]["resourceReqAmt"]){
+                            adequateResources = false;
+                        }
+                    }
+                    if (adequateResources){
+                        for (let req = 0; req < buildings[row.building][2].length; req++){
+                            userI.user.resources[buildings[row.building][2][req]["resourceReqType"]] -= [buildings[row.building][2][req]["resourceReqAmt"]];
+                        }
+                        userI.user.resources[buildings[row.building][0]] += 1;
+                        socket.emit('resourceCycles', [row.owner, 1, buildings[row.building][0], 10, buildings[row.building][2]])
+                        socket.broadcast.emit('resourceCycles', [row.owner, 1, buildings[row.building][0], buildings[row.building][3], buildings[row.building][2]])
+                    }
+                }
+                saveJSON('storage/user.json', usersJson)
             }
         })
     })
 }
-
 module.exports.worldClock = worldClock;
 module.exports.loadJSON = loadJSON;
 module.exports.saveJSON = saveJSON;
@@ -167,5 +189,4 @@ module.exports.updateGrid = updateGrid;
 module.exports.userSignup = userSignup;
 module.exports.loginRequest = loginRequest;
 module.exports.buildHandler = buildHandler;
-
 

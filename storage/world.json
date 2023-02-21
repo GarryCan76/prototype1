@@ -1,53 +1,122 @@
 {
-  "time": 0,
+  "time": 8799,
   "world": [
     [
       {
         "owner": null,
-        "cost": 144,
+        "cost": 466,
         "building": null,
         "resources": {
-          "WaterYield": 7,
-          "CropYield": 9,
-          "IronOreYield": 9,
-          "CopperOreYield": 10,
-          "CoalYield": 13
+          "WaterYield": 40,
+          "CropYield": 40,
+          "IronOreYield": 30,
+          "CopperOreYield": 33,
+          "SiliciumOreYield": 29,
+          "CoalYield": 32
         }
       },
       {
         "owner": null,
-        "cost": 624,
+        "cost": 907,
         "building": null,
         "resources": {
-          "WaterYield": 52,
-          "CropYield": 52,
-          "IronOreYield": 37,
-          "CopperOreYield": 53,
-          "CoalYield": 45
-        }
-      },
-      {
-        "owner": null,
-        "cost": 853,
-        "building": null,
-        "resources": {
-          "WaterYield": 76,
-          "CropYield": 52,
-          "IronOreYield": 67,
+          "WaterYield": 83,
+          "CropYield": 79,
+          "IronOreYield": 81,
           "CopperOreYield": 52,
-          "CoalYield": 84
+          "SiliciumOreYield": 67,
+          "CoalYield": 46
         }
       },
       {
         "owner": null,
-        "cost": 764,
+        "cost": 992,
         "building": null,
         "resources": {
-          "WaterYield": 62,
-          "CropYield": 52,
-          "IronOreYield": 74,
-          "CopperOreYield": 39,
-          "CoalYield": 47
+          "WaterYield": 89,
+          "CropYield": 51,
+          "IronOreYield": 92,
+          "CopperOreYield": 72,
+          "SiliciumOreYield": 87,
+          "CoalYield": 98
+        }
+      },
+      {
+        "owner": null,
+        "cost": 818,
+        "building": null,
+        "resources": {
+          "WaterYield": 42,
+          "CropYield": 48,
+          "IronOreYield": 75,
+          "CopperOreYield": 49,
+          "SiliciumOreYield": 51,
+          "CoalYield": 64
+        }
+      },
+      {
+        "owner": null,
+        "cost": 577,
+        "building": null,
+        "resources": {
+          "WaterYield": 42,
+          "CropYield": 41,
+          "IronOreYield": 36,
+          "CopperOreYield": 34,
+          "SiliciumOreYield": 47,
+          "CoalYield": 50
+        }
+      },
+      {
+        "owner": null,
+        "cost": 847,
+        "building": null,
+        "resources": {
+          "WaterYield": 74,
+          "CropYield": 62,
+          "IronOreYield": 81,
+          "CopperOreYield": 55,
+          "SiliciumOreYield": 47,
+          "CoalYield": 58
+        }
+      },
+      {
+        "owner": null,
+        "cost": 933,
+        "building": null,
+        "resources": {
+          "WaterYield": 48,
+          "CropYield": 71,
+          "IronOreYield": 51,
+          "CopperOreYield": 49,
+          "SiliciumOreYield": 77,
+          "CoalYield": 48
+        }
+      },
+      {
+        "owner": null,
+        "cost": 262,
+        "building": null,
+        "resources": {
+          "WaterYield": 22,
+          "CropYield": 25,
+          "IronOreYield": 17,
+          "CopperOreYield": 19,
+          "SiliciumOreYield": 23,
+          "CoalYield": 22
+        }
+      },
+      {
+        "owner": null,
+        "cost": 370,
+        "building": null,
+        "resources": {
+          "WaterYield": 24,
+          "CropYield": 30,
+          "IronOreYield": 28,
+          "CopperOreYield": 32,
+          "SiliciumOreYield": 20,
+          "CoalYield": 22
         }
       },
       {
@@ -55,133 +124,66 @@
         "cost": 684,
         "building": null,
         "resources": {
-          "WaterYield": 56,
-          "CropYield": 53,
-          "IronOreYield": 35,
+          "WaterYield": 37,
+          "CropYield": 57,
+          "IronOreYield": 45,
           "CopperOreYield": 38,
-          "CoalYield": 42
-        }
-      },
-      {
-        "owner": null,
-        "cost": 437,
-        "building": null,
-        "resources": {
-          "WaterYield": 33,
-          "CropYield": 31,
-          "IronOreYield": 29,
-          "CopperOreYield": 43,
-          "CoalYield": 28
-        }
-      },
-      {
-        "owner": null,
-        "cost": 633,
-        "building": null,
-        "resources": {
-          "WaterYield": 44,
-          "CropYield": 56,
-          "IronOreYield": 34,
-          "CopperOreYield": 39,
-          "CoalYield": 56
-        }
-      },
-      {
-        "owner": null,
-        "cost": 460,
-        "building": null,
-        "resources": {
-          "WaterYield": 23,
-          "CropYield": 41,
-          "IronOreYield": 27,
-          "CopperOreYield": 29,
-          "CoalYield": 36
-        }
-      },
-      {
-        "owner": null,
-        "cost": 158,
-        "building": null,
-        "resources": {
-          "WaterYield": 13,
-          "CropYield": 12,
-          "IronOreYield": 10,
-          "CopperOreYield": 14,
-          "CoalYield": 9
-        }
-      },
-      {
-        "owner": null,
-        "cost": 141,
-        "building": null,
-        "resources": {
-          "WaterYield": 12,
-          "CropYield": 11,
-          "IronOreYield": 13,
-          "CopperOreYield": 11,
-          "CoalYield": 7
+          "SiliciumOreYield": 57,
+          "CoalYield": 41
         }
       }
     ],
     [
       {
         "owner": null,
-        "cost": 333,
+        "cost": 225,
         "building": null,
         "resources": {
-          "WaterYield": 18,
-          "CropYield": 22,
-          "IronOreYield": 31,
-          "CopperOreYield": 30,
-          "CoalYield": 26
+          "WaterYield": 19,
+          "CropYield": 20,
+          "IronOreYield": 13,
+          "CopperOreYield": 19,
+          "SiliciumOreYield": 15,
+          "CoalYield": 16
         }
       },
       {
         "owner": null,
-        "cost": 695,
+        "cost": 125,
         "building": null,
         "resources": {
-          "WaterYield": 61,
-          "CropYield": 42,
-          "IronOreYield": 42,
-          "CopperOreYield": 53,
-          "CoalYield": 47
+          "WaterYield": 8,
+          "CropYield": 9,
+          "IronOreYield": 11,
+          "CopperOreYield": 10,
+          "SiliciumOreYield": 8,
+          "CoalYield": 10
         }
       },
       {
         "owner": null,
-        "cost": 247,
+        "cost": 202,
         "building": null,
         "resources": {
-          "WaterYield": 17,
-          "CropYield": 24,
-          "IronOreYield": 14,
-          "CopperOreYield": 20,
-          "CoalYield": 18
+          "WaterYield": 16,
+          "CropYield": 19,
+          "IronOreYield": 16,
+          "CopperOreYield": 17,
+          "SiliciumOreYield": 16,
+          "CoalYield": 12
         }
       },
       {
         "owner": null,
-        "cost": 425,
+        "cost": 463,
         "building": null,
         "resources": {
-          "WaterYield": 36,
-          "CropYield": 29,
-          "IronOreYield": 39,
-          "CopperOreYield": 40,
-          "CoalYield": 34
-        }
-      },
-      {
-        "owner": null,
-        "cost": 377,
-        "building": null,
-        "resources": {
-          "WaterYield": 22,
-          "CropYield": 25,
+          "WaterYield": 42,
+          "CropYield": 40,
           "IronOreYield": 26,
-          "CopperOreYield": 35,
-          "CoalYield": 31
+          "CopperOreYield": 42,
+          "SiliciumOreYield": 24,
+          "CoalYield": 35
         }
       },
       {
@@ -189,73 +191,540 @@
         "cost": 148,
         "building": null,
         "resources": {
-          "WaterYield": 13,
-          "CropYield": 8,
-          "IronOreYield": 14,
-          "CopperOreYield": 13,
-          "CoalYield": 8
+          "WaterYield": 14,
+          "CropYield": 11,
+          "IronOreYield": 13,
+          "CopperOreYield": 8,
+          "SiliciumOreYield": 12,
+          "CoalYield": 9
         }
       },
       {
         "owner": null,
-        "cost": 537,
+        "cost": 661,
         "building": null,
         "resources": {
-          "WaterYield": 53,
-          "CropYield": 39,
-          "IronOreYield": 46,
+          "WaterYield": 54,
+          "CropYield": 41,
+          "IronOreYield": 51,
+          "CopperOreYield": 58,
+          "SiliciumOreYield": 52,
+          "CoalYield": 45
+        }
+      },
+      {
+        "owner": null,
+        "cost": 831,
+        "building": null,
+        "resources": {
+          "WaterYield": 51,
+          "CropYield": 44,
+          "IronOreYield": 55,
           "CopperOreYield": 47,
-          "CoalYield": 27
+          "SiliciumOreYield": 50,
+          "CoalYield": 50
         }
       },
       {
         "owner": null,
-        "cost": 889,
+        "cost": 794,
         "building": null,
         "resources": {
-          "WaterYield": 46,
-          "CropYield": 48,
-          "IronOreYield": 52,
-          "CopperOreYield": 88,
-          "CoalYield": 55
+          "WaterYield": 64,
+          "CropYield": 46,
+          "IronOreYield": 72,
+          "CopperOreYield": 69,
+          "SiliciumOreYield": 67,
+          "CoalYield": 54
         }
       },
       {
         "owner": null,
-        "cost": 538,
+        "cost": 348,
         "building": null,
         "resources": {
-          "WaterYield": 45,
-          "CropYield": 47,
-          "IronOreYield": 49,
+          "WaterYield": 30,
+          "CropYield": 34,
+          "IronOreYield": 22,
           "CopperOreYield": 32,
-          "CoalYield": 47
+          "SiliciumOreYield": 29,
+          "CoalYield": 31
         }
       },
       {
         "owner": null,
-        "cost": 261,
+        "cost": 716,
         "building": null,
         "resources": {
-          "WaterYield": 20,
-          "CropYield": 23,
-          "IronOreYield": 17,
-          "CopperOreYield": 22,
-          "CoalYield": 26
+          "WaterYield": 57,
+          "CropYield": 36,
+          "IronOreYield": 59,
+          "CopperOreYield": 69,
+          "SiliciumOreYield": 68,
+          "CoalYield": 47
         }
       }
     ],
     [
       {
         "owner": null,
-        "cost": 957,
+        "cost": 518,
+        "building": null,
+        "resources": {
+          "WaterYield": 38,
+          "CropYield": 34,
+          "IronOreYield": 42,
+          "CopperOreYield": 43,
+          "SiliciumOreYield": 48,
+          "CoalYield": 47
+        }
+      },
+      {
+        "owner": null,
+        "cost": 467,
+        "building": null,
+        "resources": {
+          "WaterYield": 35,
+          "CropYield": 25,
+          "IronOreYield": 37,
+          "CopperOreYield": 36,
+          "SiliciumOreYield": 43,
+          "CoalYield": 40
+        }
+      },
+      {
+        "owner": null,
+        "cost": 148,
+        "building": null,
+        "resources": {
+          "WaterYield": 12,
+          "CropYield": 11,
+          "IronOreYield": 12,
+          "CopperOreYield": 12,
+          "SiliciumOreYield": 10,
+          "CoalYield": 7
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 375,
+        "building": "Microchipfactory",
+        "resources": {
+          "WaterYield": 18,
+          "CropYield": 24,
+          "IronOreYield": 30,
+          "CopperOreYield": 21,
+          "SiliciumOreYield": 33,
+          "CoalYield": 37
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 844,
+        "building": null,
+        "resources": {
+          "WaterYield": 52,
+          "CropYield": 77,
+          "IronOreYield": 43,
+          "CopperOreYield": 68,
+          "SiliciumOreYield": 50,
+          "CoalYield": 51
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 705,
+        "building": null,
+        "resources": {
+          "WaterYield": 61,
+          "CropYield": 36,
+          "IronOreYield": 45,
+          "CopperOreYield": 43,
+          "SiliciumOreYield": 42,
+          "CoalYield": 45
+        }
+      },
+      {
+        "owner": null,
+        "cost": 337,
+        "building": null,
+        "resources": {
+          "WaterYield": 21,
+          "CropYield": 18,
+          "IronOreYield": 22,
+          "CopperOreYield": 21,
+          "SiliciumOreYield": 17,
+          "CoalYield": 32
+        }
+      },
+      {
+        "owner": null,
+        "cost": 384,
+        "building": null,
+        "resources": {
+          "WaterYield": 24,
+          "CropYield": 29,
+          "IronOreYield": 21,
+          "CopperOreYield": 36,
+          "SiliciumOreYield": 37,
+          "CoalYield": 20
+        }
+      },
+      {
+        "owner": null,
+        "cost": 250,
+        "building": null,
+        "resources": {
+          "WaterYield": 22,
+          "CropYield": 22,
+          "IronOreYield": 22,
+          "CopperOreYield": 21,
+          "SiliciumOreYield": 16,
+          "CoalYield": 23
+        }
+      },
+      {
+        "owner": null,
+        "cost": 427,
+        "building": null,
+        "resources": {
+          "WaterYield": 27,
+          "CropYield": 40,
+          "IronOreYield": 24,
+          "CopperOreYield": 24,
+          "SiliciumOreYield": 38,
+          "CoalYield": 25
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 612,
+        "building": null,
+        "resources": {
+          "WaterYield": 38,
+          "CropYield": 60,
+          "IronOreYield": 55,
+          "CopperOreYield": 58,
+          "SiliciumOreYield": 46,
+          "CoalYield": 47
+        }
+      },
+      {
+        "owner": null,
+        "cost": 642,
+        "building": null,
+        "resources": {
+          "WaterYield": 49,
+          "CropYield": 33,
+          "IronOreYield": 42,
+          "CopperOreYield": 35,
+          "SiliciumOreYield": 53,
+          "CoalYield": 32
+        }
+      },
+      {
+        "owner": null,
+        "cost": 352,
+        "building": null,
+        "resources": {
+          "WaterYield": 31,
+          "CropYield": 24,
+          "IronOreYield": 19,
+          "CopperOreYield": 24,
+          "SiliciumOreYield": 19,
+          "CoalYield": 23
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 185,
+        "building": null,
+        "resources": {
+          "WaterYield": 12,
+          "CropYield": 17,
+          "IronOreYield": 14,
+          "CopperOreYield": 14,
+          "SiliciumOreYield": 17,
+          "CoalYield": 9
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 486,
+        "building": null,
+        "resources": {
+          "WaterYield": 38,
+          "CropYield": 34,
+          "IronOreYield": 38,
+          "CopperOreYield": 35,
+          "SiliciumOreYield": 35,
+          "CoalYield": 26
+        }
+      },
+      {
+        "owner": null,
+        "cost": 102,
+        "building": null,
+        "resources": {
+          "WaterYield": 8,
+          "CropYield": 9,
+          "IronOreYield": 6,
+          "CopperOreYield": 7,
+          "SiliciumOreYield": 5,
+          "CoalYield": 7
+        }
+      },
+      {
+        "owner": null,
+        "cost": 660,
+        "building": null,
+        "resources": {
+          "WaterYield": 35,
+          "CropYield": 62,
+          "IronOreYield": 63,
+          "CopperOreYield": 41,
+          "SiliciumOreYield": 41,
+          "CoalYield": 47
+        }
+      },
+      {
+        "owner": null,
+        "cost": 815,
+        "building": null,
+        "resources": {
+          "WaterYield": 70,
+          "CropYield": 74,
+          "IronOreYield": 45,
+          "CopperOreYield": 67,
+          "SiliciumOreYield": 43,
+          "CoalYield": 43
+        }
+      },
+      {
+        "owner": null,
+        "cost": 569,
         "building": null,
         "resources": {
           "WaterYield": 48,
-          "CropYield": 93,
-          "IronOreYield": 70,
+          "CropYield": 44,
+          "IronOreYield": 50,
+          "CopperOreYield": 47,
+          "SiliciumOreYield": 32,
+          "CoalYield": 35
+        }
+      },
+      {
+        "owner": null,
+        "cost": 740,
+        "building": null,
+        "resources": {
+          "WaterYield": 67,
+          "CropYield": 69,
+          "IronOreYield": 59,
+          "CopperOreYield": 69,
+          "SiliciumOreYield": 42,
+          "CoalYield": 66
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 955,
+        "building": null,
+        "resources": {
+          "WaterYield": 80,
+          "CropYield": 75,
+          "IronOreYield": 56,
           "CopperOreYield": 51,
-          "CoalYield": 65
+          "SiliciumOreYield": 95,
+          "CoalYield": 61
+        }
+      },
+      {
+        "owner": null,
+        "cost": 362,
+        "building": null,
+        "resources": {
+          "WaterYield": 31,
+          "CropYield": 35,
+          "IronOreYield": 19,
+          "CopperOreYield": 20,
+          "SiliciumOreYield": 22,
+          "CoalYield": 23
+        }
+      },
+      {
+        "owner": null,
+        "cost": 453,
+        "building": null,
+        "resources": {
+          "WaterYield": 37,
+          "CropYield": 37,
+          "IronOreYield": 36,
+          "CopperOreYield": 28,
+          "SiliciumOreYield": 38,
+          "CoalYield": 40
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 365,
+        "building": null,
+        "resources": {
+          "WaterYield": 36,
+          "CropYield": 33,
+          "IronOreYield": 33,
+          "CopperOreYield": 22,
+          "SiliciumOreYield": 33,
+          "CoalYield": 36
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 498,
+        "building": null,
+        "resources": {
+          "WaterYield": 37,
+          "CropYield": 26,
+          "IronOreYield": 38,
+          "CopperOreYield": 42,
+          "SiliciumOreYield": 25,
+          "CoalYield": 34
+        }
+      },
+      {
+        "owner": null,
+        "cost": 273,
+        "building": null,
+        "resources": {
+          "WaterYield": 26,
+          "CropYield": 20,
+          "IronOreYield": 23,
+          "CopperOreYield": 21,
+          "SiliciumOreYield": 18,
+          "CoalYield": 14
+        }
+      },
+      {
+        "owner": null,
+        "cost": 867,
+        "building": null,
+        "resources": {
+          "WaterYield": 70,
+          "CropYield": 57,
+          "IronOreYield": 50,
+          "CopperOreYield": 62,
+          "SiliciumOreYield": 55,
+          "CoalYield": 69
+        }
+      },
+      {
+        "owner": null,
+        "cost": 138,
+        "building": null,
+        "resources": {
+          "WaterYield": 6,
+          "CropYield": 13,
+          "IronOreYield": 8,
+          "CopperOreYield": 11,
+          "SiliciumOreYield": 10,
+          "CoalYield": 9
+        }
+      },
+      {
+        "owner": null,
+        "cost": 466,
+        "building": null,
+        "resources": {
+          "WaterYield": 38,
+          "CropYield": 41,
+          "IronOreYield": 44,
+          "CopperOreYield": 39,
+          "SiliciumOreYield": 40,
+          "CoalYield": 32
+        }
+      },
+      {
+        "owner": null,
+        "cost": 815,
+        "building": null,
+        "resources": {
+          "WaterYield": 60,
+          "CropYield": 57,
+          "IronOreYield": 50,
+          "CopperOreYield": 60,
+          "SiliciumOreYield": 62,
+          "CoalYield": 49
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 513,
+        "building": null,
+        "resources": {
+          "WaterYield": 50,
+          "CropYield": 33,
+          "IronOreYield": 48,
+          "CopperOreYield": 42,
+          "SiliciumOreYield": 36,
+          "CoalYield": 37
+        }
+      },
+      {
+        "owner": null,
+        "cost": 241,
+        "building": null,
+        "resources": {
+          "WaterYield": 17,
+          "CropYield": 22,
+          "IronOreYield": 15,
+          "CopperOreYield": 23,
+          "SiliciumOreYield": 17,
+          "CoalYield": 21
+        }
+      },
+      {
+        "owner": null,
+        "cost": 236,
+        "building": null,
+        "resources": {
+          "WaterYield": 12,
+          "CropYield": 23,
+          "IronOreYield": 21,
+          "CopperOreYield": 17,
+          "SiliciumOreYield": 15,
+          "CoalYield": 22
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 165,
+        "building": null,
+        "resources": {
+          "WaterYield": 12,
+          "CropYield": 11,
+          "IronOreYield": 11,
+          "CopperOreYield": 15,
+          "SiliciumOreYield": 8,
+          "CoalYield": 14
+        }
+      },
+      {
+        "owner": null,
+        "cost": 910,
+        "building": null,
+        "resources": {
+          "WaterYield": 52,
+          "CropYield": 81,
+          "IronOreYield": 81,
+          "CopperOreYield": 74,
+          "SiliciumOreYield": 51,
+          "CoalYield": 69
         }
       },
       {
@@ -263,23 +732,475 @@
         "cost": 440,
         "building": null,
         "resources": {
-          "WaterYield": 38,
-          "CropYield": 38,
-          "IronOreYield": 23,
-          "CopperOreYield": 23,
-          "CoalYield": 29
+          "WaterYield": 31,
+          "CropYield": 34,
+          "IronOreYield": 43,
+          "CopperOreYield": 27,
+          "SiliciumOreYield": 35,
+          "CoalYield": 42
         }
       },
       {
         "owner": null,
-        "cost": 581,
+        "cost": 378,
         "building": null,
         "resources": {
-          "WaterYield": 30,
-          "CropYield": 42,
-          "IronOreYield": 32,
+          "WaterYield": 21,
+          "CropYield": 23,
+          "IronOreYield": 26,
+          "CopperOreYield": 34,
+          "SiliciumOreYield": 22,
+          "CoalYield": 31
+        }
+      },
+      {
+        "owner": null,
+        "cost": 715,
+        "building": null,
+        "resources": {
+          "WaterYield": 62,
+          "CropYield": 45,
+          "IronOreYield": 59,
+          "CopperOreYield": 58,
+          "SiliciumOreYield": 44,
+          "CoalYield": 35
+        }
+      },
+      {
+        "owner": null,
+        "cost": 558,
+        "building": null,
+        "resources": {
+          "WaterYield": 39,
+          "CropYield": 41,
+          "IronOreYield": 37,
+          "CopperOreYield": 33,
+          "SiliciumOreYield": 41,
+          "CoalYield": 48
+        }
+      },
+      {
+        "owner": null,
+        "cost": 295,
+        "building": null,
+        "resources": {
+          "WaterYield": 16,
+          "CropYield": 17,
+          "IronOreYield": 15,
+          "CopperOreYield": 28,
+          "SiliciumOreYield": 24,
+          "CoalYield": 15
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 203,
+        "building": null,
+        "resources": {
+          "WaterYield": 20,
+          "CropYield": 14,
+          "IronOreYield": 15,
+          "CopperOreYield": 19,
+          "SiliciumOreYield": 13,
+          "CoalYield": 17
+        }
+      },
+      {
+        "owner": null,
+        "cost": 272,
+        "building": null,
+        "resources": {
+          "WaterYield": 26,
+          "CropYield": 16,
+          "IronOreYield": 22,
+          "CopperOreYield": 22,
+          "SiliciumOreYield": 14,
+          "CoalYield": 24
+        }
+      },
+      {
+        "owner": "garon",
+        "cost": 553,
+        "building": null,
+        "resources": {
+          "WaterYield": 51,
+          "CropYield": 51,
+          "IronOreYield": 43,
           "CopperOreYield": 32,
-          "CoalYield": 53
+          "SiliciumOreYield": 35,
+          "CoalYield": 28
+        }
+      },
+      {
+        "owner": null,
+        "cost": 422,
+        "building": null,
+        "resources": {
+          "WaterYield": 34,
+          "CropYield": 30,
+          "IronOreYield": 32,
+          "CopperOreYield": 41,
+          "SiliciumOreYield": 31,
+          "CoalYield": 34
+        }
+      },
+      {
+        "owner": null,
+        "cost": 740,
+        "building": null,
+        "resources": {
+          "WaterYield": 69,
+          "CropYield": 61,
+          "IronOreYield": 53,
+          "CopperOreYield": 73,
+          "SiliciumOreYield": 59,
+          "CoalYield": 68
+        }
+      },
+      {
+        "owner": null,
+        "cost": 505,
+        "building": null,
+        "resources": {
+          "WaterYield": 46,
+          "CropYield": 29,
+          "IronOreYield": 48,
+          "CopperOreYield": 47,
+          "SiliciumOreYield": 29,
+          "CoalYield": 50
+        }
+      },
+      {
+        "owner": null,
+        "cost": 807,
+        "building": null,
+        "resources": {
+          "WaterYield": 56,
+          "CropYield": 58,
+          "IronOreYield": 77,
+          "CopperOreYield": 61,
+          "SiliciumOreYield": 54,
+          "CoalYield": 71
+        }
+      },
+      {
+        "owner": null,
+        "cost": 265,
+        "building": null,
+        "resources": {
+          "WaterYield": 14,
+          "CropYield": 22,
+          "IronOreYield": 14,
+          "CopperOreYield": 25,
+          "SiliciumOreYield": 24,
+          "CoalYield": 13
+        }
+      },
+      {
+        "owner": null,
+        "cost": 848,
+        "building": null,
+        "resources": {
+          "WaterYield": 53,
+          "CropYield": 56,
+          "IronOreYield": 81,
+          "CopperOreYield": 78,
+          "SiliciumOreYield": 59,
+          "CoalYield": 57
+        }
+      },
+      {
+        "owner": null,
+        "cost": 760,
+        "building": null,
+        "resources": {
+          "WaterYield": 65,
+          "CropYield": 50,
+          "IronOreYield": 40,
+          "CopperOreYield": 52,
+          "SiliciumOreYield": 57,
+          "CoalYield": 39
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 783,
+        "building": null,
+        "resources": {
+          "WaterYield": 73,
+          "CropYield": 46,
+          "IronOreYield": 56,
+          "CopperOreYield": 62,
+          "SiliciumOreYield": 49,
+          "CoalYield": 45
+        }
+      },
+      {
+        "owner": null,
+        "cost": 403,
+        "building": null,
+        "resources": {
+          "WaterYield": 26,
+          "CropYield": 23,
+          "IronOreYield": 32,
+          "CopperOreYield": 37,
+          "SiliciumOreYield": 32,
+          "CoalYield": 33
+        }
+      },
+      {
+        "owner": null,
+        "cost": 133,
+        "building": null,
+        "resources": {
+          "WaterYield": 7,
+          "CropYield": 12,
+          "IronOreYield": 11,
+          "CopperOreYield": 9,
+          "SiliciumOreYield": 10,
+          "CoalYield": 8
+        }
+      },
+      {
+        "owner": null,
+        "cost": 438,
+        "building": null,
+        "resources": {
+          "WaterYield": 39,
+          "CropYield": 37,
+          "IronOreYield": 29,
+          "CopperOreYield": 32,
+          "SiliciumOreYield": 39,
+          "CoalYield": 43
+        }
+      },
+      {
+        "owner": null,
+        "cost": 478,
+        "building": null,
+        "resources": {
+          "WaterYield": 41,
+          "CropYield": 38,
+          "IronOreYield": 32,
+          "CopperOreYield": 38,
+          "SiliciumOreYield": 27,
+          "CoalYield": 33
+        }
+      },
+      {
+        "owner": null,
+        "cost": 276,
+        "building": null,
+        "resources": {
+          "WaterYield": 21,
+          "CropYield": 16,
+          "IronOreYield": 23,
+          "CopperOreYield": 16,
+          "SiliciumOreYield": 27,
+          "CoalYield": 17
+        }
+      },
+      {
+        "owner": null,
+        "cost": 367,
+        "building": null,
+        "resources": {
+          "WaterYield": 23,
+          "CropYield": 22,
+          "IronOreYield": 22,
+          "CopperOreYield": 27,
+          "SiliciumOreYield": 20,
+          "CoalYield": 34
+        }
+      },
+      {
+        "owner": null,
+        "cost": 400,
+        "building": null,
+        "resources": {
+          "WaterYield": 29,
+          "CropYield": 33,
+          "IronOreYield": 26,
+          "CopperOreYield": 25,
+          "SiliciumOreYield": 37,
+          "CoalYield": 33
+        }
+      },
+      {
+        "owner": null,
+        "cost": 354,
+        "building": null,
+        "resources": {
+          "WaterYield": 19,
+          "CropYield": 29,
+          "IronOreYield": 21,
+          "CopperOreYield": 24,
+          "SiliciumOreYield": 34,
+          "CoalYield": 31
+        }
+      },
+      {
+        "owner": null,
+        "cost": 373,
+        "building": null,
+        "resources": {
+          "WaterYield": 23,
+          "CropYield": 29,
+          "IronOreYield": 25,
+          "CopperOreYield": 27,
+          "SiliciumOreYield": 28,
+          "CoalYield": 20
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 273,
+        "building": null,
+        "resources": {
+          "WaterYield": 17,
+          "CropYield": 26,
+          "IronOreYield": 24,
+          "CopperOreYield": 26,
+          "SiliciumOreYield": 26,
+          "CoalYield": 24
+        }
+      },
+      {
+        "owner": null,
+        "cost": 197,
+        "building": null,
+        "resources": {
+          "WaterYield": 11,
+          "CropYield": 19,
+          "IronOreYield": 14,
+          "CopperOreYield": 18,
+          "SiliciumOreYield": 14,
+          "CoalYield": 12
+        }
+      },
+      {
+        "owner": null,
+        "cost": 393,
+        "building": null,
+        "resources": {
+          "WaterYield": 25,
+          "CropYield": 33,
+          "IronOreYield": 32,
+          "CopperOreYield": 27,
+          "SiliciumOreYield": 34,
+          "CoalYield": 28
+        }
+      },
+      {
+        "owner": null,
+        "cost": 548,
+        "building": null,
+        "resources": {
+          "WaterYield": 38,
+          "CropYield": 50,
+          "IronOreYield": 41,
+          "CopperOreYield": 29,
+          "SiliciumOreYield": 42,
+          "CoalYield": 32
+        }
+      },
+      {
+        "owner": null,
+        "cost": 955,
+        "building": null,
+        "resources": {
+          "WaterYield": 66,
+          "CropYield": 51,
+          "IronOreYield": 84,
+          "CopperOreYield": 76,
+          "SiliciumOreYield": 60,
+          "CoalYield": 79
+        }
+      },
+      {
+        "owner": null,
+        "cost": 383,
+        "building": null,
+        "resources": {
+          "WaterYield": 37,
+          "CropYield": 23,
+          "IronOreYield": 19,
+          "CopperOreYield": 26,
+          "SiliciumOreYield": 33,
+          "CoalYield": 20
+        }
+      },
+      {
+        "owner": null,
+        "cost": 890,
+        "building": null,
+        "resources": {
+          "WaterYield": 56,
+          "CropYield": 60,
+          "IronOreYield": 67,
+          "CopperOreYield": 63,
+          "SiliciumOreYield": 60,
+          "CoalYield": 85
+        }
+      },
+      {
+        "owner": null,
+        "cost": 498,
+        "building": null,
+        "resources": {
+          "WaterYield": 43,
+          "CropYield": 32,
+          "IronOreYield": 26,
+          "CopperOreYield": 41,
+          "SiliciumOreYield": 44,
+          "CoalYield": 35
+        }
+      },
+      {
+        "owner": null,
+        "cost": 878,
+        "building": null,
+        "resources": {
+          "WaterYield": 64,
+          "CropYield": 70,
+          "IronOreYield": 81,
+          "CopperOreYield": 72,
+          "SiliciumOreYield": 82,
+          "CoalYield": 87
+        }
+      },
+      {
+        "owner": null,
+        "cost": 226,
+        "building": null,
+        "resources": {
+          "WaterYield": 16,
+          "CropYield": 16,
+          "IronOreYield": 12,
+          "CopperOreYield": 13,
+          "SiliciumOreYield": 21,
+          "CoalYield": 19
+        }
+      }
+    ],
+    [
+      {
+        "owner": null,
+        "cost": 200,
+        "building": null,
+        "resources": {
+          "WaterYield": 13,
+          "CropYield": 17,
+          "IronOreYield": 16,
+          "CopperOreYield": 16,
+          "SiliciumOreYield": 19,
+          "CoalYield": 13
         }
       },
       {
@@ -288,876 +1209,76 @@
         "building": null,
         "resources": {
           "WaterYield": 16,
-          "CropYield": 16,
-          "IronOreYield": 10,
-          "CopperOreYield": 9,
-          "CoalYield": 9
-        }
-      },
-      {
-        "owner": null,
-        "cost": 588,
-        "building": null,
-        "resources": {
-          "WaterYield": 38,
-          "CropYield": 44,
-          "IronOreYield": 49,
-          "CopperOreYield": 31,
-          "CoalYield": 50
-        }
-      },
-      {
-        "owner": null,
-        "cost": 883,
-        "building": null,
-        "resources": {
-          "WaterYield": 71,
-          "CropYield": 54,
-          "IronOreYield": 73,
-          "CopperOreYield": 86,
-          "CoalYield": 64
-        }
-      },
-      {
-        "owner": null,
-        "cost": 846,
-        "building": null,
-        "resources": {
-          "WaterYield": 47,
-          "CropYield": 43,
-          "IronOreYield": 64,
-          "CopperOreYield": 57,
-          "CoalYield": 61
-        }
-      },
-      {
-        "owner": null,
-        "cost": 451,
-        "building": null,
-        "resources": {
-          "WaterYield": 25,
-          "CropYield": 34,
-          "IronOreYield": 24,
-          "CopperOreYield": 30,
-          "CoalYield": 31
-        }
-      },
-      {
-        "owner": null,
-        "cost": 256,
-        "building": null,
-        "resources": {
-          "WaterYield": 21,
-          "CropYield": 13,
-          "IronOreYield": 16,
-          "CopperOreYield": 23,
-          "CoalYield": 18
-        }
-      },
-      {
-        "owner": null,
-        "cost": 636,
-        "building": null,
-        "resources": {
-          "WaterYield": 51,
-          "CropYield": 51,
-          "IronOreYield": 52,
-          "CopperOreYield": 45,
-          "CoalYield": 56
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 874,
-        "building": null,
-        "resources": {
-          "WaterYield": 48,
-          "CropYield": 43,
-          "IronOreYield": 53,
-          "CopperOreYield": 85,
-          "CoalYield": 76
-        }
-      },
-      {
-        "owner": null,
-        "cost": 154,
-        "building": null,
-        "resources": {
-          "WaterYield": 14,
           "CropYield": 11,
-          "IronOreYield": 11,
-          "CopperOreYield": 10,
-          "CoalYield": 11
-        }
-      },
-      {
-        "owner": null,
-        "cost": 864,
-        "building": null,
-        "resources": {
-          "WaterYield": 68,
-          "CropYield": 72,
-          "IronOreYield": 66,
-          "CopperOreYield": 79,
-          "CoalYield": 86
-        }
-      },
-      {
-        "owner": null,
-        "cost": 307,
-        "building": null,
-        "resources": {
-          "WaterYield": 22,
-          "CropYield": 25,
           "IronOreYield": 16,
-          "CopperOreYield": 29,
-          "CoalYield": 29
-        }
-      },
-      {
-        "owner": null,
-        "cost": 379,
-        "building": null,
-        "resources": {
-          "WaterYield": 37,
-          "CropYield": 20,
-          "IronOreYield": 36,
-          "CopperOreYield": 34,
-          "CoalYield": 21
-        }
-      },
-      {
-        "owner": null,
-        "cost": 624,
-        "building": null,
-        "resources": {
-          "WaterYield": 59,
-          "CropYield": 33,
-          "IronOreYield": 41,
-          "CopperOreYield": 38,
-          "CoalYield": 50
-        }
-      },
-      {
-        "owner": null,
-        "cost": 761,
-        "building": null,
-        "resources": {
-          "WaterYield": 44,
-          "CropYield": 66,
-          "IronOreYield": 70,
-          "CopperOreYield": 47,
-          "CoalYield": 58
-        }
-      },
-      {
-        "owner": null,
-        "cost": 595,
-        "building": null,
-        "resources": {
-          "WaterYield": 42,
-          "CropYield": 57,
-          "IronOreYield": 52,
-          "CopperOreYield": 55,
-          "CoalYield": 44
-        }
-      },
-      {
-        "owner": null,
-        "cost": 927,
-        "building": null,
-        "resources": {
-          "WaterYield": 75,
-          "CropYield": 55,
-          "IronOreYield": 84,
-          "CopperOreYield": 60,
-          "CoalYield": 56
-        }
-      },
-      {
-        "owner": null,
-        "cost": 555,
-        "building": null,
-        "resources": {
-          "WaterYield": 41,
-          "CropYield": 50,
-          "IronOreYield": 40,
-          "CopperOreYield": 50,
-          "CoalYield": 45
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 512,
-        "building": null,
-        "resources": {
-          "WaterYield": 27,
-          "CropYield": 44,
-          "IronOreYield": 35,
-          "CopperOreYield": 32,
-          "CoalYield": 46
-        }
-      },
-      {
-        "owner": null,
-        "cost": 924,
-        "building": null,
-        "resources": {
-          "WaterYield": 91,
-          "CropYield": 69,
-          "IronOreYield": 49,
-          "CopperOreYield": 61,
-          "CoalYield": 71
-        }
-      },
-      {
-        "owner": null,
-        "cost": 105,
-        "building": null,
-        "resources": {
-          "WaterYield": 7,
-          "CropYield": 9,
-          "IronOreYield": 7,
           "CopperOreYield": 8,
-          "CoalYield": 6
-        }
-      },
-      {
-        "owner": null,
-        "cost": 713,
-        "building": null,
-        "resources": {
-          "WaterYield": 69,
-          "CropYield": 35,
-          "IronOreYield": 42,
-          "CopperOreYield": 62,
-          "CoalYield": 67
-        }
-      },
-      {
-        "owner": null,
-        "cost": 170,
-        "building": null,
-        "resources": {
-          "WaterYield": 9,
-          "CropYield": 12,
-          "IronOreYield": 15,
-          "CopperOreYield": 16,
-          "CoalYield": 11
-        }
-      },
-      {
-        "owner": null,
-        "cost": 784,
-        "building": null,
-        "resources": {
-          "WaterYield": 68,
-          "CropYield": 64,
-          "IronOreYield": 77,
-          "CopperOreYield": 47,
-          "CoalYield": 39
-        }
-      },
-      {
-        "owner": null,
-        "cost": 131,
-        "building": null,
-        "resources": {
-          "WaterYield": 7,
-          "CropYield": 12,
-          "IronOreYield": 8,
-          "CopperOreYield": 9,
-          "CoalYield": 12
-        }
-      },
-      {
-        "owner": null,
-        "cost": 825,
-        "building": null,
-        "resources": {
-          "WaterYield": 43,
-          "CropYield": 69,
-          "IronOreYield": 53,
-          "CopperOreYield": 58,
-          "CoalYield": 42
-        }
-      },
-      {
-        "owner": null,
-        "cost": 855,
-        "building": null,
-        "resources": {
-          "WaterYield": 68,
-          "CropYield": 79,
-          "IronOreYield": 46,
-          "CopperOreYield": 56,
-          "CoalYield": 53
-        }
-      },
-      {
-        "owner": null,
-        "cost": 654,
-        "building": null,
-        "resources": {
-          "WaterYield": 54,
-          "CropYield": 43,
-          "IronOreYield": 53,
-          "CopperOreYield": 58,
-          "CoalYield": 34
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 836,
-        "building": null,
-        "resources": {
-          "WaterYield": 48,
-          "CropYield": 77,
-          "IronOreYield": 81,
-          "CopperOreYield": 76,
-          "CoalYield": 79
-        }
-      },
-      {
-        "owner": null,
-        "cost": 978,
-        "building": null,
-        "resources": {
-          "WaterYield": 64,
-          "CropYield": 75,
-          "IronOreYield": 62,
-          "CopperOreYield": 57,
-          "CoalYield": 49
-        }
-      },
-      {
-        "owner": null,
-        "cost": 947,
-        "building": null,
-        "resources": {
-          "WaterYield": 69,
-          "CropYield": 90,
-          "IronOreYield": 89,
-          "CopperOreYield": 90,
-          "CoalYield": 74
-        }
-      },
-      {
-        "owner": null,
-        "cost": 460,
-        "building": null,
-        "resources": {
-          "WaterYield": 24,
-          "CropYield": 36,
-          "IronOreYield": 45,
-          "CopperOreYield": 44,
-          "CoalYield": 27
-        }
-      },
-      {
-        "owner": null,
-        "cost": 717,
-        "building": null,
-        "resources": {
-          "WaterYield": 53,
-          "CropYield": 38,
-          "IronOreYield": 62,
-          "CopperOreYield": 58,
-          "CoalYield": 58
-        }
-      },
-      {
-        "owner": null,
-        "cost": 497,
-        "building": null,
-        "resources": {
-          "WaterYield": 45,
-          "CropYield": 31,
-          "IronOreYield": 28,
-          "CopperOreYield": 25,
-          "CoalYield": 38
-        }
-      },
-      {
-        "owner": null,
-        "cost": 980,
-        "building": null,
-        "resources": {
-          "WaterYield": 93,
-          "CropYield": 52,
-          "IronOreYield": 73,
-          "CopperOreYield": 49,
-          "CoalYield": 65
-        }
-      },
-      {
-        "owner": null,
-        "cost": 946,
-        "building": null,
-        "resources": {
-          "WaterYield": 87,
-          "CropYield": 62,
-          "IronOreYield": 90,
-          "CopperOreYield": 93,
-          "CoalYield": 58
-        }
-      },
-      {
-        "owner": null,
-        "cost": 282,
-        "building": null,
-        "resources": {
-          "WaterYield": 16,
-          "CropYield": 17,
-          "IronOreYield": 15,
-          "CopperOreYield": 22,
-          "CoalYield": 27
-        }
-      },
-      {
-        "owner": null,
-        "cost": 337,
-        "building": null,
-        "resources": {
-          "WaterYield": 26,
-          "CropYield": 33,
-          "IronOreYield": 18,
-          "CopperOreYield": 32,
-          "CoalYield": 28
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 253,
-        "building": null,
-        "resources": {
-          "WaterYield": 15,
-          "CropYield": 12,
-          "IronOreYield": 23,
-          "CopperOreYield": 22,
-          "CoalYield": 24
-        }
-      },
-      {
-        "owner": null,
-        "cost": 135,
-        "building": null,
-        "resources": {
-          "WaterYield": 10,
-          "CropYield": 11,
-          "IronOreYield": 12,
-          "CopperOreYield": 13,
-          "CoalYield": 13
-        }
-      },
-      {
-        "owner": null,
-        "cost": 556,
-        "building": null,
-        "resources": {
-          "WaterYield": 44,
-          "CropYield": 37,
-          "IronOreYield": 44,
-          "CopperOreYield": 29,
-          "CoalYield": 39
-        }
-      },
-      {
-        "owner": null,
-        "cost": 427,
-        "building": null,
-        "resources": {
-          "WaterYield": 26,
-          "CropYield": 32,
-          "IronOreYield": 21,
-          "CopperOreYield": 32,
-          "CoalYield": 23
-        }
-      },
-      {
-        "owner": null,
-        "cost": 274,
-        "building": null,
-        "resources": {
-          "WaterYield": 17,
-          "CropYield": 17,
-          "IronOreYield": 14,
-          "CopperOreYield": 18,
-          "CoalYield": 26
-        }
-      },
-      {
-        "owner": null,
-        "cost": 194,
-        "building": null,
-        "resources": {
-          "WaterYield": 18,
-          "CropYield": 16,
-          "IronOreYield": 14,
-          "CopperOreYield": 19,
-          "CoalYield": 13
-        }
-      },
-      {
-        "owner": null,
-        "cost": 213,
-        "building": null,
-        "resources": {
-          "WaterYield": 18,
-          "CropYield": 16,
-          "IronOreYield": 12,
-          "CopperOreYield": 12,
-          "CoalYield": 17
-        }
-      },
-      {
-        "owner": null,
-        "cost": 763,
-        "building": null,
-        "resources": {
-          "WaterYield": 58,
-          "CropYield": 53,
-          "IronOreYield": 51,
-          "CopperOreYield": 53,
-          "CoalYield": 61
-        }
-      },
-      {
-        "owner": null,
-        "cost": 847,
-        "building": null,
-        "resources": {
-          "WaterYield": 49,
-          "CropYield": 47,
-          "IronOreYield": 64,
-          "CopperOreYield": 42,
-          "CoalYield": 55
-        }
-      },
-      {
-        "owner": null,
-        "cost": 564,
-        "building": null,
-        "resources": {
-          "WaterYield": 29,
-          "CropYield": 42,
-          "IronOreYield": 40,
-          "CopperOreYield": 52,
-          "CoalYield": 31
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 750,
-        "building": null,
-        "resources": {
-          "WaterYield": 63,
-          "CropYield": 42,
-          "IronOreYield": 53,
-          "CopperOreYield": 49,
-          "CoalYield": 42
-        }
-      },
-      {
-        "owner": null,
-        "cost": 978,
-        "building": null,
-        "resources": {
-          "WaterYield": 76,
-          "CropYield": 54,
-          "IronOreYield": 88,
-          "CopperOreYield": 82,
-          "CoalYield": 62
-        }
-      },
-      {
-        "owner": null,
-        "cost": 506,
-        "building": null,
-        "resources": {
-          "WaterYield": 47,
-          "CropYield": 37,
-          "IronOreYield": 41,
-          "CopperOreYield": 43,
-          "CoalYield": 43
-        }
-      },
-      {
-        "owner": null,
-        "cost": 182,
-        "building": null,
-        "resources": {
-          "WaterYield": 10,
-          "CropYield": 17,
-          "IronOreYield": 15,
-          "CopperOreYield": 11,
-          "CoalYield": 17
-        }
-      },
-      {
-        "owner": null,
-        "cost": 661,
-        "building": null,
-        "resources": {
-          "WaterYield": 45,
-          "CropYield": 64,
-          "IronOreYield": 52,
-          "CopperOreYield": 41,
-          "CoalYield": 36
-        }
-      },
-      {
-        "owner": null,
-        "cost": 696,
-        "building": null,
-        "resources": {
-          "WaterYield": 44,
-          "CropYield": 55,
-          "IronOreYield": 53,
-          "CopperOreYield": 67,
-          "CoalYield": 67
-        }
-      },
-      {
-        "owner": null,
-        "cost": 170,
-        "building": null,
-        "resources": {
-          "WaterYield": 10,
-          "CropYield": 16,
-          "IronOreYield": 15,
-          "CopperOreYield": 12,
-          "CoalYield": 12
-        }
-      },
-      {
-        "owner": null,
-        "cost": 250,
-        "building": null,
-        "resources": {
-          "WaterYield": 21,
-          "CropYield": 23,
-          "IronOreYield": 13,
-          "CopperOreYield": 22,
-          "CoalYield": 15
-        }
-      },
-      {
-        "owner": null,
-        "cost": 471,
-        "building": null,
-        "resources": {
-          "WaterYield": 39,
-          "CropYield": 45,
-          "IronOreYield": 44,
-          "CopperOreYield": 45,
-          "CoalYield": 34
-        }
-      },
-      {
-        "owner": null,
-        "cost": 194,
-        "building": null,
-        "resources": {
-          "WaterYield": 15,
-          "CropYield": 12,
-          "IronOreYield": 11,
-          "CopperOreYield": 17,
-          "CoalYield": 16
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 359,
-        "building": null,
-        "resources": {
-          "WaterYield": 34,
-          "CropYield": 23,
-          "IronOreYield": 27,
-          "CopperOreYield": 33,
-          "CoalYield": 27
-        }
-      },
-      {
-        "owner": null,
-        "cost": 266,
-        "building": null,
-        "resources": {
-          "WaterYield": 26,
-          "CropYield": 16,
-          "IronOreYield": 15,
-          "CopperOreYield": 17,
-          "CoalYield": 26
-        }
-      },
-      {
-        "owner": null,
-        "cost": 415,
-        "building": null,
-        "resources": {
-          "WaterYield": 36,
-          "CropYield": 32,
-          "IronOreYield": 29,
-          "CopperOreYield": 37,
-          "CoalYield": 34
-        }
-      },
-      {
-        "owner": null,
-        "cost": 702,
-        "building": null,
-        "resources": {
-          "WaterYield": 53,
-          "CropYield": 45,
-          "IronOreYield": 61,
-          "CopperOreYield": 50,
-          "CoalYield": 43
-        }
-      },
-      {
-        "owner": null,
-        "cost": 765,
-        "building": null,
-        "resources": {
-          "WaterYield": 69,
-          "CropYield": 57,
-          "IronOreYield": 59,
-          "CopperOreYield": 50,
-          "CoalYield": 49
-        }
-      },
-      {
-        "owner": null,
-        "cost": 798,
-        "building": null,
-        "resources": {
-          "WaterYield": 55,
-          "CropYield": 74,
-          "IronOreYield": 63,
-          "CopperOreYield": 52,
-          "CoalYield": 50
-        }
-      },
-      {
-        "owner": null,
-        "cost": 176,
-        "building": null,
-        "resources": {
-          "WaterYield": 11,
-          "CropYield": 16,
-          "IronOreYield": 10,
-          "CopperOreYield": 10,
+          "SiliciumOreYield": 9,
           "CoalYield": 14
         }
       },
       {
         "owner": null,
-        "cost": 424,
+        "cost": 392,
         "building": null,
         "resources": {
-          "WaterYield": 40,
-          "CropYield": 29,
+          "WaterYield": 30,
+          "CropYield": 33,
           "IronOreYield": 26,
-          "CopperOreYield": 22,
-          "CoalYield": 30
+          "CopperOreYield": 31,
+          "SiliciumOreYield": 25,
+          "CoalYield": 25
         }
       },
       {
         "owner": null,
-        "cost": 189,
+        "cost": 726,
         "building": null,
         "resources": {
-          "WaterYield": 13,
-          "CropYield": 12,
-          "IronOreYield": 13,
-          "CopperOreYield": 15,
-          "CoalYield": 11
-        }
-      },
-      {
-        "owner": null,
-        "cost": 591,
-        "building": null,
-        "resources": {
-          "WaterYield": 52,
+          "WaterYield": 42,
           "CropYield": 52,
-          "IronOreYield": 53,
-          "CopperOreYield": 34,
-          "CoalYield": 30
-        }
-      }
-    ],
-    [
-      {
-        "owner": null,
-        "cost": 220,
-        "building": null,
-        "resources": {
-          "WaterYield": 13,
-          "CropYield": 19,
-          "IronOreYield": 17,
-          "CopperOreYield": 21,
-          "CoalYield": 15
+          "IronOreYield": 40,
+          "CopperOreYield": 49,
+          "SiliciumOreYield": 40,
+          "CoalYield": 40
         }
       },
       {
         "owner": null,
-        "cost": 909,
+        "cost": 948,
         "building": null,
         "resources": {
-          "WaterYield": 46,
-          "CropYield": 61,
-          "IronOreYield": 90,
-          "CopperOreYield": 75,
-          "CoalYield": 76
+          "WaterYield": 75,
+          "CropYield": 84,
+          "IronOreYield": 76,
+          "CopperOreYield": 67,
+          "SiliciumOreYield": 58,
+          "CoalYield": 93
         }
       },
       {
         "owner": null,
-        "cost": 430,
+        "cost": 923,
         "building": null,
         "resources": {
-          "WaterYield": 23,
-          "CropYield": 22,
-          "IronOreYield": 42,
-          "CopperOreYield": 36,
-          "CoalYield": 34
+          "WaterYield": 72,
+          "CropYield": 66,
+          "IronOreYield": 68,
+          "CopperOreYield": 79,
+          "SiliciumOreYield": 66,
+          "CoalYield": 68
         }
       },
       {
         "owner": null,
-        "cost": 607,
+        "cost": 525,
         "building": null,
         "resources": {
-          "WaterYield": 44,
-          "CropYield": 36,
-          "IronOreYield": 50,
-          "CopperOreYield": 37,
-          "CoalYield": 36
-        }
-      },
-      {
-        "owner": null,
-        "cost": 200,
-        "building": null,
-        "resources": {
-          "WaterYield": 14,
-          "CropYield": 10,
-          "IronOreYield": 19,
-          "CopperOreYield": 16,
-          "CoalYield": 10
+          "WaterYield": 51,
+          "CropYield": 26,
+          "IronOreYield": 37,
+          "CopperOreYield": 52,
+          "SiliciumOreYield": 32,
+          "CoalYield": 51
         }
       },
       {
@@ -1166,58 +1287,37 @@
         "building": null,
         "resources": {
           "WaterYield": 17,
-          "CropYield": 16,
-          "IronOreYield": 32,
-          "CopperOreYield": 18,
-          "CoalYield": 24
+          "CropYield": 29,
+          "IronOreYield": 18,
+          "CopperOreYield": 17,
+          "SiliciumOreYield": 18,
+          "CoalYield": 18
         }
       },
       {
         "owner": null,
-        "cost": 774,
+        "cost": 243,
         "building": null,
         "resources": {
-          "WaterYield": 55,
-          "CropYield": 51,
-          "IronOreYield": 51,
-          "CopperOreYield": 55,
-          "CoalYield": 46
-        }
-      },
-      {
-        "owner": null,
-        "cost": 249,
-        "building": null,
-        "resources": {
-          "WaterYield": 12,
-          "CropYield": 16,
+          "WaterYield": 21,
+          "CropYield": 12,
           "IronOreYield": 14,
-          "CopperOreYield": 24,
+          "CopperOreYield": 22,
+          "SiliciumOreYield": 13,
           "CoalYield": 14
         }
       },
       {
         "owner": null,
-        "cost": 125,
+        "cost": 837,
         "building": null,
         "resources": {
-          "WaterYield": 6,
-          "CropYield": 6,
-          "IronOreYield": 6,
-          "CopperOreYield": 9,
-          "CoalYield": 9
-        }
-      },
-      {
-        "owner": null,
-        "cost": 493,
-        "building": null,
-        "resources": {
-          "WaterYield": 39,
-          "CropYield": 45,
-          "IronOreYield": 25,
-          "CopperOreYield": 25,
-          "CoalYield": 38
+          "WaterYield": 53,
+          "CropYield": 47,
+          "IronOreYield": 66,
+          "CopperOreYield": 42,
+          "SiliciumOreYield": 80,
+          "CoalYield": 79
         }
       }
     ]

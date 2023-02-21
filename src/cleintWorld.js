@@ -64,7 +64,7 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
     if (worldMatrix[col][row].building === null){
         for (let r = 0; r < Object.keys(buildings).length; r++){
             let p = document.createElement('p');
-            if (buildings[Object.keys(buildings)[r]][2]){
+            if (buildings[Object.keys(buildings)[r]][4] === "Mine"){
                 p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(
                         buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2]] / 175) + buildings[Object.keys(buildings)[r]][0] +
                     " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
@@ -164,13 +164,18 @@ function deleteChildren(victim){
     }
 }
 export function resourceCycles(rUpdate, username, resources){
-    let [name, amount, type] = rUpdate;
+    let [name, gain, gainType, loss, lossType] = rUpdate;
     if (name === username){
-        type = type.replace(/\s/g, '');
-        resources[type] += amount;
+        gainType = gainType.replace(/\s/g, '');
+        resources[gainType] += gain;
         sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
+        if (lossType){
+            for (let type = 0; type < lossType.length; type++){
+                resources[lossType[type]] -= loss;
+            }
+            sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
+        }
         uiResources()
-
     }
 
 
