@@ -8,9 +8,20 @@ const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
 let map = mainF.loadJSON('storage/world.json')
 let worldTick = true;
+let texthistory = []
 setInterval(()=>{worldTick = true}, 1000)
 const buildings = mainF.loadJSON('storage/buildings.json')
     io.on('connection', socket =>{
+        socket.broadcast.emit("history", texthistory);
+        socket.emit("history", texthistory);
+        socket.on('disconnect',() =>{
+            console.log("A user disconnected");
+        });
+        socket.on("message", msguid =>{
+            texthistory.push(msguid)
+            socket.broadcast.emit("text", msguid);
+            socket.emit("text", msguid);
+        });
     socket.emit('guc', [map.world, buildings])
     socket.on('gus', Gselect =>{
         let gridUpdate = mainF.updateGrid(Gselect, map.world);
@@ -32,6 +43,7 @@ const buildings = mainF.loadJSON('storage/buildings.json')
     socket.on('buildRequest', buildRequest=>{
         mainF.buildHandler(buildRequest, map.world, socket)
     })
+
     io.on('disconnect',()=>{
         console.log("user disconnected")
     });

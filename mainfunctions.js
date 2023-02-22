@@ -86,7 +86,7 @@ async function userSignup(userRequest, socket){
         let hash = await bcrypt.hash(password, 13)
         console.log("new user created")
         usersJson.push({"user": {"name" : userName, "password" : hash, "userID" : userID, "money": 5000,
-                "resources":{"water":0, "Crops":0, "IronOre":0, "Iron":0, "CopperOre":0, "Copper":0, "Coal":0}}})
+                "resources":{"water":0, "Crops":0, "CopperOre":0, "Copper":0, "Coal":0}}})
         saveJSON('storage/user.json', usersJson)
     }else {
         console.log("username invalid")
@@ -152,15 +152,16 @@ function resourceCycle(world, socket){
     world.forEach(col=>{
         col.forEach(row=>{
             if (row.owner !== null && row.building !== null){
-                console.log([buildings[row.building][2][0]["resourceReqType"]] + "" + [buildings[row.building][2][0]["resourceReqAmt"]])
+                let sendUser = []
                 let [userI, usersJson] = getUserInfo(row.owner)
                 for (let req = 0; req < buildings[row.building][2].length; req++){
-                    console.log(userI.user.resources[buildings[row.building][2][req]["resourceReqType"]] + " " + [buildings[row.building][2][req]["resourceReqAmt"]]);
+
                 }
                 if (buildings[row.building][4] === "Mine"){
-                    userI.user.resources[buildings[row.building][0]] += parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175);
-                    socket.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0], false, false])
-                    socket.broadcast.emit('resourceCycles', [row.owner, parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2]] / 175), buildings[row.building][0], false, false])
+                    userI.user.resources[buildings[row.building][0]] += parseInt(buildings[row.building][3] * row.resources[buildings[row.building][2][0]["resourceReqType"]]/ 175);
+                    sendUser.push([userI.user.resources[buildings[row.building][0]], buildings[row.building][0]])
+                    socket.emit('resourceCycles', [row.owner, sendUser])
+                    socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
                 }else {
                     let adequateResources = true;
                     for (let req = 0; req < buildings[row.building][2].length; req++){
@@ -171,10 +172,11 @@ function resourceCycle(world, socket){
                     if (adequateResources){
                         for (let req = 0; req < buildings[row.building][2].length; req++){
                             userI.user.resources[buildings[row.building][2][req]["resourceReqType"]] -= [buildings[row.building][2][req]["resourceReqAmt"]];
+                            sendUser.push([userI.user.resources[buildings[row.building][2][req]["resourceReqType"]], buildings[row.building][2][req]["resourceReqType"]])
                         }
-                        userI.user.resources[buildings[row.building][0]] += 1;
-                        socket.emit('resourceCycles', [row.owner, 1, buildings[row.building][0], 10, buildings[row.building][2]])
-                        socket.broadcast.emit('resourceCycles', [row.owner, 1, buildings[row.building][0], buildings[row.building][3], buildings[row.building][2]])
+                        userI.user.resources[buildings[row.building][0]] += buildings[row.building][3];
+                        socket.emit('resourceCycles', [row.owner, sendUser])
+                        socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
                     }
                 }
                 saveJSON('storage/user.json', usersJson)
@@ -182,6 +184,7 @@ function resourceCycle(world, socket){
         })
     })
 }
+
 module.exports.worldClock = worldClock;
 module.exports.loadJSON = loadJSON;
 module.exports.saveJSON = saveJSON;

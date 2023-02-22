@@ -42,6 +42,45 @@ socket.on('resourceCycles', rUpdate=>{
     resourceCycles(rUpdate, username, resources)
 
 })
+let textbox = document.getElementById('chatDisplay')
+socket.on("connect",()=>{
+    console.log(socket.id)
+});
+socket.on("history", history =>{
+    let length = textbox.children.length;
+    for (let i = 0; i < length; i++){
+        textbox.children[0].remove();
+    }
+    for (let i = 0; i < history.length; i++){
+        let p = document.createElement('p');
+        p.innerHTML = history[i][1] + " - " + history[i][0];
+        if (history[i][1] === username){
+            p.style.color = 'blue';
+        }
+        textbox.append(p)
+    }
+});
+let submit = document.getElementById('txtSubmit');
+let text = document.getElementById('txtInput');
+submit.addEventListener("click",()=>{
+    let msguid = [text.value, username]
+    socket.emit('message', msguid)
+    text.value = '';
+});
+socket.on("text", msg =>{
+    let display = document.getElementById('chatDisplay');
+    console.log(display.scrollHeight)
+    let p = document.createElement('p');
+    p.innerHTML = msg[1] + " - " + msg[0];
+    if (msg[1] === username){
+        p.style.color = 'blue';
+    }
+    textbox.append(p)
+    console.log(display.scrollTop + " " + display.scrollHeight)
+    if (display.scrollTop > display.scrollHeight - 250){
+        display.scrollTop = display.scrollHeight;
+    }
+});
 function gridInputCheck(){
     if (worldGrid !== null){
         for (let col = 0; col < worldGrid.length; col++){
@@ -52,4 +91,3 @@ function gridInputCheck(){
         }
     }
 }
-

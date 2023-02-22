@@ -25,10 +25,10 @@ for (let y = 0; y < worldSize; y++){
             "building": null,
             "resources": {
                 "WaterYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "CropYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
                 "IronOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
                 "CopperOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "SiliciumOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "SiliconOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "GoldOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
                 "CoalYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
             },
         })

@@ -65,12 +65,13 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
         for (let r = 0; r < Object.keys(buildings).length; r++){
             let p = document.createElement('p');
             if (buildings[Object.keys(buildings)[r]][4] === "Mine"){
+                p.style.backgroundColor = "rgb(187,142,184)";
                 p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(
-                        buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2]] / 175) + buildings[Object.keys(buildings)[r]][0] +
+                        buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2][0]["resourceReqType"]] / 175) + " " + buildings[Object.keys(buildings)[r]][0] +
                     " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
                 document.getElementById('buildings').appendChild(p)
             }else {
-                p.innerText = Object.keys(buildings)[r] + " produces " + buildings[Object.keys(buildings)[r]][0] + " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
+                p.innerText = Object.keys(buildings)[r] + " produces "+ buildings[Object.keys(buildings)[r]][3] + " " + buildings[Object.keys(buildings)[r]][0] + " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
                 document.getElementById('buildings').appendChild(p)
             }
             document.getElementById('buildings').children[r].addEventListener("click", ()=>{buildRequest(col, row, username, socket, buildings, r)})
@@ -82,7 +83,7 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
         document.getElementById('buildings').appendChild(p)
         p = document.createElement('p');
         p.innerText = worldMatrix[col][row].building + " produces "
-            + parseInt(buildings[worldMatrix[col][row].building][3] * worldMatrix[col][row].resources[buildings[worldMatrix[col][row].building][2]] / 175)
+            + parseInt(buildings[worldMatrix[col][row].building][3] * worldMatrix[col][row].resources[buildings[worldMatrix[col][row].building][2][0]["resourceReqType"]] / 175)
             + " " + buildings[worldMatrix[col][row].building][0];
         document.getElementById('buildings').appendChild(p)
     }
@@ -120,7 +121,7 @@ export function buy(col, row, worldMatrix, worldGrid, socket, username, building
         text.innerText = "already owned by " + worldMatrix[col][row].owner;
         document.getElementById('gridInfo').appendChild(text)
     }
-    selected[0].style.borderColor = "rgb(75,75,75)";
+    selected[0].style.borderColor = "rgb(255,255,255)";
     for (let resourceI = 0; resourceI < Object.keys(worldMatrix[col][row].resources).length; resourceI++){
         let p = document.createElement('p');
         p.innerText = Object.keys(worldMatrix[col][row].resources)[resourceI] + " = " + worldMatrix[col][row].resources[Object.keys(worldMatrix[col][row].resources)[resourceI]] + "%";
@@ -146,7 +147,6 @@ function buildRequest(col, row, username, socket, buildings, r){
     socket.emit('buildRequest', [col, row, username, build])
 }
 export function buildingUpdate(bupdate,  worldMatrix, worldGrid){
-    console.log(bupdate);
     let [y, x, buildtype, money] = bupdate;
     worldMatrix[y][x].building = buildtype;
     if (buildtype === null){
@@ -164,19 +164,13 @@ function deleteChildren(victim){
     }
 }
 export function resourceCycles(rUpdate, username, resources){
-    let [name, gain, gainType, loss, lossType] = rUpdate;
+    let [name, update] = rUpdate;
     if (name === username){
-        gainType = gainType.replace(/\s/g, '');
-        resources[gainType] += gain;
-        sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
-        if (lossType){
-            for (let type = 0; type < lossType.length; type++){
-                resources[lossType[type]] -= loss;
-            }
-            sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
+        for (let r = 0; r < update.length; r++){
+            resources[update[r][1]] = update[r][0];
         }
+        sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
         uiResources()
     }
-
 
 }
