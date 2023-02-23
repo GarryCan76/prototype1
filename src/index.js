@@ -43,40 +43,51 @@ socket.on('resourceCycles', rUpdate=>{
 
 })
 let textbox = document.getElementById('chatDisplay')
-socket.on("connect",()=>{
-    console.log(socket.id)
-});
 socket.on("history", history =>{
+    let display = document.getElementById('chatDisplay');
     let length = textbox.children.length;
     for (let i = 0; i < length; i++){
         textbox.children[0].remove();
     }
     for (let i = 0; i < history.length; i++){
         let p = document.createElement('p');
-        p.innerHTML = history[i][1] + " - " + history[i][0];
+        p.innerHTML = history[i][1] + ": " + history[i][0];
         if (history[i][1] === username){
-            p.style.color = 'blue';
+            p.style.color = '#00d9ff';
         }
         textbox.append(p)
     }
+    if (document.getElementById('chatDisplay').offsetHeight / document.getElementById('chatBox').offsetHeight > 0.85){
+        document.getElementById('chatDisplay').style.overflowY = 'scroll';
+    }
+    display.scrollTop = display.scrollHeight;
 });
 let submit = document.getElementById('txtSubmit');
 let text = document.getElementById('txtInput');
-submit.addEventListener("click",()=>{
-    let msguid = [text.value, username]
-    socket.emit('message', msguid)
-    text.value = '';
-});
+window.addEventListener("keydown", (event)=>{
+    if (text === document.activeElement && event.key === 'Enter'){
+        sendTXT()
+    }
+})
+function sendTXT(){
+    if (document.getElementById('chatDisplay').offsetHeight / document.getElementById('chatBox').offsetHeight > 0.85){
+        document.getElementById('chatDisplay').style.overflowY = 'scroll';
+    }
+    if (text.value !== ''){
+        let msguid = [text.value, username]
+        socket.emit('message', msguid)
+        text.value = '';
+    }
+}
+submit.addEventListener("click", sendTXT);
 socket.on("text", msg =>{
     let display = document.getElementById('chatDisplay');
-    console.log(display.scrollHeight)
     let p = document.createElement('p');
-    p.innerHTML = msg[1] + " - " + msg[0];
+    p.innerHTML = msg[1] + ": " + msg[0];
     if (msg[1] === username){
-        p.style.color = 'blue';
+        p.style.color = '#00d9ff';
     }
     textbox.append(p)
-    console.log(display.scrollTop + " " + display.scrollHeight)
     if (display.scrollTop > display.scrollHeight - 250){
         display.scrollTop = display.scrollHeight;
     }

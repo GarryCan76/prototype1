@@ -8,5 +8,6 @@
   "Coppermill": ["Copper", 500, [{"resourceReqType": "CopperOre", "resourceReqAmt": 5}, {"resourceReqType": "Coal", "resourceReqAmt": 5}], 3, "Factory"],
   "Siliconmill": ["Silicon", 500, [{"resourceReqType": "SiliconOre", "resourceReqAmt": 5}, {"resourceReqType": "Coal", "resourceReqAmt": 5}], 2, "Factory"],
   "Goldmill": ["Gold", 500, [{"resourceReqType": "GoldOre", "resourceReqAmt": 5}, {"resourceReqType": "Coal", "resourceReqAmt": 5}], 2, "Factory"],
+  "spacefactory": ["rockets", 500, [{"resourceReqType": "GoldOre", "resourceReqAmt": 5}, {"resourceReqType": "Microchips", "resourceReqAmt": 5}], 2, "Factory"],
   "Microchipfactory": ["Microchips", 500, [{"resourceReqType": "Copper", "resourceReqAmt": 5}, {"resourceReqType": "Silicon", "resourceReqAmt": 10}, {"resourceReqType": "Gold", "resourceReqAmt": 1}], 1, "Factory"]
 }

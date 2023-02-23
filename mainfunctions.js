@@ -175,6 +175,7 @@ function resourceCycle(world, socket){
                             sendUser.push([userI.user.resources[buildings[row.building][2][req]["resourceReqType"]], buildings[row.building][2][req]["resourceReqType"]])
                         }
                         userI.user.resources[buildings[row.building][0]] += buildings[row.building][3];
+                        sendUser.push([userI.user.resources[buildings[row.building][0]], buildings[row.building][0]])
                         socket.emit('resourceCycles', [row.owner, sendUser])
                         socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
                     }
