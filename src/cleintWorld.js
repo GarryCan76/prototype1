@@ -174,3 +174,47 @@ export function resourceCycles(rUpdate, username, resources){
     }
 
 }
+let submitDeal = [null, null, null, null];
+export function createDeal(){
+    let buySell = document.getElementById('buySell');
+    let send = document.createElement('p');
+    send.innerText = "send";
+    send.addEventListener("click", ()=>{
+        console.log(submitDeal)
+        let p = document.createElement('p')
+        p.innerText = sessionStorage.getItem('username') + " wants to " + submitDeal[0] + " " + submitDeal[2] + " " + submitDeal[1] + " for " + submitDeal[3] + " cycles";
+        document.getElementById('exchange').appendChild(p)
+    })
+    let buy = document.createElement('p');
+    buy.innerText = "buy";
+    buy.addEventListener("click", ()=>{submitDeal[0] = "buy"})
+    let sell = document.createElement('p');
+    sell.innerText = "sell";
+    sell.addEventListener("click", ()=>{submitDeal[0] = "sell"})
+    let amount = document.createElement('input')
+    amount.placeholder = "How much to sell"
+    amount.type = 'text'
+    amount.addEventListener("input", ()=>{submitDeal[2] = amount.value})
+    let day = document.createElement('input')
+    day.placeholder = "For how many days"
+    day.type = 'text'
+    day.addEventListener("input", ()=>{submitDeal[3] = day.value})
+    buySell.appendChild(buy)
+    buySell.appendChild(sell)
+    buySell.appendChild(amount)
+    buySell.appendChild(day)
+    buySell.appendChild(send)
+
+    let resources = JSON.parse(sessionStorage.getItem('resources'));
+    deleteChildren('resourceType')
+    for (let r = 0; r < Object.keys(resources).length; r++){
+        let p = document.createElement('p');
+        p.innerText = Object.keys(resources)[r];
+        p.addEventListener('click', ()=>{
+            {submitDeal[1] = Object.keys(resources)[r]}
+        })
+        document.getElementById('resourceType').appendChild(p)
+    }
+
+
+}

@@ -1,5 +1,5 @@
 const socket = io();
-import {gridcreator, gridInputHandler, uiResources, buy, buildingUpdate, resourceCycles} from './cleintWorld.js'
+import {gridcreator, gridInputHandler, uiResources, buy, buildingUpdate, resourceCycles, createDeal} from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
 let username = sessionStorage.getItem('username');
@@ -13,6 +13,7 @@ socket.on("connect", ()=>{
 
 });
 uiResources()
+createDeal()
 //get grid from server once connect
 socket.on("guc", guc=>{
     buildings = guc[1];

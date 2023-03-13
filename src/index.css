@@ -69,3 +69,13 @@ p{
     border: dimgray 2px solid
 }
 #txtSubmit{background-color: #484848; color: white; border: dimgray 2px solid}
+#exchange{
+    width: 300px;
+    height: 300px;
+}
+#createDeal{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 300px;
+}
