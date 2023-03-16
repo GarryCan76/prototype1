@@ -1,4 +1,10 @@
 let selected = null;
+let storedDeals = {};
+function createParagraph(destination, text){
+    let p = document.createElement('p');
+    p.innerText = text;
+    document.getElementById(destination).appendChild(p)
+}
 export function gridcreator(guc){
     console.log(guc)
     let worldMatrix = guc;
@@ -174,47 +180,80 @@ export function resourceCycles(rUpdate, username, resources){
     }
 
 }
-let submitDeal = [null, null, null, null];
-export function createDeal(){
-    let buySell = document.getElementById('buySell');
-    let send = document.createElement('p');
+let dealInfo = {"dealUser":sessionStorage.getItem('username'), "takenBy":false , "dealType":null, "dealResource":null, "unitPriceDeal":1, "dealAmount":1, "dealCycles":1};
+export function createDeal(socket){
+    let send = document.getElementById('sendDeal');
+    let submitDeal = {};
     send.innerText = "send";
     send.addEventListener("click", ()=>{
-        console.log(submitDeal)
-        let p = document.createElement('p')
-        p.innerText = sessionStorage.getItem('username') + " wants to " + submitDeal[0] + " " + submitDeal[2] + " " + submitDeal[1] + " for " + submitDeal[3] + " cycles";
-        document.getElementById('exchange').appendChild(p)
+        let error = false;
+        for (let r = 0; r < Object.keys(dealInfo).length; r++){
+            if (dealInfo[Object.keys(dealInfo)[r]] === null){
+                error = "not filled in everything";
+            }
+        }
+        if (error === false){
+            let dealId = (Math.floor(Math.random() * 99999) + 10000).toString()
+            submitDeal[dealId] = dealInfo;
+            console.log(submitDeal)
+            socket.emit('dealRequest', submitDeal)
+        }else {
+            console.log(error)
+        }
     })
-    let buy = document.createElement('p');
-    buy.innerText = "buy";
-    buy.addEventListener("click", ()=>{submitDeal[0] = "buy"})
-    let sell = document.createElement('p');
-    sell.innerText = "sell";
-    sell.addEventListener("click", ()=>{submitDeal[0] = "sell"})
-    let amount = document.createElement('input')
-    amount.placeholder = "How much to sell"
-    amount.type = 'text'
-    amount.addEventListener("input", ()=>{submitDeal[2] = amount.value})
-    let day = document.createElement('input')
-    day.placeholder = "For how many days"
-    day.type = 'text'
-    day.addEventListener("input", ()=>{submitDeal[3] = day.value})
-    buySell.appendChild(buy)
-    buySell.appendChild(sell)
-    buySell.appendChild(amount)
-    buySell.appendChild(day)
-    buySell.appendChild(send)
-
+    let buy = document.getElementById('buyDeal')
+    buy.addEventListener("click", ()=>{dealInfo["dealType"] = "buy";})
+    let sell = document.getElementById('sellDeal')
+    sell.addEventListener("click", ()=>{dealInfo["dealType"] = "sell"})
+    let unitPrice = document.getElementById('unitPriceDeal')
+    unitPrice.addEventListener("input", ()=>{dealInfo["unitPriceDeal"] = unitPrice.value; totalPrice()})
+    let amount = document.getElementById('amountDeal')
+    amount.addEventListener("input", ()=>{dealInfo["dealAmount"] = amount.value; totalPrice()})
+    let cycles = document.getElementById('cycleDeal')
+    cycles.addEventListener("input", ()=>{dealInfo["dealCycles"] = cycles.value; totalPrice()})
+    function totalPrice(){
+        document.getElementById("cyclePriceDeal").innerText = "Price each cycle is " + unitPrice.value * amount.value;
+        document.getElementById("totalPriceDeal").innerText = "Total price is " + unitPrice.value * amount.value * cycles.value;
+    }
     let resources = JSON.parse(sessionStorage.getItem('resources'));
     deleteChildren('resourceType')
     for (let r = 0; r < Object.keys(resources).length; r++){
         let p = document.createElement('p');
         p.innerText = Object.keys(resources)[r];
         p.addEventListener('click', ()=>{
-            {submitDeal[1] = Object.keys(resources)[r]}
+            {dealInfo["dealResource"] = Object.keys(resources)[r]}
         })
         document.getElementById('resourceType').appendChild(p)
     }
-
-
+}
+export function dealUpdate(UpdatedDeal, socket){
+    for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
+        let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
+        storedDeals[Object.keys(UpdatedDeal)[r]] = deal;
+        let p = document.createElement('p');
+        p.innerText = deal["dealType"] + ", " + deal["dealResource"] + " price: " + deal["unitPriceDeal"]+ ", duration: "+ deal["dealCycles"]+ " cycles, "+ deal["dealResource"] +" per cycle: " + deal["dealAmount"];
+        p.addEventListener('click', ()=>{
+            deleteChildren('dealInfo')
+            createParagraph('dealInfo',deal["dealType"]+ "er " + (deal["dealUser"]))
+            createParagraph('dealInfo', "resource/good " + (deal["dealResource"]))
+            createParagraph('dealInfo', "price per unit " + (deal["unitPriceDeal"]))
+            createParagraph('dealInfo', "units per cycle " + (deal["dealAmount"]))
+            createParagraph('dealInfo', "number of cycles " + (deal["dealCycles"]))
+            createParagraph('dealInfo', "price per cycle " + (deal["dealAmount"] * deal["unitPriceDeal"]))
+            createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
+            if (sessionStorage.getItem('username') !== deal["dealUser"]){
+                console.log(Object.keys(UpdatedDeal)[r])
+                let p = document.createElement('p');
+                p.innerText = "Accept deal";
+                p.addEventListener('click', ()=>{socket.emit("acceptDeal", [sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]])})
+                document.getElementById('dealInfo').appendChild(p)
+            }
+        })
+        document.getElementById('exchange').appendChild(p)
+    }
+    console.log(storedDeals)
+}
+export function dealHistory(deals, socket){
+    deleteChildren('exchange')
+    dealUpdate(deals, socket)
 }

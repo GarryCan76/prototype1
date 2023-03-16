@@ -1,5 +1,14 @@
 const socket = io();
-import {gridcreator, gridInputHandler, uiResources, buy, buildingUpdate, resourceCycles, createDeal} from './cleintWorld.js'
+import {
+    gridcreator,
+    gridInputHandler,
+    uiResources,
+    buy,
+    buildingUpdate,
+    resourceCycles,
+    createDeal,
+    dealUpdate, dealHistory
+} from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
 let username = sessionStorage.getItem('username');
@@ -13,9 +22,10 @@ socket.on("connect", ()=>{
 
 });
 uiResources()
-createDeal()
+createDeal(socket)
 //get grid from server once connect
 socket.on("guc", guc=>{
+    socket.emit("refreshDeals", 0)
     buildings = guc[1];
     if (worldGrid === null && worldMatrix === null){
         [worldGrid, worldMatrix] = gridcreator(guc[0])
@@ -103,3 +113,6 @@ function gridInputCheck(){
         }
     }
 }
+socket.on("dealHistory", deals=>{dealHistory(deals, socket)})
+socket.on("dealUpdate", deal=>{dealUpdate(deal, socket)})
+document.getElementById('refreshDeals').addEventListener('click', ()=>{socket.emit("refreshDeals", 0)})

@@ -17,13 +17,33 @@
 </div>
 <div id="trading">
     <p>deals</p>
-    <div id="exchange">
+    <p id="refreshDeals">refresh</p>
+    <div id="openMarket">
+        <div id="exchange">
 
+        </div>
+        <div id="dealInfo">
+        </div>
     </div>
     <p>create new deal</p>
     <div id="createDeal">
         <div id="resourceType"></div>
-        <div id="buySell"></div>
+        <div id="buySell">
+            <p id="buyDeal">buy</p>
+            <p id="sellDeal">sell</p>
+            <div><label for="unitPriceDeal">price per unit</label>
+                <input type="text" id="unitPriceDeal" placeholder="Price per unit" value="1"></div>
+            <div><label for="amountDeal">Units per cycle</label>
+                <input type="text" id="amountDeal" placeholder="Sell units per cycle" value="1"></div>
+            <div><label for="cycleDeal">Deal duration cycles</label>
+                <input type="text" id="cycleDeal" placeholder="Deal duration cycles" value="1"></div>
+            <p id="cyclePriceDeal"></p>
+            <p id="totalPriceDeal"></p>
+            <p id="sendDeal">send</p>
+        </div>
+        <div>
+            <p>your deals</p>
+        </div>
     </div>
 </div>
 <div id="chatBox">

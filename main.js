@@ -6,6 +6,7 @@ app.use(express.static('src'))
 const port = process.env.PORT||8080;
 const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
+const {loadJSON, acceptDeal} = require("./mainfunctions");
 let map = mainF.loadJSON('storage/world.json')
 let worldTick = true;
 let texthistory = []
@@ -33,7 +34,8 @@ const buildings = mainF.loadJSON('storage/buildings.json')
         if (worldTick){
             mainF.worldClock(socket);
             worldTick = false;}
-        }, 1000)
+        }, 1000);
+
     socket.on('userSignup', userRequest =>{
         mainF.userSignup(userRequest, socket)
     })
@@ -42,8 +44,14 @@ const buildings = mainF.loadJSON('storage/buildings.json')
     });
     socket.on('buildRequest', buildRequest=>{
         mainF.buildHandler(buildRequest, map.world, socket)
-    })
-
+    });
+    socket.on('dealRequest', submitDeal=>{
+        mainF.dealRequest(submitDeal, socket)
+    });
+    socket.on('refreshDeals', i=>{
+        mainF.dealHistory(socket)
+    });
+    socket.on('acceptDeal', dealAcceptie=>{mainF.acceptDeal(dealAcceptie)})
     io.on('disconnect',()=>{
         console.log("user disconnected")
     });

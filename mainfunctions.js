@@ -185,6 +185,25 @@ function resourceCycle(world, socket){
         })
     })
 }
+function dealRequest(submitDeal, socket){
+    let deals = loadJSON('storage/deals.json')
+    console.log(submitDeal[Object.keys(submitDeal)[0]])
+    deals[Object.keys(submitDeal)[0]] = submitDeal[Object.keys(submitDeal)[0]];
+
+    saveJSON('storage/deals.json', deals)
+    socket.emit("dealUpdate", submitDeal)
+    socket.broadcast.emit("dealUpdate", submitDeal)
+}
+function dealHistory(socket){
+    let deals = loadJSON('storage/deals.json')
+    socket.emit("dealHistory", deals)
+}
+function acceptDeal(dealAcceptie){
+    let deals = loadJSON('storage/deals.json')
+    deals[dealAcceptie[1]]["takenBy"] = dealAcceptie[0];
+    saveJSON('storage/deals.json', deals)
+}
+
 
 module.exports.worldClock = worldClock;
 module.exports.loadJSON = loadJSON;
@@ -193,4 +212,6 @@ module.exports.updateGrid = updateGrid;
 module.exports.userSignup = userSignup;
 module.exports.loginRequest = loginRequest;
 module.exports.buildHandler = buildHandler;
-
+module.exports.dealRequest = dealRequest;
+module.exports.dealHistory = dealHistory;
+module.exports.acceptDeal = acceptDeal;
