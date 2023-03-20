@@ -10,7 +10,7 @@ const {loadJSON, acceptDeal} = require("./mainfunctions");
 let map = mainF.loadJSON('storage/world.json')
 let worldTick = true;
 let texthistory = []
-setInterval(()=>{worldTick = true}, 1000)
+setInterval(()=>{worldTick = true}, 5000)
 const buildings = mainF.loadJSON('storage/buildings.json')
     io.on('connection', socket =>{
         socket.broadcast.emit("history", texthistory);
@@ -51,7 +51,7 @@ const buildings = mainF.loadJSON('storage/buildings.json')
     socket.on('refreshDeals', i=>{
         mainF.dealHistory(socket)
     });
-    socket.on('acceptDeal', dealAcceptie=>{mainF.acceptDeal(dealAcceptie)})
+    socket.on('dealAcceptie', dealAcceptie=>{mainF.dealAcceptie(dealAcceptie)})
     io.on('disconnect',()=>{
         console.log("user disconnected")
     });

@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const fs = require("fs");
+const e = require("express");
 let currentTime = loadJSON('storage/world.json');
 let saveInterval = 0;
 let checktime = 0;
@@ -16,8 +17,9 @@ function worldClock(socket){
     saveInterval++
     currentTime.time++;
     resourceCycle(currentTime.world, socket)
+    tradeCycle(socket)
     socket.emit('time', currentTime.time)
-    if (saveInterval === 30){
+    if (saveInterval === 60){
         saveJSON('storage/world.json', currentTime)
         saveInterval = 0;
     }
@@ -185,9 +187,47 @@ function resourceCycle(world, socket){
         })
     })
 }
+function tradeCycle(socket){
+    let deals = loadJSON("storage/deals.json")
+    for (let i = 0; i < Object.keys(deals).length; i++){
+        let deal = deals[Object.keys(deals)[i]];
+        let error = [];
+        let order
+        let dealType = deal["dealType"];
+        let [userDealer, usersJson] = getUserInfo(deal["dealUser"]);
+        let [userReceiver, ReceiverJson] = getUserInfo(deal["takenBy"]);
+        if (dealType === "buy"){
+            order = [userDealer, userReceiver];
+        }else {
+            order = [userReceiver, userDealer];
+        }
+        if (deal["takenBy"] !== false){
+            if (order[1]["user"]["resources"][deal["dealResource"]] < deal["dealAmount"]){
+                error.push("not enough resources")
+            }
+            if (order[0]["user"]["money"] < deal["dealAmount"] * deal["unitPriceDeal"]){
+                error.push("not enough money")
+            }
+            if (error.length === 0){
+                order[0]["user"]["resources"][deal["dealResource"]] += parseInt(deal["dealAmount"]);
+                order[1]["user"]["resources"][deal["dealResource"]] -= parseInt(deal["dealAmount"]);
+                console.log(order[0])
+                order[0]["user"]["money"] -= deal["dealAmount"] * deal["unitPriceDeal"];
+                order[1]["user"]["money"] += deal["dealAmount"] * deal["unitPriceDeal"];
+                for (let i = 0; i < Object.keys(usersJson).length; i++){
+                    if (usersJson[i]["user"]["name"] === userReceiver["user"]["name"]){
+                        usersJson[i] = userReceiver;
+                    }
+                }
+                saveJSON('storage/user.json', usersJson)
+            }else {
+                console.log(error)
+            }
+        }
+    }
+}
 function dealRequest(submitDeal, socket){
     let deals = loadJSON('storage/deals.json')
-    console.log(submitDeal[Object.keys(submitDeal)[0]])
     deals[Object.keys(submitDeal)[0]] = submitDeal[Object.keys(submitDeal)[0]];
 
     saveJSON('storage/deals.json', deals)
@@ -198,12 +238,15 @@ function dealHistory(socket){
     let deals = loadJSON('storage/deals.json')
     socket.emit("dealHistory", deals)
 }
-function acceptDeal(dealAcceptie){
+function dealAcceptie(dealAcceptie){
     let deals = loadJSON('storage/deals.json')
-    deals[dealAcceptie[1]]["takenBy"] = dealAcceptie[0];
+    if (dealAcceptie[0] === "accept"){
+        deals[dealAcceptie[2]]["takenBy"] = dealAcceptie[1];
+    }else {
+        deals[dealAcceptie[2]]["takenBy"] = false;
+    }
     saveJSON('storage/deals.json', deals)
 }
-
 
 module.exports.worldClock = worldClock;
 module.exports.loadJSON = loadJSON;
@@ -214,4 +257,4 @@ module.exports.loginRequest = loginRequest;
 module.exports.buildHandler = buildHandler;
 module.exports.dealRequest = dealRequest;
 module.exports.dealHistory = dealHistory;
-module.exports.acceptDeal = acceptDeal;
+module.exports.dealAcceptie = dealAcceptie;

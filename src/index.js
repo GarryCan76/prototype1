@@ -7,7 +7,7 @@ import {
     buildingUpdate,
     resourceCycles,
     createDeal,
-    dealUpdate, dealHistory
+    dealUpdate, dealHistory, currentDeals
 } from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;

@@ -35,17 +35,17 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 10000,
+      "money": 12508,
       "resources": {
-        "Water": 4680,
+        "Water": 3771,
         "Crops": 0,
         "SiliconOre": 0,
         "Silicon": 0,
         "IronOre": 0,
         "Iron": 0,
-        "CopperOre": 5,
-        "Copper": 0,
-        "Coal": 0,
+        "CopperOre": 285,
+        "Copper": 216,
+        "Coal": 224,
         "Microchips": 0,
         "GoldOre": 0,
         "Gold": 0
@@ -57,13 +57,14 @@
       "name": "walter",
       "password": "$2b$13$M0.78Bylp1MXDjdaJzkg2OnIv4EKpOHq8tn9MArDsvdj3Myb6GN/S",
       "userID": 381659,
-      "money": 5000,
+      "money": 3056,
       "resources": {
         "water": 0,
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 0,
-        "Coal": 0
+        "Coal": 0,
+        "Water": 258
       }
     }
   },

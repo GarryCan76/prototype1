@@ -1,61 +1,20 @@
 {
-  "15559": {
-    "dealUser": "garon",
-    "dealType": "sell",
-    "dealResource": "SiliconOre",
-    "unitPriceDeal": "13",
-    "dealAmount": "14",
-    "dealCycles": "15",
-    "takenBy": "walter"
+  "20908": {
+    "dealUser": "walter",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Crops",
+    "unitPriceDeal": "10",
+    "dealAmount": "3",
+    "dealCycles": "10"
   },
-  "24827": {
+  "93177": {
     "dealUser": "garon",
     "takenBy": "walter",
-    "dealType": "buy",
-    "dealResource": "SiliconOre",
-    "unitPriceDeal": "18",
-    "dealAmount": "19",
-    "dealCycles": "18"
-  },
-  "36210": {
-    "dealUser": "walter",
-    "dealType": "buy",
-    "dealResource": "CopperOre",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": 1,
-    "takenBy": "garon"
-  },
-  "37237": {
-    "dealUser": "garon",
-    "dealType": "buy",
-    "dealResource": "Iron",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": 1
-  },
-  "74745": {
-    "dealUser": "garon",
-    "dealType": "buy",
-    "dealResource": "IronOre",
-    "unitPriceDeal": "12",
-    "dealAmount": "13",
-    "dealCycles": "14"
-  },
-  "91153": {
-    "dealUser": "garon",
     "dealType": "sell",
-    "dealResource": "SiliconOre",
-    "unitPriceDeal": "13",
-    "dealAmount": "15",
-    "dealCycles": "67"
-  },
-  "96676": {
-    "dealUser": "garon",
-    "dealType": "buy",
-    "dealResource": "SiliconOre",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": 1
+    "dealResource": "Water",
+    "unitPriceDeal": "2",
+    "dealAmount": "3",
+    "dealCycles": "1000"
   }
 }
