@@ -7,7 +7,7 @@ import {
     buildingUpdate,
     resourceCycles,
     createDeal,
-    dealUpdate, dealHistory, currentDeals
+    dealUpdate, dealHistory, currentDeals, dealCycle
 } from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
@@ -51,7 +51,6 @@ socket.on('bupdate', bUpdate=>{
 socket.on('resourceCycles', rUpdate=>{
     let resources = JSON.parse(sessionStorage.getItem('resources'));
     resourceCycles(rUpdate, username, resources)
-
 })
 let textbox = document.getElementById('chatDisplay')
 socket.on("history", history =>{
@@ -115,4 +114,5 @@ function gridInputCheck(){
 }
 socket.on("dealHistory", deals=>{dealHistory(deals, socket)})
 socket.on("dealUpdate", deal=>{dealUpdate(deal, socket)})
+socket.on("dealCycle", dealResources=>{let resources = JSON.parse(sessionStorage.getItem('resources'));dealCycle(dealResources, username, resources)})
 document.getElementById('refreshDeals').addEventListener('click', ()=>{socket.emit("refreshDeals", 0)})

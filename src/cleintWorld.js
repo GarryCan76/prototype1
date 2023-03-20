@@ -171,6 +171,8 @@ function deleteChildren(victim){
 }
 export function resourceCycles(rUpdate, username, resources){
     let [name, update] = rUpdate;
+    console.log(name + " - "+ update)
+    console.log(resources)
     if (name === username){
         for (let r = 0; r < update.length; r++){
             resources[update[r][1]] = update[r][0];
@@ -289,6 +291,10 @@ export function currentDeals(UpdatedDeal, socket){
             document.getElementById('currentDeals').appendChild(p)
         }
     }
+}
+export function dealCycle(dealResources, username, resources){
+    resourceCycles(dealResources[0], username, resources)
+    resourceCycles(dealResources[1], username, resources)
 }
 export function dealHistory(deals, socket){
     deleteChildren('exchange')

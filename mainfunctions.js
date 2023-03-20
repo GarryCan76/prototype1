@@ -211,9 +211,11 @@ function tradeCycle(socket){
             if (error.length === 0){
                 order[0]["user"]["resources"][deal["dealResource"]] += parseInt(deal["dealAmount"]);
                 order[1]["user"]["resources"][deal["dealResource"]] -= parseInt(deal["dealAmount"]);
-                console.log(order[0])
                 order[0]["user"]["money"] -= deal["dealAmount"] * deal["unitPriceDeal"];
                 order[1]["user"]["money"] += deal["dealAmount"] * deal["unitPriceDeal"];
+
+                socket.broadcast.emit("dealCycle", [[order[0]["user"]["name"], [order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]], [order[1]["user"]["name"], [order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]])
+                socket.emit("dealCycle", [[order[0]["user"]["name"], [order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]], [order[1]["user"]["name"], [order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]])
                 for (let i = 0; i < Object.keys(usersJson).length; i++){
                     if (usersJson[i]["user"]["name"] === userReceiver["user"]["name"]){
                         usersJson[i] = userReceiver;
