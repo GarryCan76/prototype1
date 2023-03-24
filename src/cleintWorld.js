@@ -171,8 +171,6 @@ function deleteChildren(victim){
 }
 export function resourceCycles(rUpdate, username, resources){
     let [name, update] = rUpdate;
-    console.log(name + " - "+ update)
-    console.log(resources)
     if (name === username){
         for (let r = 0; r < update.length; r++){
             resources[update[r][1]] = update[r][0];
@@ -197,7 +195,6 @@ export function createDeal(socket){
         if (error === false){
             let dealId = (Math.floor(Math.random() * 99999) + 10000).toString()
             submitDeal[dealId] = dealInfo;
-            console.log(submitDeal)
             socket.emit('dealRequest', submitDeal)
         }else {
             console.log(error)
@@ -229,6 +226,7 @@ export function createDeal(socket){
     }
 }
 export function dealUpdate(UpdatedDeal, socket){
+    deleteChildren('dealInfo')
     currentDeals(UpdatedDeal, socket)
     for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
         let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
@@ -244,12 +242,12 @@ export function dealUpdate(UpdatedDeal, socket){
                 createParagraph('dealInfo', "units per cycle " + (deal["dealAmount"]))
                 createParagraph('dealInfo', "number of cycles " + (deal["dealCycles"]))
                 createParagraph('dealInfo', "price per cycle " + (deal["dealAmount"] * deal["unitPriceDeal"]))
+                createParagraph('dealInfo', "total units of " + (deal["dealResource"]) + " is " + (deal["dealAmount"] * deal["dealCycles"]))
                 createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
                 if (sessionStorage.getItem('username') !== deal["dealUser"]){
-                    console.log(Object.keys(UpdatedDeal)[r])
                     let p = document.createElement('p');
                     p.innerText = "Accept deal";
-                    p.addEventListener('click', ()=>{socket.emit("dealAcceptie", ["accept", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
+                    p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["accept", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
                     document.getElementById('dealInfo').appendChild(p)
                 }
             })
@@ -272,19 +270,18 @@ export function currentDeals(UpdatedDeal, socket){
                 createParagraph('dealInfo', "units per cycle " + (deal["dealAmount"]))
                 createParagraph('dealInfo', "number of cycles " + (deal["dealCycles"]))
                 createParagraph('dealInfo', "price per cycle " + (deal["dealAmount"] * deal["unitPriceDeal"]))
+                createParagraph('dealInfo', "total units of " + (deal["dealResource"]) + " is " + (deal["dealAmount"] * deal["dealCycles"]))
                 createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
                 if (sessionStorage.getItem('username') === deal["takenBy"]){
-                    console.log(Object.keys(UpdatedDeal)[r])
                     let p = document.createElement('p');
                     p.innerText = "Cancel deal";
-                    p.addEventListener('click', ()=>{socket.emit("dealAcceptie", ["cancel", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
+                    p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["cancel", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
                     document.getElementById('dealInfo').appendChild(p)
                 }
                 if (sessionStorage.getItem('username') === deal["dealUser"]){
-                    console.log(Object.keys(UpdatedDeal)[r])
                     let p = document.createElement('p');
                     p.innerText = "Remove deal";
-                    p.addEventListener('click', ()=>{socket.emit("dealAcceptie", ["remove", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
+                    p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["remove", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
                     document.getElementById('dealInfo').appendChild(p)
                 }
             })
@@ -295,6 +292,13 @@ export function currentDeals(UpdatedDeal, socket){
 export function dealCycle(dealResources, username, resources){
     resourceCycles(dealResources[0], username, resources)
     resourceCycles(dealResources[1], username, resources)
+    if (username === dealResources[0][0]){
+        sessionStorage.setItem('userMoney','' + dealResources[2])
+        document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
+    }else if (username === dealResources[1][0]){
+        sessionStorage.setItem('userMoney','' + dealResources[3])
+        document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
+    }
 }
 export function dealHistory(deals, socket){
     deleteChildren('exchange')

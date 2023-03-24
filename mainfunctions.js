@@ -214,8 +214,10 @@ function tradeCycle(socket){
                 order[0]["user"]["money"] -= deal["dealAmount"] * deal["unitPriceDeal"];
                 order[1]["user"]["money"] += deal["dealAmount"] * deal["unitPriceDeal"];
 
-                socket.broadcast.emit("dealCycle", [[order[0]["user"]["name"], [order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]], [order[1]["user"]["name"], [order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]])
-                socket.emit("dealCycle", [[order[0]["user"]["name"], [order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]], [order[1]["user"]["name"], [order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]])
+
+                socket.broadcast.emit("dealCycle", [[order[0]["user"]["name"], [[order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], [order[1]["user"]["name"], [[order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], order[0]["user"]["money"], order[1]["user"]["money"]])
+                socket.emit("dealCycle", [[order[0]["user"]["name"], [[order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], [order[1]["user"]["name"], [[order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], order[0]["user"]["money"], order[1]["user"]["money"]])
+
                 for (let i = 0; i < Object.keys(usersJson).length; i++){
                     if (usersJson[i]["user"]["name"] === userReceiver["user"]["name"]){
                         usersJson[i] = userReceiver;
@@ -244,7 +246,9 @@ function dealAcceptie(dealAcceptie){
     let deals = loadJSON('storage/deals.json')
     if (dealAcceptie[0] === "accept"){
         deals[dealAcceptie[2]]["takenBy"] = dealAcceptie[1];
-    }else {
+    }else if (dealAcceptie[0] === "remove"){
+        delete deals[dealAcceptie[2]];
+    } else {
         deals[dealAcceptie[2]]["takenBy"] = false;
     }
     saveJSON('storage/deals.json', deals)

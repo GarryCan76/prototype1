@@ -1,5 +1,5 @@
 {
-  "time": 180001,
+  "time": 183006,
   "world": [
     [
       {
@@ -596,9 +596,9 @@
         }
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 570,
-        "building": "Coalmine",
+        "building": null,
         "resources": {
           "WaterYield": 52,
           "IronOreYield": 31,
@@ -611,7 +611,7 @@
       {
         "owner": null,
         "cost": 167,
-        "building": "Coalmine",
+        "building": null,
         "resources": {
           "WaterYield": 9,
           "IronOreYield": 14,
