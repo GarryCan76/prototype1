@@ -181,11 +181,14 @@ export function resourceCycles(rUpdate, username, resources){
 
 }
 let dealInfo = {"dealUser":sessionStorage.getItem('username'), "takenBy":false , "dealType":null, "dealResource":null, "unitPriceDeal":1, "dealAmount":1, "dealCycles":1};
-export function createDeal(socket){
-    let send = document.getElementById('sendDeal');
+export function createDeal(socket, selectedR, BuyOrSel){
+    deleteChildren('confirm')
+    let send = document.createElement('p');
     let submitDeal = {};
-    send.innerText = "send";
+    send.innerText = "oki";
+    document.getElementById('confirm').appendChild(send)
     send.addEventListener("click", ()=>{
+        console.log("send")
         let error = false;
         for (let r = 0; r < Object.keys(dealInfo).length; r++){
             if (dealInfo[Object.keys(dealInfo)[r]] === null){
@@ -201,9 +204,14 @@ export function createDeal(socket){
         }
     })
     let buy = document.getElementById('buyDeal')
-    buy.addEventListener("click", ()=>{dealInfo["dealType"] = "buy";})
+    buy.addEventListener("click", ()=>{createDeal(socket, selectedR, "buy");dealInfo["dealType"] = "buy";})
     let sell = document.getElementById('sellDeal')
-    sell.addEventListener("click", ()=>{dealInfo["dealType"] = "sell"})
+    sell.addEventListener("click", ()=>{createDeal(socket, selectedR, "sell");dealInfo["dealType"] = "sell"})
+    if (BuyOrSel === "buy"){
+        buy.style.backgroundColor = "rgba(30,215,2,1)";
+        sell.style.backgroundColor = "rgba(0,0,0,0)";
+    }else if (BuyOrSel === "sell"){sell.style.backgroundColor = "rgba(30,215,2,1)";buy.style.backgroundColor = "rgba(0,0,0,0)";}
+
     let unitPrice = document.getElementById('unitPriceDeal')
     unitPrice.addEventListener("input", ()=>{dealInfo["unitPriceDeal"] = unitPrice.value; totalPrice()})
     let amount = document.getElementById('amountDeal')
@@ -218,13 +226,16 @@ export function createDeal(socket){
     deleteChildren('resourceType')
     for (let r = 0; r < Object.keys(resources).length; r++){
         let p = document.createElement('p');
+        if (r === selectedR){p.style.backgroundColor = "rgb(30,215,2)";}
         p.innerText = Object.keys(resources)[r];
         p.addEventListener('click', ()=>{
-            {dealInfo["dealResource"] = Object.keys(resources)[r]}
+            {createDeal(socket, r, BuyOrSel);dealInfo["dealResource"] = Object.keys(resources)[r]}
         })
         document.getElementById('resourceType').appendChild(p)
     }
+
 }
+let selectedDeal = false;
 export function dealUpdate(UpdatedDeal, socket){
     deleteChildren('dealInfo')
     currentDeals(UpdatedDeal, socket)
@@ -244,6 +255,8 @@ export function dealUpdate(UpdatedDeal, socket){
                 createParagraph('dealInfo', "price per cycle " + (deal["dealAmount"] * deal["unitPriceDeal"]))
                 createParagraph('dealInfo', "total units of " + (deal["dealResource"]) + " is " + (deal["dealAmount"] * deal["dealCycles"]))
                 createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
+                selectedDeal = r;
+                if (r === selectedDeal){p.style.backgroundColor = "rgb(30,215,2)";}
                 if (sessionStorage.getItem('username') !== deal["dealUser"]){
                     let p = document.createElement('p');
                     p.innerText = "Accept deal";
@@ -257,9 +270,14 @@ export function dealUpdate(UpdatedDeal, socket){
 }
 export function currentDeals(UpdatedDeal, socket){
     deleteChildren('currentDeals')
+    deleteChildren('yourDeals')
     for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
+        let yourDeal = false;
         let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
         if (deal["takenBy"] === sessionStorage.getItem('username') || deal["dealUser"] === sessionStorage.getItem('username')){
+            if (deal["dealUser"] === sessionStorage.getItem('username')){
+                yourDeal = true;
+            }
             let p = document.createElement('p');
             p.innerText = deal["dealType"] + ", " + deal["dealResource"] + " price: " + deal["unitPriceDeal"]+ ", duration: "+ deal["dealCycles"]+ " cycles, "+ deal["dealResource"] +" per cycle: " + deal["dealAmount"];
             p.addEventListener('click', ()=>{
@@ -285,7 +303,10 @@ export function currentDeals(UpdatedDeal, socket){
                     document.getElementById('dealInfo').appendChild(p)
                 }
             })
-            document.getElementById('currentDeals').appendChild(p)
+            if (yourDeal === true){
+                if (deal["takenBy"]){p.style.backgroundColor = "rgb(30,215,2)";}else {p.style.backgroundColor = "rgb(100,100,100)";}
+                document.getElementById('yourDeals').appendChild(p)
+            }else {document.getElementById('currentDeals').appendChild(p)}
         }
     }
 }

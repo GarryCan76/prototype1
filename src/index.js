@@ -22,7 +22,7 @@ socket.on("connect", ()=>{
 
 });
 uiResources()
-createDeal(socket)
+createDeal(socket, false)
 //get grid from server once connect
 socket.on("guc", guc=>{
     socket.emit("refreshDeals", 0)
