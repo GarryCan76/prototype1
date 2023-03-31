@@ -114,5 +114,6 @@ function gridInputCheck(){
 }
 socket.on("dealHistory", deals=>{dealHistory(deals, socket)})
 socket.on("dealUpdate", deal=>{dealUpdate(deal, socket)})
-socket.on("dealCycle", dealResources=>{let resources = JSON.parse(sessionStorage.getItem('resources'));dealCycle(dealResources, username, resources)})
+socket.on("dealCurrent", deal=>{currentDeals(deal, socket)})
+socket.on("dealCycle", dealResources=>{let resources = JSON.parse(sessionStorage.getItem('resources'));dealCycle(dealResources, username, resources, socket)})
 document.getElementById('refreshDeals').addEventListener('click', ()=>{socket.emit("refreshDeals", 0)})

@@ -67,6 +67,7 @@ export function uiResources(){
     }
 }
 function buyBuildings(buildings, resource, worldMatrix, col, row, username, socket, worldGrid){
+    worldSocket = socket;
     if (worldMatrix[col][row].building === null){
         for (let r = 0; r < Object.keys(buildings).length; r++){
             let p = document.createElement('p');
@@ -185,8 +186,16 @@ export function createDeal(socket, selectedR, BuyOrSel){
     deleteChildren('confirm')
     let send = document.createElement('p');
     let submitDeal = {};
-    send.innerText = "oki";
+    send.innerText = "confirm";
     document.getElementById('confirm').appendChild(send)
+    let buy = document.getElementById('buyDeal')
+    buy.addEventListener("click", ()=>{createDeal(socket, selectedR, "buy");dealInfo["dealType"] = "buy";})
+    let sell = document.getElementById('sellDeal')
+    sell.addEventListener("click", ()=>{createDeal(socket, selectedR, "sell");dealInfo["dealType"] = "sell"})
+    if (BuyOrSel === "buy"){
+        buy.style.backgroundColor = "rgba(30,215,2,1)";
+        sell.style.backgroundColor = "rgba(0,0,0,0)";
+    }else if (BuyOrSel === "sell"){sell.style.backgroundColor = "rgba(30,215,2,1)";buy.style.backgroundColor = "rgba(0,0,0,0)";}
     send.addEventListener("click", ()=>{
         console.log("send")
         let error = false;
@@ -202,16 +211,8 @@ export function createDeal(socket, selectedR, BuyOrSel){
         }else {
             console.log(error)
         }
+        createDeal(socket, selectedR, BuyOrSel)
     })
-    let buy = document.getElementById('buyDeal')
-    buy.addEventListener("click", ()=>{createDeal(socket, selectedR, "buy");dealInfo["dealType"] = "buy";})
-    let sell = document.getElementById('sellDeal')
-    sell.addEventListener("click", ()=>{createDeal(socket, selectedR, "sell");dealInfo["dealType"] = "sell"})
-    if (BuyOrSel === "buy"){
-        buy.style.backgroundColor = "rgba(30,215,2,1)";
-        sell.style.backgroundColor = "rgba(0,0,0,0)";
-    }else if (BuyOrSel === "sell"){sell.style.backgroundColor = "rgba(30,215,2,1)";buy.style.backgroundColor = "rgba(0,0,0,0)";}
-
     let unitPrice = document.getElementById('unitPriceDeal')
     unitPrice.addEventListener("input", ()=>{dealInfo["unitPriceDeal"] = unitPrice.value; totalPrice()})
     let amount = document.getElementById('amountDeal')
@@ -238,7 +239,6 @@ export function createDeal(socket, selectedR, BuyOrSel){
 let selectedDeal = false;
 export function dealUpdate(UpdatedDeal, socket){
     deleteChildren('dealInfo')
-    currentDeals(UpdatedDeal, socket)
     for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
         let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
         storedDeals[Object.keys(UpdatedDeal)[r]] = deal;
@@ -256,6 +256,9 @@ export function dealUpdate(UpdatedDeal, socket){
                 createParagraph('dealInfo', "total units of " + (deal["dealResource"]) + " is " + (deal["dealAmount"] * deal["dealCycles"]))
                 createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
                 selectedDeal = r;
+                for (let i = 0; i < document.getElementById('exchange').children.length; i++){
+                    document.getElementById('exchange').children[i].style.backgroundColor = "rgba(0,0,0,0)";
+                }
                 if (r === selectedDeal){p.style.backgroundColor = "rgb(30,215,2)";}
                 if (sessionStorage.getItem('username') !== deal["dealUser"]){
                     let p = document.createElement('p');
@@ -267,50 +270,54 @@ export function dealUpdate(UpdatedDeal, socket){
             document.getElementById('exchange').appendChild(p)
         }
     }
+    currentDeals(storedDeals, socket)
 }
 export function currentDeals(UpdatedDeal, socket){
     deleteChildren('currentDeals')
     deleteChildren('yourDeals')
     for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
+        console.log()
         let yourDeal = false;
         let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
-        if (deal["takenBy"] === sessionStorage.getItem('username') || deal["dealUser"] === sessionStorage.getItem('username')){
-            if (deal["dealUser"] === sessionStorage.getItem('username')){
-                yourDeal = true;
+        if (deal["dealCycles"] !== 0){
+            if (deal["takenBy"] === sessionStorage.getItem('username') || deal["dealUser"] === sessionStorage.getItem('username')){
+                if (deal["dealUser"] === sessionStorage.getItem('username')){
+                    yourDeal = true;
+                }
+                let p = document.createElement('p');
+                p.innerText = deal["dealType"] + ", " + deal["dealResource"] + " price: " + deal["unitPriceDeal"]+ ", duration: "+ deal["dealCycles"]+ " cycles, "+ deal["dealResource"] +" per cycle: " + deal["dealAmount"];
+                p.addEventListener('click', ()=>{
+                    deleteChildren('dealInfo')
+                    createParagraph('dealInfo',deal["dealType"]+ "er " + (deal["dealUser"]))
+                    createParagraph('dealInfo', "resource/good " + (deal["dealResource"]))
+                    createParagraph('dealInfo', "price per unit " + (deal["unitPriceDeal"]))
+                    createParagraph('dealInfo', "units per cycle " + (deal["dealAmount"]))
+                    createParagraph('dealInfo', "number of cycles " + (deal["dealCycles"]))
+                    createParagraph('dealInfo', "price per cycle " + (deal["dealAmount"] * deal["unitPriceDeal"]))
+                    createParagraph('dealInfo', "total units of " + (deal["dealResource"]) + " is " + (deal["dealAmount"] * deal["dealCycles"]))
+                    createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
+                    if (sessionStorage.getItem('username') === deal["takenBy"]){
+                        let p = document.createElement('p');
+                        p.innerText = "Cancel deal";
+                        p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["cancel", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
+                        document.getElementById('dealInfo').appendChild(p)
+                    }
+                    if (sessionStorage.getItem('username') === deal["dealUser"]){
+                        let p = document.createElement('p');
+                        p.innerText = "Remove deal";
+                        p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["remove", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
+                        document.getElementById('dealInfo').appendChild(p)
+                    }
+                })
+                if (yourDeal === true){
+                    if (deal["takenBy"]){p.style.backgroundColor = "rgb(30,215,2)";}else {p.style.backgroundColor = "rgb(100,100,100)";}
+                    document.getElementById('yourDeals').appendChild(p)
+                }else {document.getElementById('currentDeals').appendChild(p)}
             }
-            let p = document.createElement('p');
-            p.innerText = deal["dealType"] + ", " + deal["dealResource"] + " price: " + deal["unitPriceDeal"]+ ", duration: "+ deal["dealCycles"]+ " cycles, "+ deal["dealResource"] +" per cycle: " + deal["dealAmount"];
-            p.addEventListener('click', ()=>{
-                deleteChildren('dealInfo')
-                createParagraph('dealInfo',deal["dealType"]+ "er " + (deal["dealUser"]))
-                createParagraph('dealInfo', "resource/good " + (deal["dealResource"]))
-                createParagraph('dealInfo', "price per unit " + (deal["unitPriceDeal"]))
-                createParagraph('dealInfo', "units per cycle " + (deal["dealAmount"]))
-                createParagraph('dealInfo', "number of cycles " + (deal["dealCycles"]))
-                createParagraph('dealInfo', "price per cycle " + (deal["dealAmount"] * deal["unitPriceDeal"]))
-                createParagraph('dealInfo', "total units of " + (deal["dealResource"]) + " is " + (deal["dealAmount"] * deal["dealCycles"]))
-                createParagraph('dealInfo', "total price is " + (deal["dealAmount"] * deal["dealCycles"] * deal["unitPriceDeal"]))
-                if (sessionStorage.getItem('username') === deal["takenBy"]){
-                    let p = document.createElement('p');
-                    p.innerText = "Cancel deal";
-                    p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["cancel", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
-                    document.getElementById('dealInfo').appendChild(p)
-                }
-                if (sessionStorage.getItem('username') === deal["dealUser"]){
-                    let p = document.createElement('p');
-                    p.innerText = "Remove deal";
-                    p.addEventListener('click', ()=>{deleteChildren('dealInfo');socket.emit("dealAcceptie", ["remove", sessionStorage.getItem('username'), Object.keys(UpdatedDeal)[r]]);socket.emit("refreshDeals", 0)})
-                    document.getElementById('dealInfo').appendChild(p)
-                }
-            })
-            if (yourDeal === true){
-                if (deal["takenBy"]){p.style.backgroundColor = "rgb(30,215,2)";}else {p.style.backgroundColor = "rgb(100,100,100)";}
-                document.getElementById('yourDeals').appendChild(p)
-            }else {document.getElementById('currentDeals').appendChild(p)}
-        }
+        }else {delete UpdatedDeal[Object.keys(UpdatedDeal)[r]]}
     }
 }
-export function dealCycle(dealResources, username, resources){
+export function dealCycle(dealResources, username, resources, socket){
     resourceCycles(dealResources[0], username, resources)
     resourceCycles(dealResources[1], username, resources)
     if (username === dealResources[0][0]){

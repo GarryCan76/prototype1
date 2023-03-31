@@ -213,17 +213,19 @@ function tradeCycle(socket){
                 order[1]["user"]["resources"][deal["dealResource"]] -= parseInt(deal["dealAmount"]);
                 order[0]["user"]["money"] -= deal["dealAmount"] * deal["unitPriceDeal"];
                 order[1]["user"]["money"] += deal["dealAmount"] * deal["unitPriceDeal"];
-
-
+                deal["dealCycles"] -= 1;
                 socket.broadcast.emit("dealCycle", [[order[0]["user"]["name"], [[order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], [order[1]["user"]["name"], [[order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], order[0]["user"]["money"], order[1]["user"]["money"]])
                 socket.emit("dealCycle", [[order[0]["user"]["name"], [[order[0]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], [order[1]["user"]["name"], [[order[1]["user"]["resources"][deal["dealResource"]], deal["dealResource"]]]], order[0]["user"]["money"], order[1]["user"]["money"]])
-
+                socket.emit("dealCurrent", deals)
+                socket.broadcast.emit("dealCurrent", deals)
                 for (let i = 0; i < Object.keys(usersJson).length; i++){
                     if (usersJson[i]["user"]["name"] === userReceiver["user"]["name"]){
                         usersJson[i] = userReceiver;
                     }
                 }
+                if (deal["dealCycles"] === 0){delete deals[Object.keys(deals)[i]]}
                 saveJSON('storage/user.json', usersJson)
+                saveJSON('storage/deals.json', deals)
             }else {
                 console.log(error)
             }

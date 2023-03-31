@@ -1,2 +1,38 @@
 {
+  "34235": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": 1,
+    "dealAmount": 1,
+    "dealCycles": "3"
+  },
+  "36175": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": 1,
+    "dealAmount": 1,
+    "dealCycles": "3"
+  },
+  "42362": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": 1,
+    "dealAmount": 1,
+    "dealCycles": "3"
+  },
+  "57607": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": 1,
+    "dealAmount": 1,
+    "dealCycles": "3"
+  }
 }

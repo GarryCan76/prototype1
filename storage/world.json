@@ -1,5 +1,5 @@
 {
-  "time": 187335,
+  "time": 189267,
   "world": [
     [
       {
@@ -293,9 +293,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "walter",
         "cost": 497,
-        "building": null,
+        "building": "Waterpump",
         "resources": {
           "WaterYield": 29,
           "IronOreYield": 33,
