@@ -9,42 +9,59 @@
 <script src="socket.io/socket.io.js"></script>
 <script type="module" defer src="index.js"></script>
 <div><p id="money"></p></div>
-<div id="resources"></div>
-<div id="worldGrid"></div>
+<div id="container">
+    <div id="sideBar">
+        <div class="">company</div>
+        <div>resource</div>
+        <div>trading</div>
+        <div>building</div>
+        <div>score</div>
+    </div>
+    <div id="sideBarInterface">
+        <div id="sideBarInterfaceTop">
+            <div style="background-color: red" onclick="document.getElementById('sideBarInterface').style.display = 'none';document.getElementById('trading').style.display = 'none';"></div>
+        </div>
+        <div class="InterfaceDiv" id="company">company</div>
+        <div class="InterfaceDiv" id="resource">resource
+            <div id="resources"></div></div>
+        <div class="InterfaceDiv" id="building">building</div>
+        <div class="InterfaceDiv" id="score">score</div>
+        <div class="InterfaceDiv" id="trading">
+            trading
+            <p id="refreshDeals">refresh</p>
+            <div id="openMarket">
+                <div id="exchange">open market</div>
+                <div id="dealInfo">deal information</div>
+            </div>
+            <div id="createDeal">
+                <div id="resourceType">resource type</div>
+                <div id="buySell">
+                    <p id="buyDeal">buy</p>
+                    <p id="sellDeal">sell</p>
+                    <div><label for="unitPriceDeal">price per unit</label>
+                        <input type="text" id="unitPriceDeal" placeholder="Price per unit" value="1"></div>
+                    <div><label for="amountDeal">Units per cycle</label>
+                        <input type="text" id="amountDeal" placeholder="Sell units per cycle" value="1"></div>
+                    <div><label for="cycleDeal">Deal duration cycles</label>
+                        <input type="text" id="cycleDeal" placeholder="Deal duration cycles" value="1"></div>
+                    <p id="cyclePriceDeal"></p>
+                    <p id="totalPriceDeal"></p>
+                    <div id="confirm"></div>
+                </div>
+                <div id="currentDeals">
+                    Accepted deals
+                </div>
+                <div id="yourDeals">
+                    Your deals
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="worldGrid"></div>
+</div>
 <div id="GridUiStuff">
     <div id="gridInfo"><p id="buy"></p></div>
     <div id="buildings"></div>
-</div>
-<div id="trading">
-    deals
-    <p id="refreshDeals">refresh</p>
-    <div id="openMarket">
-        <div id="exchange">open market</div>
-        <div id="dealInfo">deal information</div>
-    </div>
-    <p>create new deal</p>
-    <div id="createDeal">
-        <div id="resourceType">resource type</div>
-        <div id="buySell">
-            <p id="buyDeal">buy</p>
-            <p id="sellDeal">sell</p>
-            <div><label for="unitPriceDeal">price per unit</label>
-                <input type="text" id="unitPriceDeal" placeholder="Price per unit" value="1"></div>
-            <div><label for="amountDeal">Units per cycle</label>
-                <input type="text" id="amountDeal" placeholder="Sell units per cycle" value="1"></div>
-            <div><label for="cycleDeal">Deal duration cycles</label>
-                <input type="text" id="cycleDeal" placeholder="Deal duration cycles" value="1"></div>
-            <p id="cyclePriceDeal"></p>
-            <p id="totalPriceDeal"></p>
-            <div id="confirm"></div>
-        </div>
-        <div id="currentDeals">
-            Accepted deals
-        </div>
-        <div id="yourDeals">
-            Your deals
-        </div>
-    </div>
 </div>
 <div id="chatBox">
     <div>

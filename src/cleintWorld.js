@@ -66,8 +66,20 @@ export function uiResources(){
         document.getElementById('resources').appendChild(p)
     }
 }
+export function sideBarInterface(){
+    let sidebar = document.getElementById('sideBar').children;
+    for (let i = 0; i < sidebar.length; i++){
+        sidebar[i].addEventListener('click',()=>{
+            let sidebar = document.getElementById('sideBar').children;
+            for (let y = 0; y < sidebar.length; y++){
+                document.getElementById(''+ sidebar[y].innerHTML).style.display = 'none';
+            }
+            document.getElementById('sideBarInterface').style.display = 'flex';
+            document.getElementById(''+ sidebar[i].innerHTML).style.display = 'flex';
+        })
+    }
+}
 function buyBuildings(buildings, resource, worldMatrix, col, row, username, socket, worldGrid){
-    worldSocket = socket;
     if (worldMatrix[col][row].building === null){
         for (let r = 0; r < Object.keys(buildings).length; r++){
             let p = document.createElement('p');
@@ -276,7 +288,6 @@ export function currentDeals(UpdatedDeal, socket){
     deleteChildren('currentDeals')
     deleteChildren('yourDeals')
     for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
-        console.log()
         let yourDeal = false;
         let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
         if (deal["dealCycles"] !== 0){
@@ -314,7 +325,7 @@ export function currentDeals(UpdatedDeal, socket){
                     document.getElementById('yourDeals').appendChild(p)
                 }else {document.getElementById('currentDeals').appendChild(p)}
             }
-        }else {delete UpdatedDeal[Object.keys(UpdatedDeal)[r]]}
+        }else {delete UpdatedDeal[Object.keys(UpdatedDeal)[r]]; delete storedDeals[Object.keys(storedDeals)[r]]; r -= 1;}
     }
 }
 export function dealCycle(dealResources, username, resources, socket){

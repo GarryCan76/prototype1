@@ -7,7 +7,7 @@ import {
     buildingUpdate,
     resourceCycles,
     createDeal,
-    dealUpdate, dealHistory, currentDeals, dealCycle
+    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface
 } from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
@@ -22,6 +22,7 @@ socket.on("connect", ()=>{
 
 });
 uiResources()
+sideBarInterface()
 createDeal(socket, false)
 //get grid from server once connect
 socket.on("guc", guc=>{
