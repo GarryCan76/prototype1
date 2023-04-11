@@ -1,6 +1,6 @@
 //generate new grid
 const fs = require("fs");
-let worldSize = 10;
+let worldSize = 20;
 function loadJSON(filename = ''){
     return JSON.parse(fs.existsSync(filename)
         ? fs.readFileSync(filename).toString()

@@ -15,9 +15,6 @@ const buildings = mainF.loadJSON('storage/buildings.json')
     io.on('connection', socket =>{
         socket.broadcast.emit("history", texthistory);
         socket.emit("history", texthistory);
-        socket.on('disconnect',() =>{
-            console.log("A user disconnected");
-        });
         socket.on("message", msguid =>{
             texthistory.push(msguid)
             socket.broadcast.emit("text", msguid);
@@ -52,9 +49,6 @@ const buildings = mainF.loadJSON('storage/buildings.json')
         mainF.dealHistory(socket)
     });
     socket.on('dealAcceptie', dealAcceptie=>{mainF.dealAcceptie(dealAcceptie)})
-    io.on('disconnect',()=>{
-        console.log("user disconnected")
-    });
 })
 app.get('/',(req, res) =>{
 

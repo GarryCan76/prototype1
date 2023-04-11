@@ -29,6 +29,7 @@ export function gridcreator(guc){
                     div.style.borderColor = "rgb(215,2,41)";
                 }
             }
+            // div.style.WebkitFilter = "invert(" + worldMatrix[y][x].resources.WaterYield / 100 + ")";
             cols[y].appendChild(div)
         }
     }
@@ -83,16 +84,32 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
     if (worldMatrix[col][row].building === null){
         for (let r = 0; r < Object.keys(buildings).length; r++){
             let p = document.createElement('p');
+            let div = document.createElement('div');
             if (buildings[Object.keys(buildings)[r]][4] === "Mine"){
                 p.style.backgroundColor = "rgb(187,142,184)";
                 p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(
                         buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2][0]["resourceReqType"]] / 175) + " " + buildings[Object.keys(buildings)[r]][0] +
                     " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
-                document.getElementById('buildings').appendChild(p)
+                div.appendChild(p)
             }else {
-                p.innerText = Object.keys(buildings)[r] + " produces "+ buildings[Object.keys(buildings)[r]][3] + " " + buildings[Object.keys(buildings)[r]][0] + " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
-                document.getElementById('buildings').appendChild(p)
+                p.innerText = Object.keys(buildings)[r];
+                div.appendChild(p)
+                p = document.createElement('p');
+                p.innerText = "Cost to build: " + buildings[Object.keys(buildings)[r]][1];
+                div.appendChild(p)
+                p = document.createElement('p');
+                p.innerText = "produces "+ buildings[Object.keys(buildings)[r]][3] + " " + buildings[Object.keys(buildings)[r]][0];
+                div.appendChild(p)
+                for (let i = 0; i < buildings[Object.keys(buildings)[r]][2].length; i++){
+                    p = document.createElement('p');
+                    p.innerText = "requires " +  buildings[Object.keys(buildings)[r]][2][i]["resourceReqAmt"]+" "+  buildings[Object.keys(buildings)[r]][2][i]["resourceReqType"];
+                    div.appendChild(p)
+                }
+                let image = document.createElement('img');
+                image.src = "images/"+ Object.keys(buildings)[r] +".png";
+                div.appendChild(image)
             }
+            document.getElementById('buildings').appendChild(div)
             document.getElementById('buildings').children[r].addEventListener("click", ()=>{buildRequest(col, row, username, socket, buildings, r)})
         }
     }else {

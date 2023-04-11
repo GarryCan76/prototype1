@@ -1,13 +1,4 @@
 {
-  "10486": {
-    "dealUser": "garon",
-    "takenBy": false,
-    "dealType": "buy",
-    "dealResource": "Water",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": "3"
-  },
   "18199": {
     "dealUser": "garon",
     "takenBy": false,
@@ -34,5 +25,14 @@
     "unitPriceDeal": 1,
     "dealAmount": 1,
     "dealCycles": "3"
+  },
+  "100951": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": "1",
+    "dealAmount": "5",
+    "dealCycles": "10"
   }
 }
