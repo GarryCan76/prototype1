@@ -7,7 +7,7 @@ import {
     buildingUpdate,
     resourceCycles,
     createDeal,
-    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface
+    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface, resourceFilter
 } from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
@@ -32,6 +32,7 @@ socket.on("guc", guc=>{
         [worldGrid, worldMatrix] = gridcreator(guc[0])
         gridInputCheck()
     }
+    resourceFilter(worldMatrix, worldGrid)
 });
 socket.on('time', time=>{
 })

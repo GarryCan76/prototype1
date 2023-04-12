@@ -12,13 +12,20 @@ body{background-color: #bebebe; margin: 0}
     justify-content: center;
     background-color: royalblue;
 }
+#worldGrid > div > div{
+    background-size: cover;
+}
 p{
     margin: 1px;
 }
 #buildings > div{
-    background-color: #484848;
+    background-color: #8cbe8c;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+#buildings > div > img{
+    max-width: 50px;
+    max-height: 50px;
 }
 #container{
     display: flex;
@@ -38,9 +45,10 @@ p{
     height: 800px;
     position: absolute;
     left: 4%;
+    z-index: 1;
 
 }
-.InterfaceDiv{background-color: rgba(255, 255, 255, 0.94); width: 100%; height: 100%}
+.InterfaceDiv{background-color: rgba(255, 255, 255, 0.90); width: 100%; height: 100%;}
 #sideBarInterfaceTop{
     width: 100%;
     height: 3%;

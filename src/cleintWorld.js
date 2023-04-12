@@ -84,12 +84,18 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
     if (worldMatrix[col][row].building === null){
         for (let r = 0; r < Object.keys(buildings).length; r++){
             let p = document.createElement('p');
+            let buildingButton = document.createElement('div');
             let div = document.createElement('div');
             if (buildings[Object.keys(buildings)[r]][4] === "Mine"){
                 p.style.backgroundColor = "rgb(187,142,184)";
-                p.innerText = Object.keys(buildings)[r] + " produces " + parseInt(
-                        buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2][0]["resourceReqType"]] / 175) + " " + buildings[Object.keys(buildings)[r]][0] +
-                    " - Cost to build: " + buildings[Object.keys(buildings)[r]][1];
+                p.innerText = Object.keys(buildings)[r];
+                div.appendChild(p)
+                p = document.createElement('p');
+                p.innerText = "Cost to build: " + buildings[Object.keys(buildings)[r]][1];
+                div.appendChild(p)
+                p = document.createElement('p');
+                p.innerText = "produces "+ parseInt(
+                    buildings[Object.keys(buildings)[r]][3] * worldMatrix[col][row].resources[buildings[Object.keys(buildings)[r]][2][0]["resourceReqType"]] / 175)+ " " + buildings[Object.keys(buildings)[r]][0];
                 div.appendChild(p)
             }else {
                 p.innerText = Object.keys(buildings)[r];
@@ -105,11 +111,14 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
                     p.innerText = "requires " +  buildings[Object.keys(buildings)[r]][2][i]["resourceReqAmt"]+" "+  buildings[Object.keys(buildings)[r]][2][i]["resourceReqType"];
                     div.appendChild(p)
                 }
-                let image = document.createElement('img');
-                image.src = "images/"+ Object.keys(buildings)[r] +".png";
-                div.appendChild(image)
+
             }
-            document.getElementById('buildings').appendChild(div)
+            let image = document.createElement('img');
+            image.src = "images/"+ Object.keys(buildings)[r] +".png";
+            div.appendChild(image)
+            buildingButton.appendChild(image)
+            buildingButton.appendChild(div)
+            document.getElementById('buildings').appendChild(buildingButton)
             document.getElementById('buildings').children[r].addEventListener("click", ()=>{buildRequest(col, row, username, socket, buildings, r)})
         }
     }else {
@@ -238,7 +247,7 @@ export function createDeal(socket, selectedR, BuyOrSel){
             submitDeal[dealId] = dealInfo;
             socket.emit('dealRequest', submitDeal)
         }else {
-            console.log(error)
+            alert(error)
         }
         createDeal(socket, selectedR, BuyOrSel)
     })
@@ -360,3 +369,27 @@ export function dealHistory(deals, socket){
     deleteChildren('exchange')
     dealUpdate(deals, socket)
 }
+export function resourceFilter(worldMatrix, worldGrid){
+    let p = document.createElement('p');
+    p.innerText = "None";
+    p.addEventListener("click", ()=>{overrideStyle(worldGrid, worldMatrix, "None")})
+    document.getElementById('resourceFilter').appendChild(p)
+    for (let resourceI = 0; resourceI < Object.keys(worldMatrix[0][0].resources).length; resourceI++){
+        let p = document.createElement('p');
+        p.innerText = Object.keys(worldMatrix[0][0].resources)[resourceI];
+        p.addEventListener("click", ()=>{overrideStyle(worldGrid, worldMatrix, Object.keys(worldMatrix[0][0].resources)[resourceI])})
+        document.getElementById('resourceFilter').appendChild(p)
+    }
+}
+function overrideStyle(worldGrid, worldMatrix, type){
+    for (let col = 0; col < Object.keys(worldGrid).length; col++){
+        for (let row = 0; row < worldGrid[col].children.length; row++){
+            if (type === "None"){
+                worldGrid[col].children[row].style["-webkit-filter"] = "blur(0px) opacity(100%";
+            }else {
+                worldGrid[col].children[row].style["-webkit-filter"] = "blur("+ 1 +"px) opacity("+ (100 - worldMatrix[col][row].resources[type]) +"%)";
+            }
+        }
+    }
+}
+
