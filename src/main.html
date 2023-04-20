@@ -8,10 +8,21 @@
 <body>
 <script src="socket.io/socket.io.js"></script>
 <script type="module" defer src="index.js"></script>
-<div><p id="money"></p></div>
+<p>add system where ai can create deals</p>
+<p>filters for trading</p>
+<p>add system where there are resources with a static output</p>
+<p>this will be used for electricity</p>
+<p>create new buildings and resources</p>
+<p>update production chart</p>
+<p>develop ui</p>
+<p>add score with respect to money and tiles owned</p>
+<p>have a time limit and at the end of the time limit announce winner</p>
+<p></p>
+<div><p id="money"></p>
+    <div id="quickResources"></div>
+</div>
 <div id="container">
     <div id="sideBar">
-        <div>company</div>
         <div>resource</div>
         <div>trading</div>
         <div>production chart</div>
@@ -21,7 +32,6 @@
         <div id="sideBarInterfaceTop">
             <div style="background-color: red" onclick="document.getElementById('sideBarInterface').style.display = 'none';document.getElementById('trading').style.display = 'none';"></div>
         </div>
-        <div class="InterfaceDiv" id="company">company</div>
         <div class="InterfaceDiv" id="resource">resource
             <div id="resources"></div>
         </div>

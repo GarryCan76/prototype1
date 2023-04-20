@@ -1,5 +1,6 @@
 let selected = null;
 let storedDeals = {};
+let quickResources = [];
 function createParagraph(destination, text){
     let p = document.createElement('p');
     p.innerText = text;
@@ -64,7 +65,36 @@ export function uiResources(){
     for (let r = 0; r < Object.keys(resources).length; r++){
         let p = document.createElement('p');
         p.innerText = Object.keys(resources)[r] + " = " + resources[Object.keys(resources)[r]];
+        p.addEventListener('click', ()=>{
+            addQuickResource(Object.keys(resources)[r], resources)
+        })
+        for (let i = 0; i < quickResources.length; i++){
+            if (quickResources[i] === Object.keys(resources)[r]){
+                p.style.backgroundColor = "rgb(30,215,2)";
+            }
+        }
         document.getElementById('resources').appendChild(p)
+    }
+}
+function addQuickResource(resource, resources){
+    let remove = false;
+    for (let i = 0; i < quickResources.length; i++){
+        if (resource === quickResources[i]){
+            quickResources.splice(i, 1)
+            remove = true;
+        }}
+    if (remove === false){
+        quickResources.push(resource)
+    }
+    uiQuickResources(resources)
+    uiResources()
+}
+function uiQuickResources(resources){
+    deleteChildren('quickResources')
+    for (let r = 0; r < quickResources.length; r++){
+        let p = document.createElement('p');
+        p.innerText = quickResources[r] + " = " + resources[quickResources[r]];
+        document.getElementById('quickResources').appendChild(p)
     }
 }
 export function sideBarInterface(){
@@ -216,6 +246,7 @@ export function resourceCycles(rUpdate, username, resources){
         }
         sessionStorage.setItem('resources','' + JSON.stringify(resources, null, 2))
         uiResources()
+        uiQuickResources(resources)
     }
 
 }
@@ -370,6 +401,7 @@ export function dealHistory(deals, socket){
     dealUpdate(deals, socket)
 }
 export function resourceFilter(worldMatrix, worldGrid){
+    deleteChildren('resourceFilter')
     let p = document.createElement('p');
     p.innerText = "None";
     p.addEventListener("click", ()=>{overrideStyle(worldGrid, worldMatrix, "None")})
@@ -381,13 +413,14 @@ export function resourceFilter(worldMatrix, worldGrid){
         document.getElementById('resourceFilter').appendChild(p)
     }
 }
+
 function overrideStyle(worldGrid, worldMatrix, type){
     for (let col = 0; col < Object.keys(worldGrid).length; col++){
         for (let row = 0; row < worldGrid[col].children.length; row++){
             if (type === "None"){
-                worldGrid[col].children[row].style["-webkit-filter"] = "blur(0px) opacity(100%";
+                worldGrid[col].children[row].style["-webkit-filter"] = "blur(0px) hue-rotate(0deg)";
             }else {
-                worldGrid[col].children[row].style["-webkit-filter"] = "blur("+ 1 +"px) opacity("+ (100 - worldMatrix[col][row].resources[type]) +"%)";
+                worldGrid[col].children[row].style["-webkit-filter"] = "blur("+ 0 +"px) hue-rotate("+ (20 + worldMatrix[col][row].resources[type] * 2) +"deg)";
             }
         }
     }

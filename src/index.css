@@ -4,19 +4,22 @@ body{background-color: #bebebe; margin: 0}
 }
 #worldGrid{
     width: 100%;
-    overflow: scroll;
 }
 #worldGrid > div{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: royalblue;
+    background-color: #0080ff;
 }
 #worldGrid > div > div{
     background-size: cover;
 }
 p{
     margin: 1px;
+}
+#quickResources{
+    display: flex;
+    flex-direction: row;
 }
 #buildings > div{
     background-color: #8cbe8c;
