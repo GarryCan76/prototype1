@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const http = require('http').Server(app);
+const hostname = '25.32.227.168'
 app.use(express.static('src'))
 const port = process.env.PORT||8080;
 const io = require('socket.io')(http);
@@ -53,5 +54,6 @@ const buildings = mainF.loadJSON('storage/buildings.json')
 app.get('/',(req, res) =>{
 
 });
-http.listen(port, ()=>{
+http.listen(port, hostname, ()=>{
+    console.log(`Server running at http://${hostname}:${port}`)
 })

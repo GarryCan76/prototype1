@@ -29,7 +29,7 @@ socket.on("guc", guc=>{
     socket.emit("refreshDeals", 0)
     buildings = guc[1];
     if (worldGrid === null && worldMatrix === null){
-        [worldGrid, worldMatrix] = gridcreator(guc[0])
+        [worldGrid, worldMatrix] = gridcreator(guc[0], socket)
         gridInputCheck()
     }
     resourceFilter(worldMatrix, worldGrid)

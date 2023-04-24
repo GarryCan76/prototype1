@@ -17,14 +17,32 @@
     "dealAmount": 1,
     "dealCycles": "3"
   },
-  "63871": {
+  "43633": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "sell",
+    "dealResource": "CopperOre",
+    "unitPriceDeal": "10",
+    "dealAmount": "10",
+    "dealCycles": 83
+  },
+  "76288": {
     "dealUser": "garon",
     "takenBy": false,
     "dealType": "buy",
-    "dealResource": "Water",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": "3"
+    "dealResource": "SiliconOre",
+    "unitPriceDeal": "7",
+    "dealAmount": "13",
+    "dealCycles": "20"
+  },
+  "97037": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "SiliconOre",
+    "unitPriceDeal": "5",
+    "dealAmount": "5",
+    "dealCycles": "69"
   },
   "100951": {
     "dealUser": "garon",

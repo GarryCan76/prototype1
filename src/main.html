@@ -8,16 +8,16 @@
 <body>
 <script src="socket.io/socket.io.js"></script>
 <script type="module" defer src="index.js"></script>
-<p>add system where ai can create deals</p>
-<p>filters for trading</p>
-<p>add system where there are resources with a static output</p>
-<p>this will be used for electricity</p>
-<p>create new buildings and resources</p>
-<p>update production chart</p>
-<p>develop ui</p>
-<p>add score with respect to money and tiles owned</p>
-<p>have a time limit and at the end of the time limit announce winner</p>
-<p></p>
+<!--<p>add system where ai can create deals</p>-->
+<!--<p>filters for trading</p>-->
+<!--<p>add system where there are resources with a static output</p>-->
+<!--<p>this will be used for electricity</p>-->
+<!--<p>create new buildings and resources</p>-->
+<!--<p>update production chart</p>-->
+<!--<p>develop ui</p>-->
+<!--<p>add score with respect to money and tiles owned</p>-->
+<!--<p>have a time limit and at the end of the time limit announce winner</p>-->
+<!--<p></p>-->
 <div><p id="money"></p>
     <div id="quickResources"></div>
 </div>
@@ -42,6 +42,10 @@
         <div class="InterfaceDiv" id="trading">
             trading
             <p id="refreshDeals">refresh</p>
+            <input type="text" id="resourceSort">
+            <input type="radio" name="sortingType" value="price">
+            <input type="radio" name="sortingType" value="amount">
+            <p id="sortDeals">Sort</p>
             <div id="openMarket">
                 <div id="exchange">open market</div>
                 <div id="dealInfo">deal information</div>
@@ -52,11 +56,11 @@
                     <p id="buyDeal">buy</p>
                     <p id="sellDeal">sell</p>
                     <div><label for="unitPriceDeal">price per unit</label>
-                        <input type="text" id="unitPriceDeal" placeholder="Price per unit" value="1"></div>
+                        <input type="number" id="unitPriceDeal" placeholder="Price per unit" value="1"></div>
                     <div><label for="amountDeal">Units per cycle</label>
-                        <input type="text" id="amountDeal" placeholder="Sell units per cycle" value="1"></div>
+                        <input type="number" id="amountDeal" placeholder="Sell units per cycle" value="1"></div>
                     <div><label for="cycleDeal">Deal duration cycles</label>
-                        <input type="text" id="cycleDeal" placeholder="Deal duration cycles" value="1"></div>
+                        <input type="number" id="cycleDeal" placeholder="Deal duration cycles" value="1"></div>
                     <p id="cyclePriceDeal"></p>
                     <p id="totalPriceDeal"></p>
                     <div id="confirm"></div>

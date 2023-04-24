@@ -6,7 +6,9 @@ function createParagraph(destination, text){
     p.innerText = text;
     document.getElementById(destination).appendChild(p)
 }
-export function gridcreator(guc){
+export function gridcreator(guc, socket){
+    document.getElementById('sortDeals').addEventListener('click', ()=>{sortDeals(socket)})
+    document.getElementById('resourceSort').addEventListener('input', ()=>{sortDeals(socket)})
     console.log(guc)
     let worldMatrix = guc;
     for (let y = 0; y < guc.length; y++){
@@ -400,6 +402,30 @@ export function dealHistory(deals, socket){
     deleteChildren('exchange')
     dealUpdate(deals, socket)
 }
+function sortDeals(socket){
+    let filteredList = {};
+    let sortedList = [];
+    console.log(document.getElementsByName('sortingType')[0])
+    let radios = document.getElementsByName('sortingType')
+    for (let i = 0; i < Object.keys(storedDeals).length; i++){
+        let resourceSort = document.getElementById('resourceSort').value
+        if (storedDeals[Object.keys(storedDeals)[i]]['dealResource'].includes(resourceSort)){
+            filteredList[Object.keys(storedDeals)[i]] = (storedDeals[Object.keys(storedDeals)[i]])
+        }
+        if (radios[0].checked){
+            while (true){
+
+            }
+        }else if (radios[1].checked){
+            console.log('amount')
+        }
+    }
+    console.log(filteredList)
+    deleteChildren('exchange')
+    deleteChildren('yourDeals')
+    dealUpdate(filteredList, socket)
+}
+
 export function resourceFilter(worldMatrix, worldGrid){
     deleteChildren('resourceFilter')
     let p = document.createElement('p');
