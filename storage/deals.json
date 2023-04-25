@@ -8,15 +8,6 @@
     "dealAmount": 1,
     "dealCycles": "3"
   },
-  "26692": {
-    "dealUser": "garon",
-    "takenBy": false,
-    "dealType": "buy",
-    "dealResource": "Water",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": "3"
-  },
   "43633": {
     "dealUser": "garon",
     "takenBy": false,
@@ -25,6 +16,15 @@
     "unitPriceDeal": "10",
     "dealAmount": "10",
     "dealCycles": 83
+  },
+  "65092": {
+    "dealUser": "Edwin",
+    "takenBy": "garon",
+    "dealType": "sell",
+    "dealResource": "water",
+    "unitPriceDeal": "2",
+    "dealAmount": "3",
+    "dealCycles": "4"
   },
   "76288": {
     "dealUser": "garon",

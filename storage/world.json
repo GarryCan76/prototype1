@@ -1,5 +1,5 @@
 {
-  "time": 11040,
+  "time": 12388,
   "world": [
     [
       {
@@ -211,9 +211,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "Edwin",
         "cost": 942,
-        "building": null,
+        "building": "Siliconmine",
         "resources": {
           "WaterYield": 89,
           "IronOreYield": 82,
@@ -460,9 +460,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "Edwin",
         "cost": 909,
-        "building": null,
+        "building": "Siliconmill",
         "resources": {
           "WaterYield": 59,
           "IronOreYield": 87,
@@ -473,7 +473,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 474,
         "building": null,
         "resources": {
@@ -553,9 +553,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "Edwin",
         "cost": 983,
-        "building": null,
+        "building": "Coalmine",
         "resources": {
           "WaterYield": 65,
           "IronOreYield": 67,
@@ -709,9 +709,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "Edwin",
         "cost": 839,
-        "building": null,
+        "building": "Waterpump",
         "resources": {
           "WaterYield": 71,
           "IronOreYield": 79,
@@ -722,7 +722,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 790,
         "building": null,
         "resources": {
@@ -735,7 +735,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 414,
         "building": null,
         "resources": {
@@ -1744,9 +1744,9 @@
         }
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 993,
-        "building": "Coppermine",
+        "building": null,
         "resources": {
           "WaterYield": 55,
           "IronOreYield": 82,
@@ -2294,7 +2294,7 @@
         }
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 190,
         "building": null,
         "resources": {

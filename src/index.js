@@ -37,13 +37,14 @@ socket.on("guc", guc=>{
 socket.on('time', time=>{
 })
 socket.on('gridUpdate', gridUpdate=>{
-    console.log(gridUpdate)
     if (gridUpdate[2] === username){
         sessionStorage.setItem('userMoney','' + gridUpdate[4])
         document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
     }
     gridInputHandler(gridUpdate, worldMatrix, worldGrid)
-    buy(gridUpdate[0], gridUpdate[1], worldMatrix, worldGrid, socket, username, buildings)
+    if (gridUpdate[2] === username){
+        buy(gridUpdate[0], gridUpdate[1], worldMatrix, worldGrid, socket, username, buildings)
+    }
 });
 socket.on('bupdate', bUpdate=>{
     if (bUpdate[4] === username){
