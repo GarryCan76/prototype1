@@ -35,7 +35,7 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 617158,
+      "money": 618836,
       "resources": {
         "Water": 941,
         "Crops": 0,
@@ -97,7 +97,7 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 152,
-        "Coal": 16430
+        "Coal": 48500
       }
     }
   },
@@ -112,10 +112,29 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 0,
-        "Coal": 2330,
-        "SiliconOre": 3648,
-        "Silicon": 925,
-        "Water": 3421
+        "Coal": 18365,
+        "SiliconOre": 19683,
+        "Silicon": 7339,
+        "Water": 29077
+      }
+    }
+  },
+  {
+    "user": {
+      "name": "thomas",
+      "password": "$2b$13$h3FScEMuC8YSwUrzPF8KOerVHVblzKyfKsS4r8YxWK9q0tfu7JxJq",
+      "userID": 991271,
+      "money": 2398,
+      "resources": {
+        "water": 0,
+        "Crops": 0,
+        "CopperOre": 2592,
+        "Copper": 0,
+        "Coal": 0,
+        "false": null,
+        "Electricity": null,
+        "Water": 28,
+        "SiliconOre": 2583
       }
     }
   }

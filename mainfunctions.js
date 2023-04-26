@@ -227,7 +227,7 @@ function tradeCycle(socket){
                 saveJSON('storage/user.json', usersJson)
                 saveJSON('storage/deals.json', deals)
             }else {
-                console.log(error)
+
             }
         }
     }

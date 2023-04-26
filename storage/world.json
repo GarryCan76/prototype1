@@ -1,5 +1,5 @@
 {
-  "time": 12388,
+  "time": 15508,
   "world": [
     [
       {
@@ -473,7 +473,7 @@
         }
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 474,
         "building": null,
         "resources": {
@@ -566,9 +566,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "thomas",
         "cost": 727,
-        "building": null,
+        "building": "Coppermine",
         "resources": {
           "WaterYield": 42,
           "IronOreYield": 56,
@@ -579,7 +579,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "thomas",
         "cost": 198,
         "building": null,
         "resources": {
@@ -722,7 +722,7 @@
         }
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 790,
         "building": null,
         "resources": {
@@ -735,7 +735,7 @@
         }
       },
       {
-        "owner": "garon",
+        "owner": null,
         "cost": 414,
         "building": null,
         "resources": {
@@ -1129,9 +1129,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "thomas",
         "cost": 877,
-        "building": null,
+        "building": "Siliconmine",
         "resources": {
           "WaterYield": 81,
           "IronOreYield": 52,
