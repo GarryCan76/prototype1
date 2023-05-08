@@ -1,6 +1,6 @@
 {
   "Coalmine": ["Coal", 100, [{"resourceReqType": "CoalYield", "resourceReqAmt": false}], 20, "Mine"],
-  "Coalplant": ["Electricity", 200, [{"resourceReqType": false, "resourceReqAmt": 5}], 0, "Factory"],
+  "Coalplant": ["Electricity", 500, [{"resourceReqType": "Coal", "resourceReqAmt": 5}], 2, "Static"],
   "Waterpump": ["Water", 300, [{"resourceReqType": "WaterYield", "resourceReqAmt": false}], 20, "Mine"],
   "Coppermine": ["CopperOre", 400, [{"resourceReqType": "CopperOreYield", "resourceReqAmt": false}], 20, "Mine"],
   "Siliconmine": ["SiliconOre", 400, [{"resourceReqType": "SiliconOreYield", "resourceReqAmt": false}], 20, "Mine"],

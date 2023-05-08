@@ -1,56 +1,47 @@
 {
-  "18199": {
+  "ID68058": {
     "dealUser": "garon",
     "takenBy": false,
     "dealType": "buy",
     "dealResource": "Water",
-    "unitPriceDeal": 1,
-    "dealAmount": 1,
-    "dealCycles": "3"
+    "unitPriceDeal": "14",
+    "dealAmount": "15",
+    "dealCycles": "17"
   },
-  "43633": {
-    "dealUser": "garon",
-    "takenBy": false,
-    "dealType": "sell",
-    "dealResource": "CopperOre",
-    "unitPriceDeal": "10",
-    "dealAmount": "10",
-    "dealCycles": 83
-  },
-  "65092": {
-    "dealUser": "Edwin",
-    "takenBy": "garon",
-    "dealType": "sell",
-    "dealResource": "water",
-    "unitPriceDeal": "2",
-    "dealAmount": "3",
-    "dealCycles": "4"
-  },
-  "76288": {
+  "ID19012": {
     "dealUser": "garon",
     "takenBy": false,
     "dealType": "buy",
-    "dealResource": "SiliconOre",
-    "unitPriceDeal": "7",
+    "dealResource": "Water",
+    "unitPriceDeal": "12",
     "dealAmount": "13",
-    "dealCycles": "20"
+    "dealCycles": "19"
   },
-  "97037": {
-    "dealUser": "garon",
-    "takenBy": false,
-    "dealType": "buy",
-    "dealResource": "SiliconOre",
-    "unitPriceDeal": "5",
-    "dealAmount": "5",
-    "dealCycles": "69"
-  },
-  "100951": {
+  "ID75059": {
     "dealUser": "garon",
     "takenBy": false,
     "dealType": "buy",
     "dealResource": "Water",
-    "unitPriceDeal": "1",
-    "dealAmount": "5",
-    "dealCycles": "10"
+    "unitPriceDeal": "5",
+    "dealAmount": "6",
+    "dealCycles": "8"
+  },
+  "ID91749": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": "24",
+    "dealAmount": "15",
+    "dealCycles": "22"
+  },
+  "ID71154": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Water",
+    "unitPriceDeal": "21",
+    "dealAmount": "21",
+    "dealCycles": "21"
   }
 }

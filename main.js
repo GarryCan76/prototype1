@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const http = require('http').Server(app);
-const hostname = '10.52.8.210'
+const hostname = '10.52.4.39'
 app.use(express.static('src'))
 const port = process.env.PORT||8080;
 const io = require('socket.io')(http);

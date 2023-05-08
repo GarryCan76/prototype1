@@ -276,7 +276,7 @@ export function createDeal(socket, selectedR, BuyOrSel){
             }
         }
         if (error === false){
-            let dealId = (Math.floor(Math.random() * 99999) + 10000).toString()
+            let dealId = "ID"+ (Math.floor(Math.random() * 99999) + 10000).toString()
             submitDeal[dealId] = dealInfo;
             socket.emit('dealRequest', submitDeal)
         }else {
@@ -412,14 +412,22 @@ function sortDeals(socket){
         if (storedDeals[Object.keys(storedDeals)[i]]['dealResource'].includes(resourceSort)){
             filteredList[Object.keys(storedDeals)[i]] = (storedDeals[Object.keys(storedDeals)[i]])
         }
-        if (radios[0].checked){
-            while (true){
-
-            }
-        }else if (radios[1].checked){
-            console.log('amount')
-        }
+        sortedList.push(storedDeals[Object.keys(storedDeals)[i]])
     }
+    console.log(sortedList)
+    if (radios[0].checked){
+        sortedList.sort(function (a, b){
+            return b.unitPriceDeal - a.unitPriceDeal;
+        })
+    }else if (radios[1].checked){
+        console.log('amount')
+    }
+    console.log(sortedList)
+    filteredList = {};
+    sortedList.forEach(element =>{
+        console. log(Object.getOwnPropertyNames(element));
+        filteredList["ID"+ (Math.floor(Math.random() * 99999) + 10000).toString()] = element
+    })
     console.log(filteredList)
     deleteChildren('exchange')
     deleteChildren('yourDeals')
@@ -451,4 +459,3 @@ function overrideStyle(worldGrid, worldMatrix, type){
         }
     }
 }
-

@@ -164,7 +164,7 @@ function resourceCycle(world, socket){
                     sendUser.push([userI.user.resources[buildings[row.building][0]], buildings[row.building][0]])
                     socket.emit('resourceCycles', [row.owner, sendUser])
                     socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
-                }else {
+                }else if (buildings[row.building][4] === "Factory"){
                     let adequateResources = true;
                     for (let req = 0; req < buildings[row.building][2].length; req++){
                         if (userI.user.resources[buildings[row.building][2][req]["resourceReqType"]] < buildings[row.building][2][req]["resourceReqAmt"]){
@@ -181,6 +181,8 @@ function resourceCycle(world, socket){
                         socket.emit('resourceCycles', [row.owner, sendUser])
                         socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
                     }
+                }else if (buildings[row.building][4] === "Static"){
+
                 }
                 saveJSON('storage/user.json', usersJson)
             }

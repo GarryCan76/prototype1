@@ -97,7 +97,7 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 152,
-        "Coal": 48500
+        "Coal": 77120
       }
     }
   },
@@ -112,10 +112,10 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 0,
-        "Coal": 18365,
-        "SiliconOre": 19683,
-        "Silicon": 7339,
-        "Water": 29077
+        "Coal": 32675,
+        "SiliconOre": 33993,
+        "Silicon": 13063,
+        "Water": 51973
       }
     }
   },
@@ -128,13 +128,13 @@
       "resources": {
         "water": 0,
         "Crops": 0,
-        "CopperOre": 2592,
+        "CopperOre": 25488,
         "Copper": 0,
         "Coal": 0,
         "false": null,
         "Electricity": null,
         "Water": 28,
-        "SiliconOre": 2583
+        "SiliconOre": 28341
       }
     }
   }
