@@ -1,5 +1,5 @@
 {
-  "time": 17488,
+  "time": 21955,
   "world": [
     [
       {
@@ -1235,7 +1235,7 @@
       {
         "owner": "garon",
         "cost": 882,
-        "building": null,
+        "building": "Coalplant",
         "resources": {
           "WaterYield": 77,
           "IronOreYield": 61,
@@ -1469,9 +1469,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "aaa",
         "cost": 972,
-        "building": null,
+        "building": "Waterpump",
         "resources": {
           "WaterYield": 96,
           "IronOreYield": 77,
@@ -1497,7 +1497,7 @@
       {
         "owner": "garon",
         "cost": 693,
-        "building": null,
+        "building": "Coalmine",
         "resources": {
           "WaterYield": 50,
           "IronOreYield": 64,
@@ -1759,7 +1759,7 @@
       {
         "owner": "garon",
         "cost": 451,
-        "building": null,
+        "building": "Coalmine",
         "resources": {
           "WaterYield": 40,
           "IronOreYield": 43,
@@ -2008,7 +2008,7 @@
       {
         "owner": "garon",
         "cost": 743,
-        "building": null,
+        "building": "Coppermill",
         "resources": {
           "WaterYield": 66,
           "IronOreYield": 73,
@@ -2034,7 +2034,7 @@
       {
         "owner": "garon",
         "cost": 932,
-        "building": null,
+        "building": "Coppermill",
         "resources": {
           "WaterYield": 68,
           "IronOreYield": 90,
@@ -2242,9 +2242,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "aaa",
         "cost": 881,
-        "building": null,
+        "building": "Coppermine",
         "resources": {
           "WaterYield": 55,
           "IronOreYield": 83,

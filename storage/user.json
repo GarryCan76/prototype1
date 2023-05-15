@@ -6,7 +6,8 @@
       "userID": "example",
       "money": 1000,
       "resources": {
-        "example": "example"
+        "example": "example",
+        "Electricity": 0
       }
     }
   },
@@ -26,7 +27,8 @@
         "CopperOre": 0,
         "Copper": 0,
         "Coal": 0,
-        "Microchips": 0
+        "Microchips": 0,
+        "Electricity": 0
       }
     }
   },
@@ -35,7 +37,7 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 618836,
+      "money": 617136,
       "resources": {
         "Water": 941,
         "Crops": 0,
@@ -43,13 +45,13 @@
         "Silicon": 3,
         "IronOre": 0,
         "Iron": 1,
-        "CopperOre": 2253,
-        "Copper": 13,
-        "Coal": 6316,
+        "CopperOre": 1548,
+        "Copper": 436,
+        "Coal": 108,
         "Microchips": 0,
         "GoldOre": 626,
         "Gold": 16,
-        "Electricity": null
+        "Electricity": 20
       }
     }
   },
@@ -67,7 +69,8 @@
         "Water": 17331,
         "GoldOre": 0,
         "SiliconOre": 0,
-        "Silicon": 309
+        "Silicon": 309,
+        "Electricity": 0
       }
     }
   },
@@ -82,7 +85,8 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 0,
-        "Coal": 0
+        "Coal": 0,
+        "Electricity": 0
       }
     }
   },
@@ -97,7 +101,8 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 152,
-        "Coal": 77120
+        "Coal": 127840,
+        "Electricity": 0
       }
     }
   },
@@ -112,10 +117,11 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 0,
-        "Coal": 32675,
-        "SiliconOre": 33993,
-        "Silicon": 13063,
-        "Water": 51973
+        "Coal": 58055,
+        "SiliconOre": 59373,
+        "Silicon": 23215,
+        "Water": 92581,
+        "Electricity": 0
       }
     }
   },
@@ -128,13 +134,30 @@
       "resources": {
         "water": 0,
         "Crops": 0,
-        "CopperOre": 25488,
+        "CopperOre": 66096,
         "Copper": 0,
         "Coal": 0,
         "false": null,
-        "Electricity": null,
+        "Electricity": 0,
         "Water": 28,
-        "SiliconOre": 28341
+        "SiliconOre": 74025
+      }
+    }
+  },
+  {
+    "user": {
+      "name": "aaa",
+      "password": "$2b$13$LwEeSr6YpHv5IgguaRUndO7x2JtfvEOmRAE3L5vmmkm/BM94mHDku",
+      "userID": 524518,
+      "money": 2447,
+      "resources": {
+        "water": 0,
+        "Crops": 0,
+        "CopperOre": 28224,
+        "Copper": 0,
+        "Coal": 0,
+        "Water": 40430,
+        "Electricity": 0
       }
     }
   }

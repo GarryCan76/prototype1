@@ -149,10 +149,14 @@ function buildHandler(buildRequest, grid, socket){
         saveJSON('storage/world.json', currentTime)
     }
 }
+let userstats = {};
 function resourceCycle(world, socket){
+    let staticResources = [];
     let buildings = loadJSON('storage/buildings.json');
+    console.log("_______________________________")
     world.forEach(col=>{
         col.forEach(row=>{
+            userstats[row.owner] = {Electricity: 0};
             if (row.owner !== null && row.building !== null){
                 let sendUser = []
                 let [userI, usersJson] = getUserInfo(row.owner)
@@ -182,11 +186,28 @@ function resourceCycle(world, socket){
                         socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
                     }
                 }else if (buildings[row.building][4] === "Static"){
-
+                    if (userI.user.resources[buildings[row.building][2][0]["resourceReqType"]] > [buildings[row.building][2][0]["resourceReqAmt"]]){
+                        userI.user.resources[buildings[row.building][2][0]["resourceReqType"]] -= [buildings[row.building][2][0]["resourceReqAmt"]];
+                        sendUser.push([userI.user.resources[buildings[row.building][2][0]["resourceReqType"]], buildings[row.building][2][0]["resourceReqType"]])
+                        staticResources.push([userI.user.name, buildings[row.building][0], buildings[row.building][3]])
+                        sendUser.push([[userI.user.resources[buildings[row.building][0]], buildings[row.building][0]]])
+                        socket.emit('resourceCycles', [row.owner, sendUser])
+                        socket.broadcast.emit('resourceCycles', [row.owner, sendUser])
+                    }
                 }
                 saveJSON('storage/user.json', usersJson)
             }
         })
+    })
+    let usersJson = loadJSON('storage/user.json');
+    usersJson.forEach(user =>{
+        user.user.resources["Electricity"] = 0;
+        saveJSON('storage/user.json', usersJson)
+    });
+    staticResources.forEach(element=>{
+        let [userI, usersJson] = getUserInfo(element[0])
+        userI.user.resources[element[1]] += element[2];
+        saveJSON('storage/user.json', usersJson)
     })
 }
 function tradeCycle(socket){

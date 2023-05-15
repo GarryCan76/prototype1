@@ -1,11 +1,11 @@
 {
   "Coalmine": ["Coal", 100, [{"resourceReqType": "CoalYield", "resourceReqAmt": false}], 20, "Mine"],
-  "Coalplant": ["Electricity", 500, [{"resourceReqType": "Coal", "resourceReqAmt": 5}], 2, "Static"],
+  "Coalplant": ["Electricity", 500, [{"resourceReqType": "Coal", "resourceReqAmt": 5}], 20, "Static"],
   "Waterpump": ["Water", 300, [{"resourceReqType": "WaterYield", "resourceReqAmt": false}], 20, "Mine"],
   "Coppermine": ["CopperOre", 400, [{"resourceReqType": "CopperOreYield", "resourceReqAmt": false}], 20, "Mine"],
   "Siliconmine": ["SiliconOre", 400, [{"resourceReqType": "SiliconOreYield", "resourceReqAmt": false}], 20, "Mine"],
   "Goldmine": ["GoldOre", 400, [{"resourceReqType": "GoldOreYield", "resourceReqAmt": false}], 20, "Mine"],
-  "Coppermill": ["Copper", 500, [{"resourceReqType": "CopperOre", "resourceReqAmt": 5}, {"resourceReqType": "Coal", "resourceReqAmt": 5}], 3, "Factory"],
+  "Coppermill": ["Copper", 500, [{"resourceReqType": "CopperOre", "resourceReqAmt": 5}, {"resourceReqType": "Electricity", "resourceReqAmt": 5}], 3, "Factory"],
   "Siliconmill": ["Silicon", 500, [{"resourceReqType": "SiliconOre", "resourceReqAmt": 5}, {"resourceReqType": "Coal", "resourceReqAmt": 5}], 2, "Factory"],
   "Goldmill": ["Gold", 500, [{"resourceReqType": "GoldOre", "resourceReqAmt": 5}, {"resourceReqType": "Coal", "resourceReqAmt": 5}], 2, "Factory"],
   "Microchipfactory": ["Microchips", 500, [{"resourceReqType": "Copper", "resourceReqAmt": 5}, {"resourceReqType": "Silicon", "resourceReqAmt": 10}, {"resourceReqType": "Gold", "resourceReqAmt": 1}], 1, "Factory"]

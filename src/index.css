@@ -9,7 +9,7 @@ body{background-color: #bebebe; margin: 0}
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #0080ff;
+    background-color: #ffffff;
 }
 #worldGrid > div > div{
     background-size: cover;
