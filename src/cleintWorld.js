@@ -141,6 +141,9 @@ function buyBuildings(buildings, resource, worldMatrix, col, row, username, sock
                 for (let i = 0; i < buildings[Object.keys(buildings)[r]][2].length; i++){
                     p = document.createElement('p');
                     p.innerText = "requires " +  buildings[Object.keys(buildings)[r]][2][i]["resourceReqAmt"]+" "+  buildings[Object.keys(buildings)[r]][2][i]["resourceReqType"];
+                    if (buildings[Object.keys(buildings)[r]][2][i]["resourceReqType"] === "Electricity"){
+                        p.style.backgroundColor = "rgb(231,228,41)";
+                    }
                     div.appendChild(p)
                 }
 
@@ -310,9 +313,55 @@ export function createDeal(socket, selectedR, BuyOrSel){
 let selectedDeal = false;
 export function dealUpdate(UpdatedDeal, socket){
     deleteChildren('dealInfo')
-    for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
-        let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
-        storedDeals[Object.keys(UpdatedDeal)[r]] = deal;
+    let radios = document.getElementsByName('sortingType')
+    let filterDealType = document.getElementsByName('dealType')
+    let sortedList = [];
+    let dealType = null;
+    if (filterDealType[0].checked){
+        dealType = filterDealType[0].value
+        console.log('1')
+    }else if (filterDealType[1].checked){
+        dealType = filterDealType[1].value
+        console.log('2')
+    }
+    for (let i = 0; i < Object.keys(UpdatedDeal).length; i++){
+        let resourceSort = document.getElementById('resourceSort').value.toLowerCase()
+        if (dealType === UpdatedDeal[Object.keys(UpdatedDeal)[i]]['dealType'] || dealType === null){
+            if (UpdatedDeal[Object.keys(UpdatedDeal)[i]]['dealResource'].toLowerCase().includes(resourceSort)){
+                sortedList.push(UpdatedDeal[Object.keys(UpdatedDeal)[i]])
+                storedDeals[Object.keys(UpdatedDeal)[i]] = UpdatedDeal[Object.keys(UpdatedDeal)[i]];
+            }
+        }
+    }
+    if (radios[0].checked){
+        sortedList.sort(function (a, b){
+            return a.unitPriceDeal - b.unitPriceDeal;
+        })
+    }else if (radios[1].checked){
+        sortedList.sort(function (a, b){
+            return b.unitPriceDeal - a.unitPriceDeal;
+        })
+    }else if (radios[2].checked){
+        sortedList.sort(function (a, b){
+            return a.dealCycles - b.dealCycles;
+        })
+    }else if (radios[3].checked){
+        sortedList.sort(function (a, b){
+            return b.dealCycles - a.dealCycles;
+        })
+    }else if (radios[4].checked){
+        sortedList.sort(function (a, b){
+            return a.dealAmount - b.dealAmount;
+        })
+    }else if (radios[5].checked){
+        sortedList.sort(function (a, b){
+            return b.dealAmount - a.dealAmount;
+        })
+    }
+
+    console.log(sortedList)
+    for (let r = 0; r < sortedList.length; r++){
+        let deal = sortedList[r];
         if (deal["takenBy"] === false){
             let p = document.createElement('p');
             p.innerText = deal["dealType"] + ", " + deal["dealResource"] + " price: " + deal["unitPriceDeal"]+ ", duration: "+ deal["dealCycles"]+ " cycles, "+ deal["dealResource"] +" per cycle: " + deal["dealAmount"];
@@ -346,9 +395,22 @@ export function dealUpdate(UpdatedDeal, socket){
 export function currentDeals(UpdatedDeal, socket){
     deleteChildren('currentDeals')
     deleteChildren('yourDeals')
-    for (let r = 0; r < Object.keys(UpdatedDeal).length; r++){
+    let sortedList = [];
+    for (let i = 0; i < Object.keys(UpdatedDeal).length; i++){
+        let resourceSort = document.getElementById('resourceSort').value
+        if (UpdatedDeal[Object.keys(UpdatedDeal)[i]]['dealResource'].includes(resourceSort)){
+            sortedList.push(storedDeals[Object.keys(storedDeals)[i]])
+        }
+    }
+
+    // console.log("----------")
+    for (let r = 0; r < sortedList.length; r++){
         let yourDeal = false;
-        let deal = UpdatedDeal[Object.keys(UpdatedDeal)[r]];
+        let deal = sortedList[r];
+        sortedList.sort(function (a, b){
+            return b.unitPriceDeal - a.unitPriceDeal;
+        })
+        // console.log(sortedList)
         if (deal["dealCycles"] !== 0){
             if (deal["takenBy"] === sessionStorage.getItem('username') || deal["dealUser"] === sessionStorage.getItem('username')){
                 if (deal["dealUser"] === sessionStorage.getItem('username')){
@@ -403,35 +465,10 @@ export function dealHistory(deals, socket){
     dealUpdate(deals, socket)
 }
 function sortDeals(socket){
-    let filteredList = {};
-    let sortedList = [];
-    console.log(document.getElementsByName('sortingType')[0])
-    let radios = document.getElementsByName('sortingType')
-    for (let i = 0; i < Object.keys(storedDeals).length; i++){
-        let resourceSort = document.getElementById('resourceSort').value
-        if (storedDeals[Object.keys(storedDeals)[i]]['dealResource'].includes(resourceSort)){
-            filteredList[Object.keys(storedDeals)[i]] = (storedDeals[Object.keys(storedDeals)[i]])
-        }
-        sortedList.push(storedDeals[Object.keys(storedDeals)[i]])
-    }
-    console.log(sortedList)
-    if (radios[0].checked){
-        sortedList.sort(function (a, b){
-            return b.unitPriceDeal - a.unitPriceDeal;
-        })
-    }else if (radios[1].checked){
-        console.log('amount')
-    }
-    console.log(sortedList)
-    filteredList = {};
-    sortedList.forEach(element =>{
-        console. log(Object.getOwnPropertyNames(element));
-        filteredList["ID"+ (Math.floor(Math.random() * 99999) + 10000).toString()] = element
-    })
-    console.log(filteredList)
     deleteChildren('exchange')
     deleteChildren('yourDeals')
-    dealUpdate(filteredList, socket)
+    dealUpdate(storedDeals, socket)
+    currentDeals(storedDeals, socket)
 }
 
 export function resourceFilter(worldMatrix, worldGrid){

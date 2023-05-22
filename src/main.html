@@ -8,16 +8,16 @@
 <body>
 <script src="socket.io/socket.io.js"></script>
 <script type="module" defer src="index.js"></script>
-<!--<p>add system where ai can create deals</p>-->
-<!--<p>filters for trading</p>-->
-<!--<p>add system where there are resources with a static output</p>-->
-<!--<p>this will be used for electricity</p>-->
-<!--<p>create new buildings and resources</p>-->
-<!--<p>update production chart</p>-->
-<!--<p>develop ui</p>-->
-<!--<p>add score with respect to money and tiles owned</p>-->
-<!--<p>have a time limit and at the end of the time limit announce winner</p>-->
-<!--<p></p>-->
+<p>Quick sell system</p>
+<p>filters for trading - DONE</p>
+<p>add system where there are resources with a static output - DONE</p>
+<p>this will be used for electricity - DONE</p>
+<p>create new buildings and resources</p>
+<p>update production chart</p>
+<p>develop ui</p>
+<p>add score with respect to money and tiles owned</p>
+<p>have a time limit and at the end of the time limit announce winner</p>
+<p></p>
 <div><p id="money"></p>
     <div id="quickResources"></div>
 </div>
@@ -42,10 +42,33 @@
         <div class="InterfaceDiv" id="trading">
             trading
             <p id="refreshDeals">refresh</p>
-            <input type="text" id="resourceSort">
-            <input type="radio" name="sortingType" value="price">
-            <input type="radio" name="sortingType" value="amount">
+            <input type="text" id="resourceSort" placeholder="Filter by resource">
             <p id="sortDeals">Sort</p>
+            Select deal type
+            <div id="sortDealType" style="display: flex; flex-direction: row">
+                <label for="typeBuy">Buy</label>
+                <input type="radio" id="typeBuy" name="dealType" value="buy" style="display: none">
+                <label for="typeSell">Sell</label>
+                <input type="radio" id="typeSell" name="dealType" value="sell" style="display: none">
+                <label for="typeNone">None</label>
+                <input type="radio" id="typeNone" name="dealType" value="None" style="display: none">
+            </div>
+            <div id="sort" style="background-color: #8cbe8c">Sorting options
+                <div>
+                    <label for="pricelow">Price low - high</label>
+                    <input type="radio" id="pricelow" name="sortingType" value="price" style="display: none">
+                    <label for="pricehigh">Price high - low</label>
+                    <input type="radio" id="pricehigh" name="sortingType" value="price" style="display: none">
+                    <label for="durationlow">Cycles low - high</label>
+                    <input type="radio" id="durationlow" name="sortingType" value="price" style="display: none">
+                    <label for="durationhigh">Cycles high - low</label>
+                    <input type="radio" id="durationhigh" name="sortingType" value="price" style="display: none">
+                    <label for="amountlow">Amount low - high</label>
+                    <input type="radio" id="amountlow" name="sortingType" value="price" style="display: none">
+                    <label for="amounthigh">Amount high - low</label>
+                    <input type="radio" id="amounthigh" name="sortingType" value="price" style="display: none">
+                </div>
+            </div>
             <div id="openMarket">
                 <div id="exchange">open market</div>
                 <div id="dealInfo">deal information</div>

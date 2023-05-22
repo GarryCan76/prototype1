@@ -43,5 +43,32 @@
     "unitPriceDeal": "21",
     "dealAmount": "21",
     "dealCycles": "21"
+  },
+  "ID69260": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "sell",
+    "dealResource": "Silicon",
+    "unitPriceDeal": "5",
+    "dealAmount": "7",
+    "dealCycles": "100"
+  },
+  "ID30092": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "sell",
+    "dealResource": "Silicon",
+    "unitPriceDeal": "12",
+    "dealAmount": "6",
+    "dealCycles": "49"
+  },
+  "ID11167": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "sell",
+    "dealResource": "Silicon",
+    "unitPriceDeal": "11",
+    "dealAmount": "3",
+    "dealCycles": "55"
   }
 }

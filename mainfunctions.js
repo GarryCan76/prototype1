@@ -153,7 +153,7 @@ let userstats = {};
 function resourceCycle(world, socket){
     let staticResources = [];
     let buildings = loadJSON('storage/buildings.json');
-    console.log("_______________________________")
+    // console.log("_______________________________")
     world.forEach(col=>{
         col.forEach(row=>{
             userstats[row.owner] = {Electricity: 0};
@@ -210,6 +210,7 @@ function resourceCycle(world, socket){
         saveJSON('storage/user.json', usersJson)
     })
 }
+
 function tradeCycle(socket){
     let deals = loadJSON("storage/deals.json")
     for (let i = 0; i < Object.keys(deals).length; i++){

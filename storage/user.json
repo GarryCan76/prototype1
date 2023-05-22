@@ -37,21 +37,21 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 617136,
+      "money": 615045,
       "resources": {
         "Water": 941,
         "Crops": 0,
-        "SiliconOre": 656,
-        "Silicon": 3,
+        "SiliconOre": 1,
+        "Silicon": 265,
         "IronOre": 0,
         "Iron": 1,
-        "CopperOre": 1548,
-        "Copper": 436,
-        "Coal": 108,
+        "CopperOre": 4,
+        "Copper": 3406,
+        "Coal": 7,
         "Microchips": 0,
         "GoldOre": 626,
         "Gold": 16,
-        "Electricity": 20
+        "Electricity": 0
       }
     }
   },
@@ -101,7 +101,7 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 152,
-        "Coal": 127840,
+        "Coal": 170420,
         "Electricity": 0
       }
     }
@@ -117,10 +117,10 @@
         "Crops": 0,
         "CopperOre": 0,
         "Copper": 0,
-        "Coal": 58055,
-        "SiliconOre": 59373,
-        "Silicon": 23215,
-        "Water": 92581,
+        "Coal": 100495,
+        "SiliconOre": 101813,
+        "Silicon": 23271,
+        "Water": 126645,
         "Electricity": 0
       }
     }
@@ -134,13 +134,13 @@
       "resources": {
         "water": 0,
         "Crops": 0,
-        "CopperOre": 66096,
+        "CopperOre": 100160,
         "Copper": 0,
         "Coal": 0,
         "false": null,
         "Electricity": 0,
         "Water": 28,
-        "SiliconOre": 74025
+        "SiliconOre": 112347
       }
     }
   },
@@ -153,10 +153,26 @@
       "resources": {
         "water": 0,
         "Crops": 0,
-        "CopperOre": 28224,
+        "CopperOre": 58030,
         "Copper": 0,
         "Coal": 0,
-        "Water": 40430,
+        "Water": 83010,
+        "Electricity": 0
+      }
+    }
+  },
+  {
+    "user": {
+      "name": "testflip",
+      "password": "$2b$13$bMTj9HftncuQEj1Ngqh0AeKsCqlrj8TKkwVt.zzccHxkPXQLh.O8u",
+      "userID": 268200,
+      "money": 5000,
+      "resources": {
+        "water": 0,
+        "Crops": 0,
+        "CopperOre": 0,
+        "Copper": 0,
+        "Coal": 0,
         "Electricity": 0
       }
     }

@@ -148,6 +148,18 @@ p{
     display: none;
     flex-direction: column;
 }
+#sort > * {
+    display: none;
+    position: absolute;
+}
+#sort:hover *{
+    display: flex;
+    flex-direction: column;
+    background-color: #8cbe8c;
+}
+#sort > * > *:hover{
+    background-color: palegreen;
+}
 #yourDeals{
     overflow: hidden;
     overflow-y: scroll;

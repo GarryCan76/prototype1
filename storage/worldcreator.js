@@ -21,20 +21,26 @@ for (let y = 0; y < worldSize; y++){
         let cost = parseInt(getRandomArbitrary(100, 1000))
         ycord.push({
             "owner": null,
-            "cost": cost,
+            "cost": null,
             "building": null,
             "resources": {
-                "WaterYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "IronOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "CopperOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "SiliconOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "GoldOreYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
-                "CoalYield": parseInt(getRandomArbitrary(cost/20, cost/10)),
+                "WaterYield": parseInt(getRandomArbitrary(0, 100)),
+                "IronOreYield": parseInt(getRandomArbitrary(0, 100)),
+                "CopperOreYield": parseInt(getRandomArbitrary(0, 100)),
+                "SiliconOreYield": parseInt(getRandomArbitrary(0, 100)),
+                "GoldOreYield": parseInt(getRandomArbitrary(0, 100)),
+                "CoalYield": parseInt(getRandomArbitrary(0, 100)),
             },
         })
+        let totalresources = 0;
+        for (let i = 0; i < Object.keys(ycord[x].resources).length; i++){
+            totalresources += ycord[x].resources[Object.keys(ycord[x].resources)[i]]
+        }
+        console.log(totalresources)
+        ycord[x].cost = totalresources;
     }
+    console.log("_________")
     newworld.world.push(ycord)
 }
-console.log(newworld.world)
 worldJson = newworld;
 saveJSON('world.json', worldJson)

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const http = require('http').Server(app);
-const hostname = '10.52.4.39'
+const hostname = 'localhost'
 app.use(express.static('src'))
 const port = process.env.PORT||8080;
 const io = require('socket.io')(http);
@@ -26,7 +26,6 @@ const buildings = mainF.loadJSON('storage/buildings.json')
         let gridUpdate = mainF.updateGrid(Gselect, map.world);
         socket.broadcast.emit('gridUpdate', gridUpdate)
         socket.emit('gridUpdate', gridUpdate)
-
     });
     setInterval(function() {
         if (worldTick){
