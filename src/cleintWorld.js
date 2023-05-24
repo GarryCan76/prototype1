@@ -496,3 +496,11 @@ function overrideStyle(worldGrid, worldMatrix, type){
         }
     }
 }
+
+export function scoreHandler(scores){
+    console.log(scores)
+    deleteChildren("scoreBoard")
+    for (let i = 0; i < scores.length; i++){
+        createParagraph("scoreBoard", (i+1) + " - " + scores[i].name + " - score = " + scores[i].score)
+    }
+}

@@ -19,10 +19,23 @@ function worldClock(socket){
     resourceCycle(currentTime.world, socket)
     tradeCycle(socket)
     socket.emit('time', currentTime.time)
-    if (saveInterval === 60){
+    if (saveInterval === 2){
+        scores(socket)
         saveJSON('storage/world.json', currentTime)
         saveInterval = 0;
+        console.log("save")
     }
+}
+function scores(socket){
+    let scoreList = [];
+    let usersJson = loadJSON('storage/user.json');
+    for (let i = 0; i < usersJson.length; i++){
+        scoreList.push({"name": usersJson[i].user.name, "score":usersJson[i].user.money})
+    }
+    scoreList.sort(function (a, b){
+        return b.score - a.score;
+    })
+    socket.emit('scoreUpdate', scoreList)
 }
 function getUserInfo(username){
     let usersJson = loadJSON('storage/user.json');
