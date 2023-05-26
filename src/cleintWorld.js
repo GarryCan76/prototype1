@@ -496,7 +496,6 @@ function overrideStyle(worldGrid, worldMatrix, type){
         }
     }
 }
-
 export function scoreHandler(scores){
     console.log(scores)
     deleteChildren("scoreBoard")

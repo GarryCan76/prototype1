@@ -70,5 +70,14 @@
     "unitPriceDeal": "11",
     "dealAmount": "3",
     "dealCycles": "55"
+  },
+  "ID25901": {
+    "dealUser": "garon",
+    "takenBy": false,
+    "dealType": "buy",
+    "dealResource": "Copper",
+    "unitPriceDeal": "5",
+    "dealAmount": "4",
+    "dealCycles": "5"
   }
 }

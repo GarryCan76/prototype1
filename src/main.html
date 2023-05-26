@@ -8,16 +8,16 @@
 <body>
 <script src="socket.io/socket.io.js"></script>
 <script type="module" defer src="index.js"></script>
-<p>Quick sell system</p>
-<p>filters for trading - DONE</p>
-<p>add system where there are resources with a static output - DONE</p>
-<p>this will be used for electricity - DONE</p>
-<p>create new buildings and resources</p>
-<p>update production chart</p>
-<p>develop ui</p>
-<p>add score with respect to money and tiles owned</p>
-<p>have a time limit and at the end of the time limit announce winner</p>
-<p></p>
+<!--<p>Quick sell system</p>-->
+<!--<p>filters for trading - DONE</p>-->
+<!--<p>add system where there are resources with a static output - DONE</p>-->
+<!--<p>this will be used for electricity - DONE</p>-->
+<!--<p>create new buildings and resources</p>-->
+<!--<p>update production chart</p>-->
+<!--<p>develop ui</p>-->
+<!--<p>add score with respect to money and tiles owned</p>-->
+<!--<p>have a time limit and at the end of the time limit announce winner</p>-->
+<!--<p></p>-->
 <div><p id="money"></p>
     <div id="quickResources"></div>
 </div>
@@ -70,6 +70,9 @@
                     <label for="amounthigh">Amount high - low</label>
                     <input type="radio" id="amounthigh" name="sortingType" value="price" style="display: none">
                 </div>
+            </div>
+            <div class="InterfaceDiv" id="quickSell">Quick sell
+                <div id="quickSelling"></div>
             </div>
             <div id="openMarket">
                 <div id="exchange">open market</div>

@@ -23,14 +23,13 @@ function worldClock(socket){
         scores(socket)
         saveJSON('storage/world.json', currentTime)
         saveInterval = 0;
-        console.log("save")
     }
 }
 function scores(socket){
     let scoreList = [];
     let usersJson = loadJSON('storage/user.json');
     for (let i = 0; i < usersJson.length; i++){
-        scoreList.push({"name": usersJson[i].user.name, "score":usersJson[i].user.money})
+        scoreList.push({"name": usersJson[i].user.name, "score":(parseInt(usersJson[i].user.money * 1.3))})
     }
     scoreList.sort(function (a, b){
         return b.score - a.score;
