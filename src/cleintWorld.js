@@ -102,6 +102,7 @@ function uiQuickResources(resources){
 export function sideBarInterface(){
     let sidebar = document.getElementById('sideBar').children;
     for (let i = 0; i < sidebar.length; i++){
+        console.log(sidebar[i])
         sidebar[i].addEventListener('click',()=>{
             let sidebar = document.getElementById('sideBar').children;
             for (let y = 0; y < sidebar.length; y++){

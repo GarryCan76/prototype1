@@ -303,3 +303,4 @@ module.exports.buildHandler = buildHandler;
 module.exports.dealRequest = dealRequest;
 module.exports.dealHistory = dealHistory;
 module.exports.dealAcceptie = dealAcceptie;
+module.exports.scores = scores;

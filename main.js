@@ -7,13 +7,14 @@ app.use(express.static('src'))
 const port = process.env.PORT||8080;
 const io = require('socket.io')(http);
 let mainF = require('./mainfunctions');
-const {loadJSON, acceptDeal} = require("./mainfunctions");
+const {loadJSON, acceptDeal, scores} = require("./mainfunctions");
 let map = mainF.loadJSON('storage/world.json')
 let worldTick = true;
 let texthistory = []
 setInterval(()=>{worldTick = true}, 5000)
 const buildings = mainF.loadJSON('storage/buildings.json')
     io.on('connection', socket =>{
+        scores(socket)
         socket.broadcast.emit("history", texthistory);
         socket.emit("history", texthistory);
         socket.on("message", msguid =>{
