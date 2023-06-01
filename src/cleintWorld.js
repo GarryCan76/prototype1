@@ -305,7 +305,7 @@ export function createDeal(socket, selectedR, BuyOrSel){
         if (r === selectedR){p.style.backgroundColor = "rgb(30,215,2)";}
         p.innerText = Object.keys(resources)[r];
         p.addEventListener('click', ()=>{
-            {createDeal(socket, r, BuyOrSel);dealInfo["dealResource"] = Object.keys(resources)[r]}
+                {createDeal(socket, r, BuyOrSel);dealInfo["dealResource"] = Object.keys(resources)[r]}
         })
         document.getElementById('resourceType').appendChild(p)
     }
@@ -483,6 +483,21 @@ export function resourceFilter(worldMatrix, worldGrid){
         p.innerText = Object.keys(worldMatrix[0][0].resources)[resourceI];
         p.addEventListener("click", ()=>{overrideStyle(worldGrid, worldMatrix, Object.keys(worldMatrix[0][0].resources)[resourceI])})
         document.getElementById('resourceFilter').appendChild(p)
+    }
+}
+
+export function quickSell(socket, selectedR){
+    let resources = JSON.parse(sessionStorage.getItem('resources'));
+    deleteChildren('quickResourceSell')
+    for (let r = 0; r < Object.keys(resources).length; r++){
+        let p = document.createElement('p');
+        if (r === selectedR){p.style.backgroundColor = "rgb(30,215,2)";}
+        p.innerText = Object.keys(resources)[r];
+        p.addEventListener('click', ()=>{
+            alert(Object.keys(resources)[r]);
+            quickSell(socket, r)
+        })
+        document.getElementById('quickResourceSell').appendChild(p)
     }
 }
 

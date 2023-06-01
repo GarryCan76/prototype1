@@ -7,7 +7,7 @@ import {
     buildingUpdate,
     resourceCycles,
     createDeal,
-    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface, resourceFilter, scoreHandler
+    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface, resourceFilter, scoreHandler, quickSell
 } from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
@@ -24,6 +24,7 @@ socket.on("connect", ()=>{
 uiResources()
 sideBarInterface()
 createDeal(socket, false)
+quickSell(socket, false)
 //get grid from server once connect
 socket.on("guc", guc=>{
     socket.emit("refreshDeals", 0)
