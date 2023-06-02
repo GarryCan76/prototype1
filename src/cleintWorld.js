@@ -487,18 +487,29 @@ export function resourceFilter(worldMatrix, worldGrid){
 }
 
 export function quickSell(socket, selectedR){
+    deleteChildren('quickSellButton')
     let resources = JSON.parse(sessionStorage.getItem('resources'));
+    let range = document.getElementById('quickSellAmount');
+    let p = document.createElement('p');
+    p.innerText = "ok";
     deleteChildren('quickResourceSell')
     for (let r = 0; r < Object.keys(resources).length; r++){
         let p = document.createElement('p');
         if (r === selectedR){p.style.backgroundColor = "rgb(30,215,2)";}
         p.innerText = Object.keys(resources)[r];
         p.addEventListener('click', ()=>{
-            alert(Object.keys(resources)[r]);
             quickSell(socket, r)
         })
         document.getElementById('quickResourceSell').appendChild(p)
     }
+    if (selectedR !== false){
+        p.addEventListener("click", ()=>{
+            socket.emit('quickSell', [range.value, Object.keys(resources)[selectedR], sessionStorage.getItem('username')])
+        })
+    }
+    document.getElementById('quickSellButton').appendChild(p);
+    console.log(resources[Object.keys(resources)[selectedR]])
+    range.max = resources[Object.keys(resources)[selectedR]];
 }
 
 function overrideStyle(worldGrid, worldMatrix, type){
@@ -513,7 +524,6 @@ function overrideStyle(worldGrid, worldMatrix, type){
     }
 }
 export function scoreHandler(scores){
-    console.log(scores)
     deleteChildren("scoreBoard")
     for (let i = 0; i < scores.length; i++){
         createParagraph("scoreBoard", (i+1) + " - " + scores[i].name + " - score = " + scores[i].score)

@@ -291,7 +291,14 @@ function dealAcceptie(dealAcceptie){
     }
     saveJSON('storage/deals.json', deals)
 }
-
+function quickSellHandler(quickSellInfo){
+    let [userI, usersJson] = getUserInfo(quickSellInfo[2])
+    console.log(userI.user.resources[quickSellInfo[1]] + " - " + quickSellInfo[0])
+    if (userI.user.resources[quickSellInfo[1]] <= quickSellInfo[0]){
+    }
+    //if (userI.user.resources[quickSellInfo[1]])
+    //console.log(userI)
+}
 
 module.exports.worldClock = worldClock;
 module.exports.loadJSON = loadJSON;
@@ -304,3 +311,4 @@ module.exports.dealRequest = dealRequest;
 module.exports.dealHistory = dealHistory;
 module.exports.dealAcceptie = dealAcceptie;
 module.exports.scores = scores;
+module.exports.quickSellHandler = quickSellHandler;
