@@ -291,10 +291,13 @@ function dealAcceptie(dealAcceptie){
     }
     saveJSON('storage/deals.json', deals)
 }
-function quickSellHandler(quickSellInfo){
+function quickSellHandler(quickSellInfo, socket){
     let [userI, usersJson] = getUserInfo(quickSellInfo[2])
-    console.log(userI.user.resources[quickSellInfo[1]] + " - " + quickSellInfo[0])
-    if (userI.user.resources[quickSellInfo[1]] <= quickSellInfo[0]){
+    // console.log(userI.user.resources[quickSellInfo[1]] + " - " + quickSellInfo[0])
+    if (userI.user.resources[quickSellInfo[1]] >= quickSellInfo[0]){
+        userI.user["money"] -= -quickSellInfo[0];
+        socket.emit("quickSellUpdate", [[userI.user.name, [[userI.user.resources[quickSellInfo[1]] -= quickSellInfo[0], quickSellInfo[1]]]], userI.user.money])
+        saveJSON('storage/user.json', usersJson)
     }
     //if (userI.user.resources[quickSellInfo[1]])
     //console.log(userI)

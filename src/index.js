@@ -7,7 +7,7 @@ import {
     buildingUpdate,
     resourceCycles,
     createDeal,
-    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface, resourceFilter, scoreHandler, quickSell
+    dealUpdate, dealHistory, currentDeals, dealCycle, sideBarInterface, resourceFilter, scoreHandler, quickSell, quickSellUpdate
 } from './cleintWorld.js'
 let worldGrid = null;
 let worldMatrix = null;
@@ -123,4 +123,5 @@ socket.on("dealUpdate", deal=>{dealUpdate(deal, socket)})
 socket.on("dealCurrent", deal=>{currentDeals(deal, socket)})
 socket.on("dealCycle", dealResources=>{let resources = JSON.parse(sessionStorage.getItem('resources'));dealCycle(dealResources, username, resources, socket)})
 socket.on("scoreUpdate", scores=>{scoreHandler(scores)})
+socket.on("quickSellUpdate", quickSellInfo=>{quickSellUpdate(quickSellInfo)})
 document.getElementById('refreshDeals').addEventListener('click', ()=>{socket.emit("refreshDeals", 0)})

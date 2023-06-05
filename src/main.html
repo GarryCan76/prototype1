@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>socketio</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sideBarInterface.css">
 </head>
 <body>
 <script src="socket.io/socket.io.js"></script>
@@ -23,11 +24,11 @@
 </div>
 <div id="container">
     <div id="sideBar">
-        <div>resource</div>
-        <div>trading</div>
-        <div>quickSell</div>
-        <div>production chart</div>
-        <div>score</div>
+        <div><p>resource</p></div>
+        <div><p>trading</p></div>
+        <div><p>quickSell</p></div>
+        <div><p>production chart</p></div>
+        <div><p>score</p></div>
     </div>
     <div id="sideBarInterface">
         <div id="sideBarInterfaceTop">
@@ -38,9 +39,11 @@
         </div>
         <div class="InterfaceDiv" id="quickSell">quickSell
             <div id="quickResourceSell"></div>
-            <label id="quickSellLabel" for="quickSellAmount">sell</label>
-            <input type="range" id="quickSellAmount" value="0"  oninput="document.getElementById('quickSellLabel').innerText = 'Sell ' + document.getElementById('quickSellAmount').value + ' units for $' + document.getElementById('quickSellAmount').value">
-            <div id="quickSellButton"></div>
+            <div id="QuickAmountStyle">
+                <label id="quickSellLabel" for="quickSellAmount">sell 0 units for $0</label>
+                <input type="range" id="quickSellAmount" value="0"  oninput="document.getElementById('quickSellLabel').innerText = 'Sell ' + document.getElementById('quickSellAmount').value + ' units for $' + document.getElementById('quickSellAmount').value">
+                <div id="quickSellButton"></div>
+            </div>
         </div>
         <div class="InterfaceDiv" id="production chart" style="overflow: scroll;">production chart
         <img src="images/protogram.png">

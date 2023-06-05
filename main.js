@@ -51,7 +51,7 @@ const buildings = mainF.loadJSON('storage/buildings.json')
     });
     socket.on('dealAcceptie', dealAcceptie=>{mainF.dealAcceptie(dealAcceptie)
     });
-    socket.on('quickSell', quickSellInfo=>{mainF.quickSellHandler(quickSellInfo);
+    socket.on('quickSell', quickSellInfo=>{mainF.quickSellHandler(quickSellInfo, socket);
     });
 });
 app.get('/',(req, res) =>{

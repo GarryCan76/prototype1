@@ -37,9 +37,9 @@
       "name": "garon",
       "password": "$2b$13$AmuNgHW/HjOqjPo/mZ8GR.e9fEDBQYLzrducSC6l2zR0Tk7DONHYC",
       "userID": 617340,
-      "money": 615045,
+      "money": 756,
       "resources": {
-        "Water": 941,
+        "Water": 404,
         "Crops": 0,
         "SiliconOre": 1,
         "Silicon": 265,
@@ -95,7 +95,7 @@
       "name": "kaasmeneer",
       "password": "$2b$13$e.u7tDpUMOq/MJw/9d9WjOwJklwv.bVNVxXLcDQrb.ZgjFVO7WbIm",
       "userID": 1000171,
-      "money": 617340,
+      "money": 5000,
       "resources": {
         "water": 0,
         "Crops": 0,

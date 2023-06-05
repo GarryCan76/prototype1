@@ -1,0 +1,31 @@
+#sideBar > div{width: 100%; height: 100px;}
+#sideBar{
+    width: 100px;
+    height: 100%;
+}
+#sideBar > div{
+    background-color: #4d5970;
+    border: #274359 solid 3px;
+}
+#sideBarInterface{
+    display: none;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0);
+    width: 1200px;
+    height: 700px;
+    position: absolute;
+    left: 4%;
+    z-index: 1;
+
+}
+.InterfaceDiv{background-color: rgba(255, 255, 255, 0.90); width: 100%; height: 700px;}
+#sideBarInterfaceTop{
+    width: 100%;
+    height: 3%;
+    background-color: rgb(114, 114, 114);
+}
+#sideBarInterfaceTop > div{
+    float: right;
+    width: 5%;
+    height: 100%;
+}

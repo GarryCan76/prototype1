@@ -1,5 +1,5 @@
 {
-  "time": 6842,
+  "time": 9272,
   "world": [
     [
       {
@@ -1430,7 +1430,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 192,
         "building": null,
         "resources": {

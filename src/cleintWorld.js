@@ -106,10 +106,10 @@ export function sideBarInterface(){
         sidebar[i].addEventListener('click',()=>{
             let sidebar = document.getElementById('sideBar').children;
             for (let y = 0; y < sidebar.length; y++){
-                document.getElementById(''+ sidebar[y].innerHTML).style.display = 'none';
+                document.getElementById(''+ sidebar[y].children[0].innerHTML).style.display = 'none';
             }
             document.getElementById('sideBarInterface').style.display = 'flex';
-            document.getElementById(''+ sidebar[i].innerHTML).style.display = 'flex';
+            document.getElementById(''+ sidebar[i].children[0].innerHTML).style.display = 'flex';
         })
     }
 }
@@ -508,8 +508,16 @@ export function quickSell(socket, selectedR){
         })
     }
     document.getElementById('quickSellButton').appendChild(p);
-    console.log(resources[Object.keys(resources)[selectedR]])
     range.max = resources[Object.keys(resources)[selectedR]];
+}
+export function quickSellUpdate(quickSellInfo){
+    let resources = JSON.parse(sessionStorage.getItem('resources'))
+    let username = sessionStorage.getItem('username')
+    resourceCycles(quickSellInfo[0], username, resources)
+    if (username === quickSellInfo[0][0]){
+        sessionStorage.setItem('userMoney','' + quickSellInfo[1])
+        document.getElementById('money').innerText = "money $"+ sessionStorage.getItem('userMoney');
+    }
 }
 
 function overrideStyle(worldGrid, worldMatrix, type){
