@@ -32,12 +32,13 @@
     </div>
     <div id="sideBarInterface">
         <div id="sideBarInterfaceTop">
-            <div style="background-color: red" onclick="document.getElementById('sideBarInterface').style.display = 'none';document.getElementById('trading').style.display = 'none';"></div>
+            <div style="background-color: #cf0d23" onclick="document.getElementById('sideBarInterface').style.display = 'none';document.getElementById('trading').style.display = 'none';"></div>
+            <p id="pageName">0</p>
         </div>
-        <div class="InterfaceDiv" id="resource">resource
+        <div class="InterfaceDiv" id="resource">
             <div id="resources"></div>
         </div>
-        <div class="InterfaceDiv" id="quickSell">quickSell
+        <div class="InterfaceDiv" id="quickSell">
             <div id="quickResourceSell"></div>
             <div id="QuickAmountStyle">
                 <label id="quickSellLabel" for="quickSellAmount">sell 0 units for $0</label>
@@ -45,18 +46,17 @@
                 <div id="quickSellButton"></div>
             </div>
         </div>
-        <div class="InterfaceDiv" id="production chart" style="overflow: scroll;">production chart
+        <div class="InterfaceDiv" id="production chart" style="overflow: scroll;">
         <img src="images/protogram.png">
         </div>
-        <div class="InterfaceDiv" id="score">score
+        <div class="InterfaceDiv" id="score">
             <div id="scoreBoard"></div>
         </div>
         <div class="InterfaceDiv" id="trading">
-            trading
             <p id="refreshDeals">refresh</p>
             <input type="text" id="resourceSort" placeholder="Filter by resource">
             <p id="sortDeals">Sort</p>
-            Select deal type
+            <p>Select deal type</p>
             <div id="sortDealType" style="display: flex; flex-direction: row">
                 <label for="typeBuy">Buy</label>
                 <input type="radio" id="typeBuy" name="dealType" value="buy" style="display: none">
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div id="openMarket">
-                <div id="exchange">open market</div>
+                <div id="exchange"></div>
                 <div id="dealInfo">deal information</div>
             </div>
             <div id="createDeal">

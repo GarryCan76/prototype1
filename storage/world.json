@@ -1,5 +1,5 @@
 {
-  "time": 9272,
+  "time": 11874,
   "world": [
     [
       {
@@ -1090,7 +1090,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 310,
         "building": null,
         "resources": {
@@ -1378,9 +1378,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 276,
-        "building": null,
+        "building": "Coalmine",
         "resources": {
           "WaterYield": 59,
           "IronOreYield": 4,
@@ -1432,7 +1432,7 @@
       {
         "owner": "garon",
         "cost": 192,
-        "building": null,
+        "building": "Coalplant",
         "resources": {
           "WaterYield": 31,
           "IronOreYield": 3,
@@ -1692,9 +1692,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 369,
-        "building": null,
+        "building": "Coppermine",
         "resources": {
           "WaterYield": 7,
           "IronOreYield": 46,
@@ -1705,9 +1705,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 263,
-        "building": null,
+        "building": "Coppermine",
         "resources": {
           "WaterYield": 8,
           "IronOreYield": 51,
@@ -1928,9 +1928,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 317,
-        "building": null,
+        "building": "Coalmine",
         "resources": {
           "WaterYield": 95,
           "IronOreYield": 14,
@@ -1941,9 +1941,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 307,
-        "building": null,
+        "building": "Coalmine",
         "resources": {
           "WaterYield": 25,
           "IronOreYield": 78,
@@ -1954,7 +1954,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 241,
         "building": null,
         "resources": {
@@ -1993,9 +1993,9 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 336,
-        "building": null,
+        "building": "Coppermine",
         "resources": {
           "WaterYield": 40,
           "IronOreYield": 59,
@@ -3290,7 +3290,7 @@
         }
       },
       {
-        "owner": null,
+        "owner": "garon",
         "cost": 292,
         "building": null,
         "resources": {

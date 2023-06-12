@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>SignUp</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-<p> welcome to SignUp</p>
-<input type="text" id="user" placeholder="username">
-<input type="password" id="password" placeholder="password">
-<input type="password" id="repeatPassword" placeholder="Repeat the Password">
-<input type="submit" onclick="userSignUp()">
-<a href="index.html">Go back?</a>
-<p id="error" style="color: red; font-size: 30px"></p>
+<div>
+    <div id="content">
+        <p> welcome to SignUp</p>
+        <div id="inputField">
+            <input type="text" id="user" placeholder="username">
+            <input type="password" id="password" placeholder="password">
+            <input type="password" id="repeatPassword" placeholder="Repeat the Password">
+            <input type="submit" onclick="userSignUp()">
+        </div>
+        <a href="index.html">Go back?</a>
+        <p id="error" style="color: red; font-size: 30px"></p>
+    </div>
+</div>
 <script src="socket.io/socket.io.js"></script>
 <script>
   const socket = io();
@@ -30,10 +37,5 @@
       }
   })
 </script>
-<style>
-  body{
-    background-color: gray;
-  }
-</style>
 </body>
 </html>

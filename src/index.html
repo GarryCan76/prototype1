@@ -6,45 +6,43 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-<h1>Factory Empire</h1>
-<div id="content">
-    <h2> welcome to login</h2>
-    <div id="inputField">
-        <input type="text" id="user" placeholder="username">
-        <input type="password" id="password" placeholder="password">
-        <input type="submit" onclick="login()">
+<div>
+    <h1>Factory Empire</h1>
+    <div id="content">
+        <h2> welcome to login</h2>
+        <div id="inputField">
+            <input type="text" id="user" placeholder="username">
+            <input type="password" id="password" placeholder="password">
+            <input type="submit" onclick="login()">
+        </div>
+        <a href="signup.html">Or sign up!</a>
+        <p id="error" style="color: red; font-size: 30px"></p>
     </div>
-    <a href="signup.html">Or sign up!</a>
-    <p id="error" style="color: red; font-size: 30px"></p>
-</div>
-<script src="socket.io/socket.io.js"></script>
-<script>
-    const socket = io();
-    socket.on("connect", ()=>{
-    });
-    console.log(sessionStorage.getItem('username'))
-    function login(){
-        let username = document.getElementById('user').value
-        let password = document.getElementById('password').value
-        socket.emit("loginRequest", [username, password])
-    }
-    socket.on('userLogged', receive=>{
-        if (receive[1].length === 0){
-            sessionStorage.setItem('username','' + receive[0]);
-            sessionStorage.setItem('userID','' + receive[2]);
-            sessionStorage.setItem('userMoney','' + receive[3]);
-            sessionStorage.setItem('resources','' + JSON.stringify(receive[4]));
-            window.location.href="main.html";
-        }else {
-            document.getElementById('error').innerText = receive[1];
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on("connect", ()=>{
+        });
+        console.log(sessionStorage.getItem('username'))
+        function login(){
+            let username = document.getElementById('user').value
+            let password = document.getElementById('password').value
+            socket.emit("loginRequest", [username, password])
         }
-    })
+        socket.on('userLogged', receive=>{
+            if (receive[1].length === 0){
+                sessionStorage.setItem('username','' + receive[0]);
+                sessionStorage.setItem('userID','' + receive[2]);
+                sessionStorage.setItem('userMoney','' + receive[3]);
+                sessionStorage.setItem('resources','' + JSON.stringify(receive[4]));
+                window.location.href="main.html";
+            }else {
+                document.getElementById('error').innerText = receive[1];
+            }
+        })
 
-</script>
-<style>
-    body{
-        background-color: gray;
-    }
-</style>
+    </script>
+
+</div>
 </body>
 </html>

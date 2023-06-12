@@ -72,7 +72,7 @@ export function uiResources(){
         })
         for (let i = 0; i < quickResources.length; i++){
             if (quickResources[i] === Object.keys(resources)[r]){
-                p.style.backgroundColor = "rgb(30,215,2)";
+                p.style.color = "rgb(99,255,161)";
             }
         }
         document.getElementById('resources').appendChild(p)
@@ -108,6 +108,7 @@ export function sideBarInterface(){
             for (let y = 0; y < sidebar.length; y++){
                 document.getElementById(''+ sidebar[y].children[0].innerHTML).style.display = 'none';
             }
+            document.getElementById('pageName').innerText = sidebar[i].children[0].innerHTML;
             document.getElementById('sideBarInterface').style.display = 'flex';
             document.getElementById(''+ sidebar[i].children[0].innerHTML).style.display = 'flex';
         })
