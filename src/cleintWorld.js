@@ -477,10 +477,12 @@ export function resourceFilter(worldMatrix, worldGrid){
     deleteChildren('resourceFilter')
     let p = document.createElement('p');
     p.innerText = "None";
+    p.style.backgroundColor = "#484848";
     p.addEventListener("click", ()=>{overrideStyle(worldGrid, worldMatrix, "None")})
     document.getElementById('resourceFilter').appendChild(p)
     for (let resourceI = 0; resourceI < Object.keys(worldMatrix[0][0].resources).length; resourceI++){
         let p = document.createElement('p');
+        p.style.backgroundColor = "#484848";
         p.innerText = Object.keys(worldMatrix[0][0].resources)[resourceI];
         p.addEventListener("click", ()=>{overrideStyle(worldGrid, worldMatrix, Object.keys(worldMatrix[0][0].resources)[resourceI])})
         document.getElementById('resourceFilter').appendChild(p)

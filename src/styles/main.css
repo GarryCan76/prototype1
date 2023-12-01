@@ -22,7 +22,11 @@ body{
     border: black solid 1px;
 }
 p{
-    color: #5e6567;
+    color: white;
+    font-family: Audiowide;
+}
+label{
+    color: white;
     font-family: Audiowide;
 }
 #money{
@@ -114,7 +118,15 @@ p{
     border: dimgray 2px solid
 }
 #txtSubmit{background-color: #484848; color: white; border: dimgray 2px solid}
-#QuickAmountStyle{
-    display: flex;
-    flex-direction: column;
+#resourceFilter{
+    background-color: #4f575b;
+}
+#gridInfo > p{
+    background-color: #484848;
+}
+#buildings{
+    max-height: 400px;
+}
+#buildings > p{
+    background-color: #484848;
 }
